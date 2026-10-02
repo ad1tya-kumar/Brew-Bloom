@@ -1,0 +1,6 @@
+
+The command exited with code 1.
+Output:
+INFO: Could not find files for the given pattern(s).
+INFO: Could not find files for the given pattern(s).
+

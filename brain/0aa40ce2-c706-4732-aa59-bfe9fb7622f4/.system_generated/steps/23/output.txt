@@ -1,0 +1,11 @@
+
+The command exited with code 1.
+Output:
+
+CommandType     Name                                               Version    Source                                   
+-----------     ----                                               -------    ------                                   
+Application     winget.exe                                         0.0.0.0    C:\Users\Lenovo\AppData\Local\Microsof...
+Alias           curl -> Invoke-WebRequest                                                                              
+
+
+

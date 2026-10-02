@@ -1,0 +1,128 @@
+{
+  "app": {
+    "name": "LifeChart",
+    "tagline": "Lifelong Health Timeline on ABDM",
+    "subtitle": "Your family's entire health history in one secure, accessible place.",
+    "demo_mode": "Demo Mode (Mock ABDM Active)"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "timeline": "Health Timeline",
+    "upload": "Digitise Records",
+    "doctor_summary": "Doctor Summary",
+    "share": "Share Access",
+    "family": "Family & UIP",
+    "emergency": "Emergency Card",
+    "reminders": "Reminders",
+    "login": "Login with ABHA",
+    "logout": "Logout"
+  },
+  "roles": {
+    "patient": "Patient",
+    "doctor": "Doctor (HPR)",
+    "family_manager": "Family Manager",
+    "switch_role": "Switch Role"
+  },
+  "auth": {
+    "title": "Access your LifeChart",
+    "abha_label": "ABHA Number or ABHA Address",
+    "abha_placeholder": "e.g., 91-4523-8819-2041 or rajesh.kumar@abdm",
+    "send_otp": "Send OTP to Linked Mobile",
+    "otp_label": "Enter 6-digit OTP",
+    "verify_otp": "Verify & Enter",
+    "demo_hint": "Demo Mode: Click any profile below for instant access",
+    "doctor_hpr": "Doctor HPR ID",
+    "doctor_hpr_placeholder": "e.g., HP-9823-1120"
+  },
+  "timeline": {
+    "title": "Lifelong Health Timeline",
+    "subtitle": "Chronological health journey from birth to today",
+    "filter_all": "All Records",
+    "filter_year": "Filter by Year",
+    "filter_type": "Record Type",
+    "search_placeholder": "Search diagnosis, doctor, medicine, symptoms...",
+    "fetch_abdm": "Fetch my ABDM Records",
+    "abdm_fetching": "Connecting to ABDM Gateway...",
+    "no_records": "No health records match your filter criteria.",
+    "treatment": "Treatment / Medications",
+    "recovery": "Recovery Time",
+    "days": "days",
+    "source_ocr": "Scanned from Paper Record",
+    "source_abdm": "Synced from ABDM Gateway",
+    "source_manual": "Manually Added"
+  },
+  "recurring": {
+    "alert_title": "Recurring Illness Pattern Detected",
+    "alert_text": "You had a similar episode in {{year}} ({{diagnosis}}). Previous effective treatment: {{treatment}} for {{duration}} days."
+  },
+  "ocr": {
+    "title": "Digitise Old Paper Records",
+    "subtitle": "Upload handwritten or printed prescriptions, lab reports, and discharge summaries",
+    "dropzone": "Drag & drop your prescription image or PDF here, or click to browse",
+    "processing": "Extracting medical data via OCR...",
+    "progress": "Processing image: {{progress}}%",
+    "review_title": "Review & Verify Extracted Information",
+    "review_desc": "Please verify and correct any misread fields before saving to your timeline.",
+    "load_sample_1": "Load Sample Prescription (Fever & Cough)",
+    "load_sample_2": "Load Sample Lab Report (Blood Test)",
+    "doctor_name": "Doctor / Prescriber Name",
+    "hospital_name": "Hospital / Clinic",
+    "record_date": "Date of Consultation",
+    "diagnosis": "Diagnosis / Chief Complaint",
+    "medicines": "Medicines & Dosage",
+    "add_medicine": "+ Add Medicine",
+    "save_to_timeline": "Confirm & Save to Timeline",
+    "confidence": "OCR Confidence Score: {{score}}%"
+  },
+  "doctor_summary": {
+    "title": "Doctor Quick Summary",
+    "subtitle": "Single-screen uncluttered clinical glance for consultation",
+    "critical_info": "Critical Clinical Information",
+    "blood_group": "Blood Group",
+    "allergies": "Known Allergies",
+    "chronic_conditions": "Chronic Conditions",
+    "current_medications": "Active Medications",
+    "past_similar": "Past Similar Episodes & Treatment Outcomes",
+    "add_consultation": "Add Consultation Note / Prescription",
+    "note_placeholder": "Enter clinical observations, new prescription or advice...",
+    "save_note": "Save Consultation to Patient Timeline"
+  },
+  "consent": {
+    "title": "Consent-Based Access Sharing",
+    "subtitle": "Generate time-bound, revocable access for your healthcare provider (DPDP Act 2023 Compliant)",
+    "generate_code": "Generate New Clinic Passcode",
+    "active_passcode": "Active 6-Digit Passcode",
+    "valid_for": "Valid for 24 Hours",
+    "scan_qr": "Or show this QR code to your doctor to scan",
+    "active_shares": "Active Doctor Consents",
+    "revoke": "Revoke Access Immediately",
+    "audit_title": "Access Audit Log",
+    "audit_desc": "Every access to your medical records is logged permanently under India DPDP Act standards."
+  },
+  "family": {
+    "title": "Family Health & Vaccination",
+    "subtitle": "Manage records and immunisation tracking for parents, children, and dependents",
+    "switch_member": "Managing Profile:",
+    "add_member": "+ Add Family Member",
+    "vaccine_title": "Universal Immunization Programme (UIP) Tracker",
+    "vaccine_status_done": "Administered",
+    "vaccine_status_pending": "Due",
+    "vaccine_status_overdue": "Overdue",
+    "mark_done": "Mark Done"
+  },
+  "emergency": {
+    "title": "LifeChart Emergency Medical Card",
+    "subtitle": "Instantly accessible without login. Keep a printed copy or scan QR during emergencies.",
+    "print_card": "Print Emergency Card",
+    "call_contact": "Call Emergency Contact",
+    "offline_notice": "Critical medical data encoded for emergency first responders."
+  },
+  "reminders": {
+    "title": "Health & Medicine Reminders",
+    "subtitle": "Never miss a dose or doctor follow-up",
+    "add_reminder": "+ Add Reminder",
+    "frequency": "Frequency",
+    "time": "Time",
+    "voice_input": "Speak to record reminder"
+  }
+}

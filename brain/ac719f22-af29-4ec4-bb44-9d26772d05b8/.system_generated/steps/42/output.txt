@@ -1,0 +1,6 @@
+The search for ""@tanstack/react-query" npm version 2026" returned the following summary:
+As of September 23, 2026, the latest version of `@tanstack/react-query` available on npm is **5.103.2**[1][2].
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE9N7USFiy_q7voV44mLZV-lg7pi6ZDAyRZF4B_H09jAZF5QAm-07dtDYKUBgsfV1DDvEv1o3iUBROl6i-5rtckd4sPydBn_zcPU52iAmH4QQjpMF862zXmmRL97v31bRqBVds8rfV8FPo=)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE9N7USFiy_q7voV44mLZV-lg7pi6ZDAyRZF4B_H09jAZF5QAm-07dtDYKUBgsfV1DDvEv1o3iUBROl6i-5rtckd4sPydBn_zcPU52iAmH4QQjpMF862zXmmRL97v31bRqBVds8rfV8FPo=)

@@ -1,0 +1,16 @@
+The search for "npm view tesseract.js version i18next version i18next-http-backend version i18next-browser-languagedetector version" returned the following summary:
+The latest versions for the requested npm packages are as follows:
+
+| Package | Latest Version |
+| :--- | :--- |
+| **tesseract.js** | 6.0.1[1] |
+| **i18next** | 26.4.2[2] |
+| **i18next-http-backend** | 4.0.2[3] |
+| **i18next-browser-languagedetector** | 8.2.1[4][5] |
+
+Sources:
+[1] [snyk.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGs86VHbwHnnpGoevHp7VevF9P7An3-75LiLHN88BQNNRzetzM9RMabnQhc9mNhm8Jjg_lIigi0AmwtkxscgPMLEEW-wnn0T9U3qyseDkDOYO4WgpZyb9ogigbTii8q26KuNQqaKqt_VYKrBrQD)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHKeU54m3PWPSltD7_OfxErSGMsQSUGvkGcaE_B-nQ4I8r_9m4HLdNnfDDwfb_uAP9vNVlqrlx3La_VhsDthBPqJu91wHbFSlB5jrFuzJMnZ7tX8ths5oSWW96_)
+[3] [snyk.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuCsT235z14k6Mw1fXdB3BSl1x_Sq8XIO5a1HsRItxQ0XMQFT22DU7fKFMmhBz71MGtCEMjrCw_BMAh3er1Kz1_g016MewGzcZghtBhdse7jpAL6ESjuN6k78cZOUs6ltOPSosBnIQzeylSTvWiZg=)
+[4] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF54N3w_4Krl4HDfJtdus8QkRODhyJPk5KqsxKClbVxAH7QF8LEQCoAKnLTJIYUSjYCRntfJkiYEktVUWhOnHJS8-L5-M6RwJzTtnPPWP9SYtvPfhCydk5BmKo8e5H4O2levfsBgk5IRGJ6AwaDu-7Zd0nw2w==)
+[5] [cdnjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzu9F6bs2oohbN_9mU6ZiiUrGlKdPCas89w5Z3BWB9rdCgc3NhOUZhADVxa9uO1saIvt8mxyjI2tvDfCi2UwUykOGVEygjKYW2LcxzniMwTxDGhCygJedI7XxCmgaz0aEaHUeeB87Ni45Cf-UogU9bp44=)

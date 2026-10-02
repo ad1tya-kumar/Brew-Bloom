@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+
+  test_whatsapp_ordering.js:225:assert(validatePhone('8123456789') === true, 'Accepts 8123456789 (starts with 8)');
+  test_whatsapp_ordering.js:226:assert(validatePhone('7001234567') === true, 'Accepts 7001234567 (starts with 7)');
+  test_whatsapp_ordering.js:227:assert(validatePhone('6290123456') === true, 'Accepts 6290123456 (starts with 6)');
+> test_whatsapp_ordering.js:228:assert(validatePhone('+91 98765 43210') === true, 'Accepts formatted +91 98765 43210 
+after stripping non-digits');
+  test_whatsapp_ordering.js:229:assert(validatePhone('5876543210') === false, 'Rejects 5876543210 (starts with 5)');
+  test_whatsapp_ordering.js:230:assert(validatePhone('12345') === false, 'Rejects short numbers');
+  test_whatsapp_ordering.js:231:assert(validatePhone('987654321099') === false, 'Rejects >10 digits');
+
+
+

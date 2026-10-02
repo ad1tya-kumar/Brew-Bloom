@@ -1,0 +1,13 @@
+{"name":"dist","isDir":true}
+{"name":"index.html","sizeBytes":"1033"}
+{"name":"node_modules","isDir":true}
+{"name":"package-lock.json","sizeBytes":"165347"}
+{"name":"package.json","sizeBytes":"1182"}
+{"name":"public","isDir":true}
+{"name":"src","isDir":true}
+{"name":"tsconfig.app.json","sizeBytes":"683"}
+{"name":"tsconfig.json","sizeBytes":"119"}
+{"name":"tsconfig.node.json","sizeBytes":"508"}
+{"name":"vite.config.ts","sizeBytes":"478"}
+
+Summary: This directory contains 4 subdirectories and 7 files.

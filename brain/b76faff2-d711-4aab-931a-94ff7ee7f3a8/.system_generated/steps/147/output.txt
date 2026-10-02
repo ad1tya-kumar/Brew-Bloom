@@ -1,0 +1,36 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\brew-and-bloom\index.html. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -665,6 +665,30 @@
+                 </div>
+               </label>
+             </div>
++
++            <!-- Dynamic UPI Details Box (Shown when UPI is selected) -->
++            <div id="upiPaymentDetailsBox" style="display:none; margin-top:1rem; background:var(--warm-cream); border:1.5px dashed var(--vibrant-orange); border-radius:var(--radius-md); padding:1.25rem;">
++              <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
++                <div>
++                  <h4 style="color:var(--forest-green); margin-bottom:0.25rem;">📱 UPI Payment Link &amp; QR</h4>
++                  <p style="font-size:0.85rem; color:var(--text-muted);">
++                    Pay to: <strong id="upiVpaDisplay">yourname@upi</strong> (Brew &amp; Bloom Café)
++                  </p>
++                  <p style="font-size:0.75rem; color:var(--vibrant-orange); margin-top:0.4rem; max-width:38ch; line-height:1.4;">
++                    ⚠️ Online payment is in demo mode. No payment gateway charges your bank account. Clicking "Place Order" records the order as <em>Pending Verification</em>.
++                  </p>
++                  <a href="#" id="btnUpiDeepLink" class="btn btn-sm btn-primary" style="margin-top:0.75rem;">
++                    📲 Open UPI App on Mobile
++                  </a>
++                </div>
++                <div style="text-align:center;">
++                  <div style="background:#FFF; padding:6px; border-radius:8px; display:inline-block; border:1px solid var(--border-light);">
++                    <img id="upiQrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=upi%3A%2F%2Fpay%3Fpa%3Dyourname%40upi%26pn%3DBrew%2520Bloom%2520Cafe%26am%3D200%26cu%3DINR" alt="UPI QR Code" width="110" height="110" style="display:block;" />
++                  </div>
++                  <small style="display:block; font-size:0.7rem; color:var(--text-muted); margin-top:3px;">Scan with Any UPI App</small>
++                </div>
++              </div>
++            </div>
+           </div>
+ 
+           <!-- Final Review Box -->
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

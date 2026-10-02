@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+
+
+    Directory: C:\Users\Lenovo\.gemini\antigravity\scratch\brew-and-bloom\js
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         10/1/2026   2:48 AM           4095 cart.js                                                              
+-a----         10/1/2026   2:46 AM           5530 config.js                                                            
+-a----         10/1/2026   2:47 AM          14277 menu-data.js                                                         
+-a----         10/1/2026   2:48 AM           5417 supabase-client.js                                                   
+
+
+

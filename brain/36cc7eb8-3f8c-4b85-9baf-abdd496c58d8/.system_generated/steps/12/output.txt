@@ -1,0 +1,28 @@
+The search for "Supabase Row Level Security RLS performance optimization auth.uid() query plan caching 2025" returned the following summary:
+To optimize Row Level Security (RLS) performance in Supabase, the primary strategy involves minimizing the computational overhead incurred by policy evaluation for every row scanned.
+
+### Key Optimization Strategies
+
+*   **Wrap Functions in `SELECT` Statements:**
+    When using helper functions like `auth.uid()` or `auth.jwt()` within an RLS policy, always wrap them in a `SELECT` statement. This ensures the database evaluates the function once per query rather than once per row.
+    *   **Bad:** `USING (auth.uid() = user_id)`
+    *   **Good:** `USING ((SELECT auth.uid()) = user_id)`
+
+*   **Index Policy Columns:**
+    Ensure every column used in your RLS policies (e.g., `user_id`, `org_id`) is indexed. Without an index, PostgreSQL may be forced to perform a sequential scan of the entire table for every request, which leads to exponential performance degradation as your dataset grows.
+
+*   **Use `SECURITY DEFINER` Functions:**
+    For complex authorization logic (e.g., checking memberships across multiple tables), move the logic into a `STABLE`, `SECURITY DEFINER` function. This allows the function to execute with the creator's privileges, avoiding the overhead of compounding RLS checks from joined tables and potentially enabling better query plan optimization.
+
+*   **Combine Policies:**
+    Avoid creating multiple separate policies for the same table and operation if possible, as each adds overhead. Combining rules into a single, efficient policy is generally preferred by the query engine.
+
+### Query Plan Caching & Performance
+PostgreSQL does not cache query plans for standard SQL queries globally in the same way some other databases do. Instead, it re-evaluates the execution plan for each query.
+*   **Plan Caching:** PostgreSQL *does* cache plans for prepared statements and PL/pgSQL functions. By wrapping your logic in `SECURITY DEFINER` functions, you can sometimes benefit from more predictable and stable execution plans.
+*   **Measurement:** To diagnose bottlenecks, use the `EXPLAIN ANALYZE` command. Supabase also allows you to enable query plan inspection via the Data API (using the `.explain()` modifier) for non-production environments to see exactly how your policies are impacting query execution.
+
+### Best Practices for 2025/2026
+*   **Don't rely solely on RLS for filtering:** RLS is an authorization layer, not a replacement for application-level filtering. Continue to include necessary filters (e.g., `WHERE` clauses) in your API queries to ensure the database can utilize indexes effectively and minimize the number of rows it needs to process.
+*   **Use Claims:** Where possible, leverage information already present in the user's JWT (custom claims) for authorization. Since these values are already available to the database in the session context, they act as a "zero-cost" way to filter data compared to performing subqueries against other tables.
+*   **Monitor Advisors:** Regularly utilize Supabase’s built-in Performance and Security Advisors, which are designed to detect unindexed foreign keys and improperly configured RLS policies.

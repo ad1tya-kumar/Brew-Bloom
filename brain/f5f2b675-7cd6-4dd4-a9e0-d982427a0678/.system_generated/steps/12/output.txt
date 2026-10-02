@@ -1,0 +1,65 @@
+The search for "react-i18next Hindi English setup best practices 2025 language toggle RTL" returned the following summary:
+For a robust, scalable internationalization (i18n) setup in 2026, using **`react-i18next`** remains the industry standard for React applications. Below are the best practices for setting up English and Hindi, managing language toggles, and handling text direction (RTL).
+
+### 1. Project Setup & Architecture
+*   **Externalize Strings:** Never hardcode text. Move all user-facing strings into structured JSON files.
+*   **Nested JSON Structure:** Avoid flat files. Group strings by feature or component (e.g., `login.title`, `dashboard.welcome`) to avoid naming collisions and improve maintainability.
+*   **Directory Structure:** Use a standardized hierarchy:
+    ```text
+    src/locales/
+      en/
+        common.json
+        dashboard.json
+      hi/
+        common.json
+        dashboard.json
+    ```
+*   **Lazy Loading:** For performance, use `i18next-http-backend` to fetch translation files only when needed, preventing large initial bundle sizes.
+
+### 2. Implementation Best Practices
+*   **Initialization:** Use `i18next-browser-languagedetector` to automatically detect the user's preferred language from their browser or URL.
+*   **Type Safety:** If using TypeScript, ensure your translation keys are typed to prevent runtime errors with missing keys.
+*   **Avoid Key Fragmentation:** Keep the same key for the same concept unless the grammar or context differs significantly across languages.
+*   **ICU Formatting:** Use the standard ICU Message Syntax for plurals and variables, which is well-supported by the i18next ecosystem.
+
+### 3. Language Toggle
+Create a dedicated `LanguageSwitcher` component. Use the `i18n.changeLanguage()` method to update the app state dynamically:
+
+```javascript
+import { useTranslation } from 'react-i18next';
+
+const LanguageSwitcher = () => {
+  const { i18n } = useTranslation();
+
+  const toggleLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
+  return (
+    <div>
+      <button onClick={() => toggleLanguage('en')}>English</button>
+      <button onClick={() => toggleLanguage('hi')}>हिन्दी</button>
+    </div>
+  );
+};
+```
+
+### 4. RTL (Right-to-Left) Support
+*   **Context:** Note that **Hindi (Devanagari script) is LTR (Left-to-Right)**. RTL support is only required if you later add languages like Arabic, Hebrew, or Persian.
+*   **Dynamic Directionality:** If you do implement RTL, use `i18n.dir()` to detect the direction of the current language.
+*   **Applying RTL:** Apply the direction to the root element:
+    ```javascript
+    useEffect(() => {
+      document.documentElement.dir = i18n.dir(i18n.language);
+    }, [i18n.language]);
+    ```
+*   **Styling:** Use logical CSS properties (e.g., `margin-inline-start` instead of `margin-left`, `padding-inline-end` instead of `padding-right`) so your layout automatically flips when the `dir` attribute changes.
+
+### 5. Summary Checklist for 2026
+| Feature | Best Practice |
+| :--- | :--- |
+| **Performance** | Lazy-load language files via `i18next-http-backend`. |
+| **Detection** | Use `i18next-browser-languagedetector` for automatic locale detection. |
+| **Scaling** | Use namespaces (folders/files) to organize translation keys. |
+| **RTL** | Set `document.documentElement.dir` dynamically; use logical CSS properties. |
+| **Consistency** | Use a Translation Management System (TMS) like Crowdin or Locize for large projects. |

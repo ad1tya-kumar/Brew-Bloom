@@ -1,0 +1,12 @@
+
+The command exited with code 1.
+Output:
+npx.cmd : The term 'npx.cmd' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ npx.cmd -y modern-web-guidance@latest search "responsive mobile-first ...
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (npx.cmd:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+

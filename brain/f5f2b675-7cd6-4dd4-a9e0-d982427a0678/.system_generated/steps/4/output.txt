@@ -1,0 +1,43 @@
+The search for "India ABDM ABHA sandbox API integration developer documentation 2024 2025" returned the following summary:
+To integrate with the Ayushman Bharat Digital Mission (ABDM) ABHA sandbox environment for 2024–2025, developers should follow the official documentation and integration pathways provided by the National Health Authority (NHA).
+
+### **1. Getting Started: Sandbox Access**
+*   **Official Sandbox Portal:** Register your software or application on the [official ABDM Sandbox website](https://sandbox.abdm.gov.in/)[1][2].
+*   **Developer Credentials:** After registration, you will receive your **Client ID** and **Client Secret**, which are mandatory for authenticating your API requests[3][2].
+*   **Documentation:** Comprehensive API documentation is available through the [ABDM Sandbox Documentation portal](https://sandbox.abdm.gov.in/docs)[4][5].
+
+### **2. API Integration Basics**
+*   **Base URL (Sandbox):** Most ABHA V3 services use the base URL: `https://abhasbx.abdm.gov.in/abha/api`[6][7].
+*   **Authentication:** 
+    *   The first step is always to generate an access token using the `/api/hiecm/gateway/v3/sessions` API endpoint by passing your `clientId` and `clientSecret`[3][6].
+    *   Subsequent API calls must include this token in the header as `Authorization: Bearer {{accessToken}}`[6][5].
+*   **Common Headers:** Most endpoints require `REQUEST-ID` (a unique UUID) and `TIMESTAMP` (ISO 8601 format)[8][6].
+*   **Data Security:** Sensitive information (Aadhaar, mobile, OTP, passwords) must be **RSA encrypted** using the public key provided by the ABDM platform before being sent in the request body[9][6].
+
+### **3. Key Development Milestones**
+Integration is typically structured around specific milestones to ensure compliance:
+*   **Milestone 1 (M1):** Focuses on **ABHA creation and verification** (Aadhaar OTP, mobile OTP, etc.)[10][5].
+*   **Milestone 2 (M2):** Focuses on **Health Information Provider (HIP)** and **Health Information User (HIU)** workflows, including linking health records and consent management[4][11].
+*   **Facility Registry (HFR) & Professionals Registry (HPR):** Integration involves registering your health facility and medical professionals to obtain unique identifiers required for broader ABDM interoperability[4][1][2].
+
+### **4. Useful Developer Resources**
+*   **Developer Forum:** For technical queries and community support, visit the [ABDM Developer Forum](https://devforum.abdm.gov.in/)[5].
+*   **Postman Collections:** Many developers use Postman to test API flows; importing the official ABDM collections can significantly speed up the development process[4][12].
+*   **Compliance:** Ensure your application meets NHA guidelines before moving from the sandbox to the production environment[13][10].
+
+Always ensure you are using the latest version of the APIs (currently **V3** for many ABHA services) as documented on the official portal, rather than older legacy versions[8][5].
+
+Sources:
+[1] [adrine.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGpoHqBHWTg1KeyEYxC_6lEeqXO_rv_hbRlSdlttlsTDpfdchxFetAeliKU1e4oAFhPQMImfj7mWnR6yM0UsdyYpjeIk5bGlhmIFDS1u8WuvWc4mrNmoxeEQKgnSGPolNYcIehHh4mz)
+[2] [adrine.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGpoHqBHWTg1KeyEYxC_6lEeqXO_rv_hbRlSdlttlsTDpfdchxFetAeliKU1e4oAFhPQMImfj7mWnR6yM0UsdyYpjeIk5bGlhmIFDS1u8WuvWc4mrNmoxeEQKgnSGPolNYcIehHh4mz)
+[3] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGkviRxxWg70P-KWvnatRJTGOS0v82mL2yjr9RKUEIyautvRLeJ_VV4CLbNgoTTSqkoYeKemRQXIS5EHa0uFz7v86yOVydlx-K6KxPp49BUXewLgLmI4pnmtnBqKVQVH0eNe4BKt9g9yg4GqWUI5yR_T9dpF158AxO8Vvvxt0PnqtAwwo9-bJWYFVaU0F_H4CdlAXg-Co4eLYYc-A==)
+[4] [github.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ-aq62hY65yiuX46iO0qd4BORFJywef9M7LvmItEmyvUvrJTyujrOcUTa3qF2k4QrMpqrDdEYnXUlIOA7hzvTOrXojI2-3wQbOTF2PM3pHC3YhQxMMiPyNZ2Bdw==)
+[5] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHR_tJ3OZ7ULXkLn5ryOuMvpBims0WYeImt9bkd0M-vpR8EjTLHAwXHMKSxy6GF93MtpjFfGGDqlZzxSYf-axOK4h_G1X2wQhQ9vdlwzCR5H-FnORnzD16QiClvw18zyJZ9MEb0OT-x2sMTwSe83z8_Nwgs2ljo7MRlG78CCg==)
+[6] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYhjtMxUcxm803EErS4Rtgk0sXXNRgLte-rBMR0Jgc9e4RZpp41gAQAbmrpD9o3IqEnHtziQJdiEXZbQJLcIrRT1_uK49VJsB9_Q2pI6UN3IkxK61i-qYskKszGPpJNSEsMdGNnqxjBNxYvsN_Nok8VxsgsQU7HGxkIaxjKd1LrcbX44ppq6IfLaAtTQ==)
+[7] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYhjtMxUcxm803EErS4Rtgk0sXXNRgLte-rBMR0Jgc9e4RZpp41gAQAbmrpD9o3IqEnHtziQJdiEXZbQJLcIrRT1_uK49VJsB9_Q2pI6UN3IkxK61i-qYskKszGPpJNSEsMdGNnqxjBNxYvsN_Nok8VxsgsQU7HGxkIaxjKd1LrcbX44ppq6IfLaAtTQ==)
+[8] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNmxPYVIPNeuJ_guX6eBNgtfBwBYsxyDnvKX2tpWUHOqLdmnGQhDt411Irwx9uUc1t4N7JRhJNzS7sno_w_fL0AGzBBSHPOiU3MshDAUmP9IsF5rzthKLyEDA_80rPzCQHJME0knfXUtApqXisDegvZzC-Tr-VdrVJqpTSkSnlQwzEdCnQiq1qCA==)
+[9] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNmxPYVIPNeuJ_guX6eBNgtfBwBYsxyDnvKX2tpWUHOqLdmnGQhDt411Irwx9uUc1t4N7JRhJNzS7sno_w_fL0AGzBBSHPOiU3MshDAUmP9IsF5rzthKLyEDA_80rPzCQHJME0knfXUtApqXisDegvZzC-Tr-VdrVJqpTSkSnlQwzEdCnQiq1qCA==)
+[10] [medi4u.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF7TqDqfieK2nwhZg1q2EKAmW4YUYv6gkWfL1D_ZlBrCBIEn1wF6tZOgIIP7pi-RucC4Ms-pRD_zNIpu-4K10qk28PibBG2qlpoJuXlGe3i0i4xEigpvYEOpxqQJW_lk1-7J3nhsQdY1mo=)
+[11] [dreamsoft4u.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZh0l-tTsIL0TRFxPIY1AySS_sxc5HTZKrIZ-UoZC24DuntD4Ke2ZoUJQopaQc2LpnM2gcg2LmSYoG2zDJdNdHcxtzuwdIs-0EYKkrwX274c9hwu5QfxgeJvn1dKqpmEUDHtnWInM5F38Q3LIFxjI87g==)
+[12] [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwMuGI_cuhndbflQrITuNDjeXmMs9iYnZJVhXHE7gSGvLxVdCjx9Fj4l-0bdregTfjeX3zvDeEr5eobWe42ZnIYxizFR2xEfN97Uc14uuoZrJuSg9PUFsMx4OAPJ4TvEjT)
+[13] [scribd.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwklNLAHB_sXxxK8DF_N7UcLL8tnEBkcUzk0bQdherR-6EzTpiFsn27opRY-FUqJWC4BcuV_Zp06ZCd9bVM5UDEH6rCnttIzckd5Wkl4X-Oboc3pgwE2YN6HDjQoglbFoQPUDuQu77GXQUNBvE)

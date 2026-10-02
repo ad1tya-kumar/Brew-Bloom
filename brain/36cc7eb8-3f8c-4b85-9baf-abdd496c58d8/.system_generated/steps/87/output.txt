@@ -1,0 +1,46 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\pages\DashboardPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -2,10 +2,9 @@
+ import { useTranslation } from 'react-i18next';
+ import { Link } from 'react-router-dom';
+ import { ROUTES } from '../config/routes';
+-import { useAppStore } from '../services/store';
+-import { RecurringIllnessBanner, DPDPComplianceBadge } from '../components/common/AlertBanner';
++import { useAppStore, SEED_PATIENT } from '../services/store';
++import { RecurringIllnessBanner } from '../components/common/AlertBanner';
+ import {
+-  Activity,
+   Calendar,
+   Camera,
+   FileText,
+@@ -12,13 +12,6 @@
+   Users,
+   AlertTriangle,
+-  Bell,
+-  Heart,
+-  Droplet,
+-  ShieldCheck,
+-  ArrowRight,
+-  Clock,
+   Sparkles,
+-  Pill,
+ } from 'lucide-react';
+ 
+ export const DashboardPage: React.FC = () => {
+@@ -25,10 +25,7 @@
+   const isHi = i18n.language === 'hi';
+-  const { activePatientId, allProfiles, records, reminders, currentRole } = useAppStore();
+-
+-  const patient = allProfiles[activePatientId] || allProfiles['patient-rajesh'];
+-  const recentRecords = records.slice(0, 3);
+-  const activeReminders = reminders.filter((r) => r.is_active);
+-
++  const { activePatientId, allProfiles, records } = useAppStore();
++
++  const patient = allProfiles[activePatientId] || allProfiles['patient-rajesh'] || SEED_PATIENT;
+   const quickActions = [
+     {
+       to: ROUTES.UPLOAD,
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

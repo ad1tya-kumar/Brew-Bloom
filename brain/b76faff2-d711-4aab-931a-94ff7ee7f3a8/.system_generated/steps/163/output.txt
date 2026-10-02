@@ -1,0 +1,13 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\brew-and-bloom\admin.html. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -422,6 +422,7 @@
+     window.updateStatus = async function(orderId, status) {
+       try {
+         await updateOrderStatus(orderId, status);
++        playChime();
+         loadDashboard();
+       } catch (err) {
+         alert('Could not update status: ' + err.message);
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

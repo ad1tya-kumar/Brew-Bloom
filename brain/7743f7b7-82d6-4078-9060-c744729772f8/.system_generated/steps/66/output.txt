@@ -1,0 +1,18 @@
+
+The command exited with code 0.
+Output:
+
+
+    Directory: C:\Users\Lenovo\.gemini\antigravity\scratch\bhashasetu-ai
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         9/15/2026  11:26 PM          21578 app.js                                                               
+-a----         9/15/2026  11:28 PM          45247 index.html                                                           
+-a----         9/15/2026  11:24 PM          41752 styles.css                                                           
+-a----         9/15/2026  11:21 PM          56380 translations.js                                                      
+-a----         9/15/2026  11:18 PM            284 writer.ps1                                                           
+
+
+

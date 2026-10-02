@@ -1,0 +1,22 @@
+
+The command exited with code 0.
+Output:
+
+Name                Length LastWriteTime       
+----                ------ -------------       
+js                         10/1/2026 2:48:23 AM
+node_modules               10/1/2026 2:32:26 AM
+.gitignore          56     10/1/2026 2:29:18 AM
+admin.html          18963  10/1/2026 3:25:10 AM
+driver.html         12974  10/1/2026 3:20:07 AM
+index.html          40795  10/1/2026 3:24:29 AM
+order-tracking.html 19580  10/1/2026 3:19:39 AM
+package-lock.json   36986  10/1/2026 2:32:26 AM
+package.json        595    10/1/2026 3:21:08 AM
+script.js           34057  10/1/2026 3:24:44 AM
+style.css           52441  10/1/2026 3:18:18 AM
+supabase-schema.sql 3172   10/1/2026 3:20:14 AM
+vercel.json         861    10/1/2026 2:29:13 AM
+
+
+

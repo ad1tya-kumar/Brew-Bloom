@@ -1,0 +1,11 @@
+The search for ""react-i18next" npm version 2026" returned the following summary:
+As of September 23, 2026, the latest version of **`react-i18next`** is **17.0.15**, which was published on September 21, 2026[1][2].
+
+You can install it in your project by running:
+```bash
+npm install react-i18next
+```
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3C8aqVR4WHu8V7SJZucmbxGNWEmpSeX_wqoSNm6KjSaNEzW5ErurdcgfNUjk484IW2rFqaU-pJx7AqnEwlssjDbroBtfwc9dKaWAap3FmyjypPlJegkEiycOV_Ed9-3_hYcv4oFBMjfUGnkbIW_yZs8P62w==)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3C8aqVR4WHu8V7SJZucmbxGNWEmpSeX_wqoSNm6KjSaNEzW5ErurdcgfNUjk484IW2rFqaU-pJx7AqnEwlssjDbroBtfwc9dKaWAap3FmyjypPlJegkEiycOV_Ed9-3_hYcv4oFBMjfUGnkbIW_yZs8P62w==)

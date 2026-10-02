@@ -1,0 +1,131 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\brew-and-bloom\script.js. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -400,6 +400,17 @@
+   modal.classList.add('active');
+   document.body.style.overflow = 'hidden';
+ 
++  // Ensure checkout form is active and dialog is hidden
++  const checkoutForm = document.getElementById('checkoutForm');
++  const waDialog = document.getElementById('whatsappSentDialog');
++  if (checkoutForm) checkoutForm.style.display = 'block';
++  if (waDialog) waDialog.style.display = 'none';
++
++  const confirmBtn = document.getElementById('confirmOrderBtn');
++  const confirmBtnText = document.getElementById('confirmOrderBtnText');
++  if (confirmBtn) confirmBtn.disabled = false;
++  if (confirmBtnText) confirmBtnText.textContent = 'Place Order on WhatsApp';
++
+   updateCheckoutSummary();
+   initCheckoutMap();
+ }
+@@ -439,7 +439,6 @@
+ 
+ function initCheckoutWorkflow() {
+   const closeBtn = document.getElementById('closeCheckoutBtn');
+-  const backdrop = document.getElementById('checkoutModalBackdrop');
+   if (closeBtn) closeBtn.addEventListener('click', closeCheckoutModal);
+ 
+   // Delivery mode switcher
+@@ -453,16 +453,11 @@
+       const locRow = document.getElementById('locationPickerRow');
+       const addrGroup = document.getElementById('addressFieldGroup');
+       const locGroup = document.getElementById('localityFieldGroup');
++      const landmarkGroup = document.getElementById('landmarkFieldGroup');
+       const pinGroup = document.getElementById('pincodeFieldGroup');
+-
+-      if (state.deliveryMode !== 'delivery') {
+-        if (mapContainer) mapContainer.style.display = 'none';
+-        if (distBadge) distBadge.style.display = 'none';
+-        if (locRow) locRow.style.display = 'none';
+-        if (addrGroup) addrGroup.style.display = 'none';
+-        if (locGroup) locGroup.style.display = 'none';
+-        if (pinGroup) pinGroup.style.display = 'none';
+-      } else {
++      const tableGroup = document.getElementById('tableFieldGroup');
++
++      if (state.deliveryMode === 'delivery') {
+         if (mapContainer) mapContainer.style.display = 'block';
+         if (distBadge) distBadge.style.display = 'flex';
+         if (locRow) locRow.style.display = 'flex';
+@@ -469,6 +469,26 @@
+         if (locGroup) locGroup.style.display = 'block';
++        if (landmarkGroup) landmarkGroup.style.display = 'block';
+         if (pinGroup) pinGroup.style.display = 'block';
++        if (tableGroup) tableGroup.style.display = 'none';
+         if (state.checkoutMap) state.checkoutMap.invalidateSize();
++      } else if (state.deliveryMode === 'takeaway') {
++        if (mapContainer) mapContainer.style.display = 'none';
++        if (distBadge) distBadge.style.display = 'none';
++        if (locRow) locRow.style.display = 'none';
++        if (addrGroup) addrGroup.style.display = 'none';
++        if (locGroup) locGroup.style.display = 'none';
++        if (landmarkGroup) landmarkGroup.style.display = 'none';
++        if (pinGroup) pinGroup.style.display = 'none';
++        if (tableGroup) tableGroup.style.display = 'none';
++      } else if (state.deliveryMode === 'dinein') {
++        if (mapContainer) mapContainer.style.display = 'none';
++        if (distBadge) distBadge.style.display = 'none';
++        if (locRow) locRow.style.display = 'none';
++        if (addrGroup) addrGroup.style.display = 'none';
++        if (locGroup) locGroup.style.display = 'none';
++        if (landmarkGroup) landmarkGroup.style.display = 'none';
++        if (pinGroup) pinGroup.style.display = 'none';
++        if (tableGroup) tableGroup.style.display = 'block';
+       }
+ 
+       updateCheckoutSummary();
+@@ -498,14 +498,7 @@
+     });
+   }
+ 
+-  // Payment radio card styling & dynamic UPI details
+-  const upiBox = document.getElementById('upiPaymentDetailsBox');
+-  const upiVpaDisplay = document.getElementById('upiVpaDisplay');
+-  const upiDeepBtn = document.getElementById('btnUpiDeepLink');
+-  const upiQrImg = document.getElementById('upiQrCodeImg');
+-
+-  if (upiVpaDisplay) upiVpaDisplay.textContent = CONFIG.payment.upiId || 'brewbloom@upi';
+-
++  // Payment radio card styling
+   document.querySelectorAll('input[name="paymentMethod"]').forEach((input) => {
+     input.addEventListener('change', () => {
+       document.querySelectorAll('.payment-card-option').forEach((card) => card.classList.remove('active'));
+@@ -512,18 +512,20 @@
+-
+-      if (input.value === 'upi' && upiBox) {
+-        upiBox.style.display = 'block';
+-        const snapshot = getSnapshot(state.deliveryMode === 'delivery' ? state.customerDistanceKm : 0);
+-        const finalTotal = state.deliveryMode === 'delivery'
+-          ? snapshot.total
+-          : snapshot.subtotal + snapshot.gstAmount;
+-        
+-        const upiUri = `upi://pay?pa=${encodeURIComponent(CONFIG.payment.upiId || 'brewbloom@upi')}&pn=${encodeURIComponent(CONFIG.payment.upiName || 'Brew & Bloom Cafe')}&am=${finalTotal}&cu=INR`;
+-        if (upiDeepBtn) upiDeepBtn.href = upiUri;
+-        if (upiQrImg) upiQrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${encodeURIComponent(upiUri)}`;
+-      } else if (upiBox) {
+-        upiBox.style.display = 'none';
+-      }
+-    });
++    });
++  });
++
++  // Remove invalid styling on user typing
++  ['custName', 'custPhone', 'custAddress', 'custLocality', 'custPin'].forEach((id) => {
++    const el = document.getElementById(id);
++    if (el) el.addEventListener('input', () => el.classList.remove('invalid'));
++  });
++
++  // Done button in WhatsApp Sent Dialog
++  document.getElementById('dialogDoneBtn')?.addEventListener('click', () => {
++    clearCart();
++    closeCheckoutModal();
++    const checkoutForm = document.getElementById('checkoutForm');
++    const waDialog = document.getElementById('whatsappSentDialog');
++    if (checkoutForm) checkoutForm.style.display = 'block';
++    if (waDialog) waDialog.style.display = 'none';
+   });
+ 
+   // Form submission
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

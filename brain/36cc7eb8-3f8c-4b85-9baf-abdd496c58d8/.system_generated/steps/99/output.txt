@@ -1,0 +1,35 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\pages\DashboardPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -3,7 +3,7 @@
+ import { Link } from 'react-router-dom';
+ import { ROUTES } from '../config/routes';
+ import { useAppStore, SEED_PATIENT } from '../services/store';
+-import { RecurringIllnessBanner } from '../components/common/AlertBanner';
++import { RecurringIllnessBanner, DPDPComplianceBadge } from '../components/common/AlertBanner';
+ import {
+   Calendar,
+   Camera,
+@@ -11,6 +11,9 @@
+   Users,
+   AlertTriangle,
+   Sparkles,
++  ArrowRight,
++  Bell,
++  Pill,
+ } from 'lucide-react';
+ 
+ export const DashboardPage: React.FC = () => {
+@@ -17,7 +17,9 @@
+   const isHi = i18n.language === 'hi';
+-  const { activePatientId, allProfiles, records } = useAppStore();
++  const { activePatientId, allProfiles, records, reminders } = useAppStore();
+ 
+   const patient = allProfiles[activePatientId] || allProfiles['patient-rajesh'] || SEED_PATIENT;
++  const recentRecords = records.slice(0, 3);
++  const activeReminders = reminders.filter((r) => r.is_active);
+   const quickActions = [
+     {
+       to: ROUTES.UPLOAD,
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

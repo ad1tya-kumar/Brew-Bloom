@@ -1,0 +1,27 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\pages\LoginPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -5,14 +5,10 @@
+ import { useAppStore } from '../services/store';
+ import {
+   Activity,
+-  ShieldCheck,
+   UserCheck,
+   Stethoscope,
+-  Users,
+   ArrowRight,
+   Sparkles,
+-  Lock,
+-  Phone,
+ } from 'lucide-react';
+ import type { UserRole } from '../types/health';
+ 
+@@ -19,5 +19,4 @@
+-  const { t, i18n } = useTranslation();
+-  const isHi = i18n.language === 'hi';
++  const { t } = useTranslation();
+   const navigate = useNavigate();
+   const { setRole } = useAppStore();
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

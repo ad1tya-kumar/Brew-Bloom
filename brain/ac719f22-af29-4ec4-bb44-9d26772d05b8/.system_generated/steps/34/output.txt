@@ -1,0 +1,4 @@
+The search for ""vite" npm latest version 2025 OR 2026" returned the following summary:
+As of September 23, 2026, the latest stable version of **Vite** is **8.3.0**, which was published on September 10, 2026.
+
+Additionally, the latest version of the scaffolding tool, **create-vite**, is **9.2.1**.

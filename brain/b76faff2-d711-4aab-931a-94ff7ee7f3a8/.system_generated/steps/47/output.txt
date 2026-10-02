@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+?  About section
+?  Back to top btn
+?  Canonical lang
+?  Contact section
+?  Demo disclaimer
+?  Footer social links
+?  Gallery section
+?  Hamburger button
+?  Hero section
+?  Menu cards
+?  Menu section
+?  Nav present
+?  SEO meta description
+?  Tab buttons
+?  Viewport meta
+?  WhatsApp placeholder
+?  WhatsApp SVG icons
+

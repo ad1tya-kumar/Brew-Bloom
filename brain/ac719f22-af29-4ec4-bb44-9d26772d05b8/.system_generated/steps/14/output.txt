@@ -1,0 +1,56 @@
+The search for ""sandbox.abdm.gov.in" API endpoints "v0.5" OR "v3" sessions hip hiu abha" returned the following summary:
+The ABDM (Ayushman Bharat Digital Mission) sandbox environment has transitioned to **V3 APIs** as the current standard, making them mandatory for new integrations[1][2]. Legacy v0.5 APIs are considered deprecated for new development[2].
+
+### **Session Management (V3)**
+The authentication flow for V3 requires a `client_credentials` grant type[3][4].
+
+*   **Endpoint:** `POST https://dev.abdm.gov.in/api/hiecm/gateway/v3/sessions`[3][4]
+*   **Request Body:**
+    ```json
+    {
+      "clientId": "SBX_XXXXXX",
+      "clientSecret": "XXXXXXXXXXXXX",
+      "grantType": "client_credentials"
+    }
+    ```
+*   **Mandatory Headers:**
+    *   `Authorization`: `Bearer <accessToken>`[3][5]
+    *   `X-CM-ID`: `sbx` (for sandbox)[3][4]
+    *   `REQUEST-ID`: Unique UUID[3][4]
+    *   `TIMESTAMP`: ISO 8601 format[3][4]
+
+---
+
+### **Key Differences: V0.5 vs. V3**
+| Feature | V0.5 (Legacy) | V3 (Current) |
+| :--- | :--- | :--- |
+| **Discovery** | Asynchronous (Callbacks)[6][2] | Synchronous (Direct response)[7][2] |
+| **Authentication** | Basic/Session-based | OAuth2 (`client_credentials`)[3][4] |
+| **API Structure** | Distributed | Unified `/v3/` gateway endpoints[2] |
+
+---
+
+### **Resources for Integration**
+*   **ABHA/HIP/HIU Milestones:** Integrations are typically organized into milestones:
+    *   **M1 (ABHA):** Enrollment, login, and profile management[8][2].
+    *   **M2 (HIP):** Discovery, linking, and data sharing services[8][2].
+    *   **M3 (HIU):** Consent management and data requests[8][2].
+*   **Documentation:**
+    *   Official Sandbox Documentation: [sandbox.abdm.gov.in](https://sandbox.abdm.gov.in/)[9][10]
+    *   Developer Forum: [devforum.abdm.gov.in](https://devforum.abdm.gov.in/)[9][10]
+*   **Tools:** Community-maintained Postman collections (e.g., by Nirmitee.io) are widely used to test V3 endpoints for M1, M2, and M3 workflows[8][11].
+
+**Note:** Always ensure your `clientId` and `clientSecret` are correctly configured in your sandbox environment settings. If you encounter `403` errors on specific endpoints, check the latest known issues on the [ABDM Developer Forum](https://devforum.abdm.gov.in/), as some sandbox environments may have specific gateway restrictions[9][7].
+
+Sources:
+[1] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQErlEFzvOVTeRppHBei2GI4wnn6V72SMEQYqKwLo_iaw4gUXdRhMDxRwkPzJRS4P-Sb-kpga2kQKA_fVp9bCfqQh-MpPD42zMne17Ex7DcUaY4MWhSs1CIh2TVB2AXZ-tf1LkGmQqnJVEIYFHE76r6ovZUkG8E8RRx_3HXDtAeKjSz2Xw==)
+[2] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGqAkuYdWzSPh5_GJO-OMMT2yc4Y39r2qBV7iCEqWzvfxnb0Te0Uo5naB78K9W211kT4QMpzYKvg7HPa4E6eBWXdDSbrc0JdOox5jggXuUPFeHu5du1pVT_Sth0xClA4fpfjWwB04_dKa5tGvl230Ye-WHKToBlijJecWU_qTDNEPKds-TQfEtBtHKhWA==)
+[3] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQErlEFzvOVTeRppHBei2GI4wnn6V72SMEQYqKwLo_iaw4gUXdRhMDxRwkPzJRS4P-Sb-kpga2kQKA_fVp9bCfqQh-MpPD42zMne17Ex7DcUaY4MWhSs1CIh2TVB2AXZ-tf1LkGmQqnJVEIYFHE76r6ovZUkG8E8RRx_3HXDtAeKjSz2Xw==)
+[4] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEv-K0h61CBb-01UsMs_3iCD8UgOYqMOHPk-mmizFcqIn2wRZAtGE1DhkW-KCygkQtz-W8SxVX0uwFE6vhhHqCfXnsJCEJmXcZDTgxSVxicHDHaEdgftaAlvY6MQXYiGfdVQFIzoJ8ZhE4RD0PoGYp8eWkfjGDfGti1qVLFl-6xnaMpOBf9oS2LrP5_8C__vAT-j6hUoPyZhMKUIg==)
+[5] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGn2Kb4_WBgmf4kHBunnfPeFN3cJpOl6iCZZPjFJNk7ZXAES2bdqjgcm1SwnNuDdw3Zyph3uTo8QFE7mPEVv0EjXte7k0zTMACwKgd67ljqop_DR0z_EM6Y4i_sObRuudxoq1SJGDF7C_8Ivpd8KEpRfJkf4Ht4APcHXZGpVAu5ylQ65-QfWNo0DQ==)
+[6] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQErlEFzvOVTeRppHBei2GI4wnn6V72SMEQYqKwLo_iaw4gUXdRhMDxRwkPzJRS4P-Sb-kpga2kQKA_fVp9bCfqQh-MpPD42zMne17Ex7DcUaY4MWhSs1CIh2TVB2AXZ-tf1LkGmQqnJVEIYFHE76r6ovZUkG8E8RRx_3HXDtAeKjSz2Xw==)
+[7] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHwGULqaljnKMmH_PMD3AwsEKFU5Kw9cvX_BpZcGT-00-fjDeO3VaPpU_B7gzcWA88QRPs5UYZ7RMcI7nEImWnsI-KSBI5zwTG-IFg3N92o5Y4kII6czyj2nXBx1-d7bz8eSf6rOvBn_1AoKOj7K8YZVw==)
+[8] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHwGULqaljnKMmH_PMD3AwsEKFU5Kw9cvX_BpZcGT-00-fjDeO3VaPpU_B7gzcWA88QRPs5UYZ7RMcI7nEImWnsI-KSBI5zwTG-IFg3N92o5Y4kII6czyj2nXBx1-d7bz8eSf6rOvBn_1AoKOj7K8YZVw==)
+[9] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGWSBkWKZMe2RKynOzi-A6u-PVs-nTZkzvy7ucGOQbGaIwSs7sztZ9Pt8CO-i1FYQGQvOon_UpATDN5sa9g_M8TkdCyz21zZW-o30zTYoLjPZYKnVP_FViz6VSSx_xawgkYuVXNgQIEOTs270b9W2ZqNnew2LrFSjIWJISsKw==)
+[10] [github.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1aVo4UjrCIAOwHivFbX0srOU_L8HZFX5ZPsd0nhNHaRYvNGV1GKBMWsdyr6hfYDqzv-mmFtx0m8uI1dr7ZIg4hMswC_Wz3wY5jMZEFrXZBRrhQaIT5Db968FHpg==)
+[11] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHwGULqaljnKMmH_PMD3AwsEKFU5Kw9cvX_BpZcGT-00-fjDeO3VaPpU_B7gzcWA88QRPs5UYZ7RMcI7nEImWnsI-KSBI5zwTG-IFg3N92o5Y4kII6czyj2nXBx1-d7bz8eSf6rOvBn_1AoKOj7K8YZVw==)

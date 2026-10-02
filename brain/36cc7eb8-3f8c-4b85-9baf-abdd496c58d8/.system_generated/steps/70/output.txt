@@ -1,0 +1,17 @@
+Task: 36cc7eb8-3f8c-4b85-9baf-abdd496c58d8/task-66
+Status: DONE
+Log: C:\Users\Lenovo\.gemini\antigravity\brain\36cc7eb8-3f8c-4b85-9baf-abdd496c58d8\.system_generated\tasks\task-66.log
+Log output:
+<truncated 34 lines>
+ummaryPage.tsx(131,12): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(133,16): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(159,12): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(161,16): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/UploadReviewPage.tsx(51,7): error TS2304: Cannot find name 'setSelectedFile'.
+src/pages/UploadReviewPage.tsx(62,5): error TS2322: Type '{ name?: string | undefined; dosage?: string; frequency?: string; duration_days?: number; }' is not assignable to type '{ name: string; dosage?: string | undefined; frequency?: string | undefined; duration_days?: number | undefined; }'.
+  Types of property 'name' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/pages/UploadReviewPage.tsx(248,19): error TS2304: Cannot find name 'setSelectedFile'.
+
+Last progress: 4s ago

@@ -1,0 +1,37 @@
+The search for ""tesseract.js" "createWorker" "hin+eng" or "hin", "eng" v5 v6" returned the following summary:
+In **Tesseract.js** (including versions 5 and 6), you can enable support for multiple languages by passing an array of language codes to the `createWorker` function[1].
+
+### How to use multiple languages
+Instead of using a plus-separated string (like `hin+eng` used in some command-line Tesseract implementations)[2][3], Tesseract.js expects an **array** of strings[1].
+
+#### Example Code
+```javascript
+import { createWorker } from 'tesseract.js';
+
+(async () => {
+  // Pass an array of language codes
+  const worker = await createWorker(['hin', 'eng']);
+  
+  await worker.reinitialize('hin+eng'); // Optional: ensures initialization with both
+  
+  const ret = await worker.recognize('path/to/your/image.jpg');
+  console.log(ret.data.text);
+  
+  await worker.terminate();
+})();
+```
+
+### Key Points:
+*   **Initialization:** While `createWorker(['hin', 'eng'])` is the standard way to specify languages[1], if you need to switch or add languages dynamically, you can use `worker.loadLanguage('hin+eng')` and `worker.initialize('hin+eng')`[4].
+*   **Language Codes:** Ensure you use the correct ISO 639-2 codes (`hin` for Hindi, `eng` for English)[5][2].
+*   **Version Compatibility:** The `createWorker` API signature remains consistent across v5 and v6, both of which support passing an array of languages for initialization[1][6][7].
+*   **Performance Note:** Initializing with multiple languages can increase the initial load time and memory usage, as Tesseract must download and load the trained data files for every language specified[1].
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHu9pX_5ROpo9nh2B-SuwGF8XwRmYYjeekDx3JhrRHRZy6Lxb8RWaBEKWbjrvAW7fYpSa04VQoeaJj0Ka0NGVJ3-DVrPYoSo56KrUl7_TuLJyi-6cMvhJsm27m_wDBgIrECMPELr8sqr-0Xo-fCvCc5X9QHIg==)
+[2] [stackoverflow.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQET67iijMYeMr6mFDPgTdzkgr-W0QIPCBEywQQZpohbN_zjKQDgtiHWmWmpROaJp6XcQQed9_I2OM_IzZWGPS3yA7s8qI5NGqcyGqFMfVFnoBnxcyvbC46GvtIbHOnv1xGAyOHCRWC2_qe1xsAyHNqNAwzHiCKWJyrXFkJJLEhVuTe4aDxGvjJYUM_uffFmPHO9b-YbiLLVZG2fqA==)
+[3] [stackoverflow.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQET67iijMYeMr6mFDPgTdzkgr-W0QIPCBEywQQZpohbN_zjKQDgtiHWmWmpROaJp6XcQQed9_I2OM_IzZWGPS3yA7s8qI5NGqcyGqFMfVFnoBnxcyvbC46GvtIbHOnv1xGAyOHCRWC2_qe1xsAyHNqNAwzHiCKWJyrXFkJJLEhVuTe4aDxGvjJYUM_uffFmPHO9b-YbiLLVZG2fqA==)
+[4] [transloadit.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG7h-9zpt36QYt_6qCHKEFuL9_EHPJKTNJh6b5Qmgv9g09biaUFOOu8fo0M4ou1qNGpFWVwC9p_zUAwVrN1M9V9CZYtQxIARXEYjWlkGX6mbIm7HXV-XIUIH4b1uF-Tu7TbLR4otlSQoiUWgTTZ-OAH1lXrBt-bWB8cPIOF_8b2SAPmiZyN7dk=)
+[5] [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFywhEl1V0j6Mw3ToNoaMDNAQWF6ujtg7prWLMT9RNkmmZpC6uTnFHWO7ZVcUqxDBGRnIOZNCYqE-x-4l63Bv7YuXkmOdpzS5BPOmWFNgyFqfcPh1faIDG8FDjVFXrbMz7Q)
+[6] [transloadit.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG7h-9zpt36QYt_6qCHKEFuL9_EHPJKTNJh6b5Qmgv9g09biaUFOOu8fo0M4ou1qNGpFWVwC9p_zUAwVrN1M9V9CZYtQxIARXEYjWlkGX6mbIm7HXV-XIUIH4b1uF-Tu7TbLR4otlSQoiUWgTTZ-OAH1lXrBt-bWB8cPIOF_8b2SAPmiZyN7dk=)
+[7] [transloadit.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG7h-9zpt36QYt_6qCHKEFuL9_EHPJKTNJh6b5Qmgv9g09biaUFOOu8fo0M4ou1qNGpFWVwC9p_zUAwVrN1M9V9CZYtQxIARXEYjWlkGX6mbIm7HXV-XIUIH4b1uF-Tu7TbLR4otlSQoiUWgTTZ-OAH1lXrBt-bWB8cPIOF_8b2SAPmiZyN7dk=)

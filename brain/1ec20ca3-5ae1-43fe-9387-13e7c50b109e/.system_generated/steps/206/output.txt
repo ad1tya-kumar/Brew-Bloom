@@ -1,0 +1,32 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\pages\UploadReviewPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -65,7 +65,7 @@
+ 
+   const handleAddMed = () => {
+     if (!extractedData) return;
+-    const newMed = { name: '', dosage: '', frequency: '1-0-1', duration_days: 5 };
++    const newMed = { name: 'New Medicine', dosage: '', frequency: '1-0-1', duration_days: 5 };
+     setExtractedData({
+       ...extractedData,
+       medications: [...(extractedData.medications || []), newMed],
+@@ -83,7 +83,7 @@
+ 
+     addHealthRecord({
+       patient_id: activePatientId,
+-      record_date: extractedData.date || new Date().toISOString().split('T')[0],
++      record_date: extractedData.date || new Date().toISOString().split('T')[0]!,
+       record_type: 'prescription',
+       title: `${extractedData.diagnosis || 'Prescription'} - ${extractedData.doctor_name || 'Clinic'}`,
+       title_hi: `${extractedData.diagnosis || 'पर्चा'} - ${extractedData.doctor_name || 'क्लिनिक'}`,
+@@ -98,7 +98,7 @@
+         id: `med-${Date.now()}-${Math.random()}`,
+         record_id: '',
+         patient_id: activePatientId,
+-        name: m.name,
++        name: m.name || 'Medicine',
+         dosage: m.dosage,
+         frequency: m.frequency,
+         duration_days: m.duration_days,
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

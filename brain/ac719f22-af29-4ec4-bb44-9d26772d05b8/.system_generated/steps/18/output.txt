@@ -1,0 +1,35 @@
+The search for ""qrcode.react" React 18 OR React 19 SVG Canvas best practices" returned the following summary:
+For using `qrcode.react` in modern React environments (React 18 and 19), here are the best practices regarding format selection, compatibility, and performance.
+
+### 1. Choosing Between SVG and Canvas
+`qrcode.react` provides two primary components: `<QRCodeSVG />` and `<QRCodeCanvas />`. Your choice should depend on your specific use case:
+
+*   **Use `<QRCodeSVG />` (Recommended for most cases):**
+    *   **Scalability:** Since it renders as vector graphics, it remains crisp at any size, making it the best choice for print or responsive layouts where the QR code might be scaled.
+    *   **Flexibility:** It is easier to style via CSS (e.g., changing colors) and remains part of the DOM, which can be beneficial for accessibility or if you need to manipulate the element.
+*   **Use `<QRCodeCanvas />`:**
+    *   **Performance:** Generally more performant if you are rendering a large number of QR codes simultaneously or if you need to handle complex animations/frequent re-renders.
+    *   **Image Export:** If you need to easily allow users to "Download" the QR code as an image file (PNG/JPEG), using the Canvas API's `.toDataURL()` method is more straightforward than exporting an SVG.
+
+### 2. React 18 & 19 Compatibility
+*   **Version Support:** The library is compatible with modern React versions. Ensure you are using the latest version of `qrcode.react` (v4.2.0 or higher) to ensure full compatibility with React 19's requirements, such as the modern JSX transform and potential changes in how refs and effects work.
+*   **Installation:** Simply install via npm/yarn:
+    ```bash
+    npm install qrcode.react
+    ```
+*   **Modern Practices:** Both components are functional and work seamlessly with React hooks. They are designed to be declarative; you simply pass the `value` and optional configuration props (like `size`, `level`, or `imageSettings`) to the component.
+
+### 3. Implementation Best Practices
+*   **Memoization:** If the `value` prop changes frequently due to parent component re-renders, consider wrapping your `QRCode` component in `React.memo` or memoizing the value to prevent unnecessary re-draws.
+*   **Accessibility:** Always provide a `title` prop to the QR code component. This helps screen readers understand the purpose of the element, especially since it is a graphical representation of data.
+*   **Image Settings:** Both components support an `imageSettings` prop, which is perfect for adding logos or icons to the center of the QR code. When using this, ensure `excavate: true` is set to create a "hole" for the image, improving scan reliability.
+*   **SSR Considerations:** If you are using a framework like Next.js (often used with React 18/19), `QRCodeSVG` is generally safer for Server-Side Rendering (SSR) as it does not rely on the `canvas` browser API, which is not available in Node.js environments.
+
+### Summary Checklist
+| Requirement | Recommended Component |
+| :--- | :--- |
+| **Crisp printing / Scaling** | `QRCodeSVG` |
+| **Download as image (PNG)** | `QRCodeCanvas` |
+| **Accessibility (Title)** | Both (Required) |
+| **Performance (High volume)** | `QRCodeCanvas` |
+| **SSR / Next.js** | `QRCodeSVG` |

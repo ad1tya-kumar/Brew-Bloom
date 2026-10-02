@@ -1,0 +1,49 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\brain\f5f2b675-7cd6-4dd4-a9e0-d982427a0678\implementation_plan.md. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -185,22 +185,27 @@
+ ```
+ 
+ **Key dependencies:**
+-| Package | Purpose |
+-|---|---|
+-| `react` + `react-dom` (v18) | UI framework |
+-| `react-router-dom` (v7) | Client-side routing |
+-| `@supabase/supabase-js` (v2) | Supabase client |
+-| `tailwindcss` (v4) | Utility-first CSS |
+-| `react-i18next` + `i18next` | Hindi/English i18n |
+-| `i18next-browser-languagedetector` | Auto language detection |
+-| `qrcode.react` | QR code generation |
+-| `tesseract.js` (v5) | Client-side OCR |
+-| `lucide-react` | Medical-friendly icon set |
+-| `date-fns` | Date formatting (lightweight) |
+-| `react-hot-toast` | Toast notifications |
+-| `framer-motion` | Smooth animations |
+-| `recharts` | Health data charts |
+-| `html5-qrcode` | QR code scanning |
++| Package | Version | Purpose |
++|---|---|---|
++| `react` + `react-dom` | ^19.x | UI framework (ViewTransition, useActionState) |
++| `react-router-dom` | ^7.x | Client-side routing |
++| `@supabase/supabase-js` | ^2.117.x | Supabase client (Auth, DB, Storage) |
++| `@tailwindcss/vite` + `tailwindcss` | ^4.x | Utility-first CSS (Vite plugin, no config file) |
++| `react-i18next` + `i18next` | ^17.x / ^24.x | Hindi/English i18n |
++| `i18next-browser-languagedetector` | ^8.x | Auto language detection |
++| `i18next-http-backend` | ^3.x | Lazy-load translation JSON files |
++| `qrcode.react` | ^4.x | QR code generation (SVG + Canvas) |
++| `tesseract.js` | ^7.x | Client-side WASM OCR (Web Worker) |
++| `lucide-react` | ^1.x | Medical-friendly icon set |
++| `date-fns` | ^4.x | Date formatting (lightweight) |
++| `zod` | ^3.x | Runtime schema validation (forms, OCR output) |
++| `react-hot-toast` | latest | Toast notifications |
++| `framer-motion` | latest | Smooth animations |
++| `recharts` | latest | Health data charts |
++| `html5-qrcode` | latest | QR code scanning (camera) |
++
++> [!TIP]
++> **Tailwind v4 critical note**: Do NOT create `tailwind.config.js` or `postcss.config.js`. Tailwind v4 uses `@import "tailwindcss"` in CSS with `@theme {}` blocks for customization, via the `@tailwindcss/vite` plugin.
+ 
+ ---
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

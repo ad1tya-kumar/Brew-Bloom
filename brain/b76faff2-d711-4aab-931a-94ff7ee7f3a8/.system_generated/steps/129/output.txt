@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+? script.js syntax valid
+? js\config.js syntax valid
+? js\menu-data.js syntax valid
+? js\cart.js syntax valid
+? js\supabase-client.js syntax valid
+

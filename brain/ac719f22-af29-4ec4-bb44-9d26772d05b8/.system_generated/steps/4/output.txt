@@ -1,0 +1,53 @@
+The search for ""Tailwind CSS v4" Vite setup @tailwindcss/vite" returned the following summary:
+To set up Tailwind CSS v4 with Vite using the `@tailwindcss/vite` plugin, follow these streamlined steps[1][2].
+
+### 1. Install Dependencies
+Run the following command in your project root to install Tailwind CSS and the official Vite plugin[3][4]:
+
+```bash
+npm install tailwindcss @tailwindcss/vite
+```
+
+### 2. Configure the Vite Plugin
+Open your `vite.config.ts` (or `vite.config.js`) file and add the Tailwind plugin to your `plugins` array[3][5]:
+
+```typescript
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+```
+
+### 3. Import Tailwind in your CSS
+Add the Tailwind import to your main CSS file (e.g., `src/style.css` or `src/index.css`)[3][5]:
+
+```css
+@import "tailwindcss";
+```
+
+### 4. Start Your Project
+Run your development server to begin using Tailwind CSS[3]:
+
+```bash
+npm run dev
+```
+
+---
+### Key Changes in v4
+*   **No Configuration Files:** You no longer need `tailwind.config.js` or `postcss.config.js` for most setups[6][2].
+*   **CSS-First Configuration:** Customizations and theme overrides are now handled directly in your CSS files using CSS variables[7][8].
+*   **Simplified Pipeline:** The `@tailwindcss/vite` plugin handles everything, making the integration much faster and cleaner compared to previous versions[1][2].
+
+Sources:
+[1] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0voWAEs5t0dzMIfSBHywXSx7aMHhXSow8iP_dK_GkrvIQrsYfnmhAqAXTNXc1cjKYjpE_0duVaSdWL3I9YAc9H4lVhH8i3KWMKlZaTqVrxC2dlwAC4sZOECJD8S25uIw-)
+[2] [nx.dev](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvonHK_m1FFOYssfMFJsX0DPCDXKSvt_3qVRDYoZldD9ta5ncVuV_CjyesbD02wIcsYeHf0hBDdNnV2Qxr8_h-O1MTMgQREdRMnGZ-fw8sAOtqRFqr4Zyplb4jrXHrqKdlGOmDnrAS5w==)
+[3] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFM0kj0XnRapm5CGIHF_FRZ-0T_4JPjC5Hqd14LgjYb14JzAcpiH5QYYYNzkD2lK2FPQQ2Y0q_Hg5E50f6inbXzvd9cxbiVbz7OZJqXaPo5L10u)
+[4] [eastondev.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG8_FmUc11Dzb3aJK9yIcnXT7Xk5Zs4eXORKwoPbvVZBLHETyZwudUcK3kMXTqA3F1Rwe5ZZ08Oyw8LRusls-uY6WDwi4We-bM_heepxMBzkd55cLllK0Fo8rv2WQkSQsXtJLkMWQ2pL4EYca5E6gS8hvmGdXfwrQFLmF4frPs=)
+[5] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQETPneeoRTxXmGE4fv4RrlZof0zRxcumrAyPjxfwVryf8cgT029o5bj9kZmQsmH3y15cgyNDcFS_Q0fi6kqg5IGLe_R5sFrCxYDnPJVaYEOZd8Kv5SB_F8mAxMNR7dckOZUvysfphR4fSl1FYWcUL2nC8PwnA_WdQv6uxgmLpVBLUr0f3NsfFvcErvb2ZtkOmht_qAh2YtQag53iBhCQ5fH2zL_)
+[6] [dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEensSLWht_YyP_lJMJPreTskdrMKP_ZXQyJklCn_uF1p4zF5nO28WdjKwzVNzZPl6p7ER1iEgksxXHB7RKRzwXfmHvuWrgxRs8xxJuxJFzBKsKaEDZZJNGcakV_rhwSYoLS6ubcYtdUdQazv0WnD0lHVNCxEiPo5wE1hqZiIGl9y27cw==)
+[7] [stackoverflow.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEGgZYOscAf8EQmMHA-6k1ClgdHEzMidYj2A03GaSqDo2OLGuHaY9puoE1HjrR9wwviuwuUDCi6v82jMD8gUSLAAn151i18xZBiEtj4gfXu5ulQmSUrpPFl3QCNcP9G85hhyRCuNLuUZE61pliigOWoSw_tnD3Dubo97oWjtIYxx-87M85I1AVDuNMqmTfz4ZlCbMl_uTqdaDXe_lmYWT-baw-6Fr-MMKrFADVjpM5ow8HJ)
+[8] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF0voWAEs5t0dzMIfSBHywXSx7aMHhXSow8iP_dK_GkrvIQrsYfnmhAqAXTNXc1cjKYjpE_0duVaSdWL3I9YAc9H4lVhH8i3KWMKlZaTqVrxC2dlwAC4sZOECJD8S25uIw-)

@@ -1,0 +1,27 @@
+Task: 1ec20ca3-5ae1-43fe-9387-13e7c50b109e/task-118
+Status: RUNNING
+Log: C:\Users\Lenovo\.gemini\antigravity\brain\1ec20ca3-5ae1-43fe-9387-13e7c50b109e\.system_generated\tasks\task-118.log
+Log output:
+<truncated 16 lines>
+ EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@supabase/postgrest-js@2.117.1',
+npm warn EBADENGINE   required: { node: '>=22.0.0' },
+npm warn EBADENGINE   current: { node: 'v20.18.0', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@supabase/realtime-js@2.117.1',
+npm warn EBADENGINE   required: { node: '>=22.0.0' },
+npm warn EBADENGINE   current: { node: 'v20.18.0', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@supabase/storage-js@2.117.1',
+npm warn EBADENGINE   required: { node: '>=22.0.0' },
+npm warn EBADENGINE   current: { node: 'v20.18.0', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'eslint-visitor-keys@5.0.1',
+npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || >=24' },
+npm warn EBADENGINE   current: { node: 'v20.18.0', npm: '10.8.2' }
+npm warn EBADENGINE }
+
+Last progress: 3s ago

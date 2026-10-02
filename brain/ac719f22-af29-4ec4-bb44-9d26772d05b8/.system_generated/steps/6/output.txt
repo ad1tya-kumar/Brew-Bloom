@@ -1,0 +1,48 @@
+The search for ""React 19" Vite setup best practices 2025 OR 2026 template TypeScript" returned the following summary:
+For setting up a **React 19** project with **Vite** and **TypeScript** in 2026, the ecosystem has converged on a set of standardized, high-performance practices. Vite has effectively replaced Create React App (CRA) as the industry standard for React SPAs due to its speed, hot module replacement (HMR) efficiency, and minimal configuration.
+
+### 1. Recommended Setup Command
+To start a new project, use the official Vite scaffolding tool. This remains the fastest and cleanest way to initialize a project.
+
+```bash
+# Using npm
+npm create vite@latest my-react-app -- --template react-ts
+
+# Navigate to the folder and install
+cd my-react-app
+npm install
+```
+
+### 2. Core Best Practices (2026)
+*   **Use `react-jsx`:** Ensure your `tsconfig.json` is configured to use the modern JSX transform so you no longer need to import `React` in every file.
+    ```json
+    {
+      "compilerOptions": {
+        "jsx": "react-jsx",
+        "strict": true
+      }
+    }
+    ```
+*   **Avoid `React.FC`:** The community has largely moved away from using `React.FC` (or `React.FunctionComponent`) for typing components, as it can lead to implicit children typing issues. Prefer standard function declarations with explicit props interfaces.
+*   **Testing with Vitest:** Since Vitest uses the same Vite configuration engine, it is the preferred testing runner for 2026. It eliminates the friction of configuring separate tools like Jest and offers significantly faster execution.
+*   **Tooling Consistency:**
+    *   **Styling:** **Tailwind CSS v4** is the dominant choice, often paired with **shadcn/ui** for accessible, customizable components.
+    *   **State Management:** **TanStack Query** is the industry standard for server state management. For global client state, **Zustand** is favored for its simplicity and minimal boilerplate.
+    *   **Routing:** **TanStack Router** is increasingly recommended for its built-in, type-safe routing, though **React Router** remains a stable and widely used alternative.
+
+### 3. Modern Project Structure
+To maintain scalability, avoid dumping all files into `src/`. Adopt a feature-based or domain-driven structure:
+
+*   `src/components/`: Reusable UI components (often housing shadcn/ui).
+*   `src/hooks/`: Shared custom hooks.
+*   `src/lib/`: Third-party library configurations (e.g., axios, tanstack-query).
+*   `src/pages/`: Route-level components.
+*   `src/types/`: Global TypeScript definitions.
+
+### 4. When to use Vite vs. Next.js
+It is important to distinguish your project needs:
+*   **Choose Vite + React** if you are building an **SPA (Single Page Application)**, such as a dashboard, admin panel, or internal tool where authentication is required and SEO is not the primary focus.
+*   **Choose Next.js** if your project is **content-heavy**, requires **SEO optimization** (e.g., e-commerce, marketing sites), or necessitates server-side rendering (SSR) and advanced edge capabilities.
+
+### Summary
+In 2026, the "best" template is one that prioritizes **type safety (TypeScript strict mode)**, **minimal abstractions**, and **standardized tooling** (Vite, TanStack, shadcn). For a production-ready baseline, many developers now look to curated boilerplate repositories that pre-integrate these tools with ESLint, Prettier, and Husky for a "zero-config" start.

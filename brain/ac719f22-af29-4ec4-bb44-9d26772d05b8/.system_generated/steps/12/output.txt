@@ -1,0 +1,60 @@
+The search for ""ABDM" "ABHA" sandbox API documentation M1 M2 M3 integration patterns architecture" returned the following summary:
+The Ayushman Bharat Digital Mission (ABDM) integration follows a structured, three-milestone certification path (M1, M2, and M3) designed to progressively enable digital health identity, record sharing, and interoperability[1][2]. Integrators must utilize the official **ABDM Sandbox** environment to test and certify their software before receiving production access[1][3].
+
+### 1. The Three Milestones (M1, M2, M3)
+Each milestone builds upon the previous one to create a comprehensive, consent-driven healthcare ecosystem[4][2].
+
+*   **M1: Identity (ABHA Creation & Verification)**
+    *   **Focus:** Digital identity and patient registration[2].
+    *   **Capabilities:** Creation of ABHA numbers and addresses (via Aadhaar/Mobile OTP), verification of existing ABHA IDs, and integration of QR-based "Scan and Share" workflows[1][5].
+    *   **Goal:** Eliminate duplicate patient files by uniquely identifying patients[1].
+*   **M2: Health Information Provider (HIP)**
+    *   **Focus:** Structuring and sharing health records[2].
+    *   **Capabilities:** Packaging clinical data (prescriptions, lab reports, etc.) into **FHIR R4-compliant** bundles, managing "care contexts," and handling consent artifacts via the Consent Manager (HIE-CM)[1][6][5].
+    *   **Goal:** Enable patients to link and share their records from your facility with other systems[1].
+*   **M3: Health Information User (HIU)**
+    *   **Focus:** Data consumption and interoperability[2].
+    *   **Capabilities:** Initiating consent requests, fetching and decrypting external health data, and displaying retrieved FHIR records within your system[6][5].
+    *   **Goal:** Allow clinicians to view a patient's longitudinal health history from other providers[5][3].
+
+---
+
+### 2. Integration Architecture & Patterns
+The ABDM architecture relies on a **Gateway-based design** for secure communication[7][8].
+
+*   **Authentication:** All integrations require **OAuth 2.0** to generate session tokens using `clientId` and `clientSecret` provided during sandbox registration[9][7][8].
+*   **Data Standards:** ABDM mandates the use of **FHIR (Fast Healthcare Interoperability Resources) R4** for health information exchange[6][5].
+*   **Security:** Sensitive data exchange involves encryption (often using **Fidelius** standards) to ensure that only the intended recipient with the correct consent artifact can decrypt the information[10][5].
+*   **Communication Flow:** The system uses asynchronous webhooks for callbacks[11][3]. Your system must be capable of handling these incoming notifications (e.g., consent requests or data delivery alerts) from the ABDM Gateway[12][3].
+
+---
+
+### 3. Getting Started: Sandbox Documentation
+To begin development, you must register your software/facility on the official sandbox platform[13].
+
+*   **Official Sandbox Portal:** [https://sandbox.abdm.gov.in](https://sandbox.abdm.gov.in)[14][13]
+*   **Documentation & API References:** The portal provides comprehensive guides, including:
+    *   **API Collections:** Usually available for import into tools like Postman to simulate requests[11][15].
+    *   **Sequence Diagrams:** Essential for understanding the handshake between the HIP, HIU, and the Consent Manager[14][11].
+    *   **Implementation Guides:** Step-by-step documentation for each module, including error codes, request/response schemas, and environment-specific base URLs[14][16].
+
+**Pro-Tip:** Many developers find it beneficial to treat the milestones as a continuous journey rather than isolated projects[17]. Ensuring your system architecture supports a unified "patient master index" will make the transition from M1 (identity) to M3 (full interoperability) significantly easier[10][5].
+
+Sources:
+[1] [healthixio.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHR7YDlZcPuyl3GvBsEC5JZL5ZLJ5vDGOZM-zMvqRrLukzsDnzEGi_VL8QQ1fF1TPnaQBoERyd4OzPp3jHxSwmyFCWNsR28FW-9KjeqeqiR0EKJvOc_NgleEDfE1XdhJ8caQ0ok2pRbwso93CPcsxOjhlLSPZfXsvyKHA==)
+[2] [abdmconnector.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGiKQaI_PSuvg1nuQmLJTAP6X4wrT3d2FEH8sbTezohef09A634q60KK23kf-VjDVXXVYJo7R4-ZVykwfwcjWJ2fnGcEEWBXtlPdsSg0GQJxtsdC1FqvTdxE-XmYsr6A==)
+[3] [medi4u.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGfrrBxrr0kDfo0CpX4rE2yo6nRCAjup7Qk82hwW8SdUYsmjKQYGAQR6wl71o3FsdsywYH6xTLBfpYko-yP_E4r5m5dj8w9jT2fgZnn4lDxS_qgyv6dTtotydU2mYx2fdEdOAIHqTlaeiBNuZKzc5UXg3PUGROalCNyxCodag==)
+[4] [dreamsoft4u.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoeOi_gHkUYCp6QDG5_0QPWZNHr14aDtWrq0Wcp_xAcJfzxcGasGs4zaDwdhLjox-NKKfnrnv0xCOitdZWWbBEFKnagR0XmQyIq5na-DvPSe5Zy1x5wFm0dPRK52TeeXRX8_0RA1hkdhj56BFPvb9wZ2ioK-OuCDxYcxA=)
+[5] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-CN3QUrCEEzFJ9m3lFQf-d_x_XZ_p9XiJQRs0HTRvv98cvPthexFo8ku0hRoB1urDF8IXOUQ_irV8eGvj5uO1rStJxnRlZTEJLBMFRmPeJgv2zHCOKp_OOQVa2PExS_d4MZeLpwcnNMtgdu6Ovrw0A4BrIy-H9WAx3A==)
+[6] [codingclave.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqxj77I2aiF6slp83_YNPyjolqyNs9KIWTI7nZm-Stoi_WEwty4gT4JZSAZgZCzQxR3oLq2cmBNIhyXiNqBFHSgywn9Fkf_BsogwSWhOhTbv3tgOuv72Rh2xxwauwHk9KYdDe_gIDGPkXcAjJYURTpXs5G1IRlHaMzJvgsd5veJaI=)
+[7] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG98ZMfS0GeEpQha6fAqj-dysD4Bdt0MGlTtmMd8KzLNbfaP8enK-MHdPqZ8ay2420tgQcBelTLya2S_RXQ9nlzo4QLATjEYl2FQSyKxDlI219s3ZYhfqqk5u1HY71MGuqo0t01h_xGsdOmqi3Z7b0so40hzuzdFLb2AySOTAZLkhUlKGzcTySazjO7bPLXW8HOEpwBALAzPKpENg==)
+[8] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQENDD2DyPQ2x1Toq7TIBg-GQ6pysUk5MuZcJFuMMfcH69wQq5D_AUQA1UvBWUvUF4pma8Y1rC7RUGc76vsYBlF8Hd-kQl7_5CtzTvUut5e-ImSlKMVnDO0WJlbLskq2FbqQViqlrXJgu3_i15Szo2THgCOGFPcMx5fsjfwe1YQ_4IqOGC25Mo8KHTEvbg==)
+[9] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFK7qL1Wo-gPT91U4elZ8z9uT-TxGPCOihwuAkgraM-0xo_120cSRwd1FFfhTaXkQJiIYkXghsPqI6s1dOfZ4GqaX7ey3HkNdfeC4Ip0kxY6T7O1u9siP_otQ4tFpAmnrwa0gokoNSdEgWSj2ZXWZ3ISTqp9dws9w==)
+[10] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-CN3QUrCEEzFJ9m3lFQf-d_x_XZ_p9XiJQRs0HTRvv98cvPthexFo8ku0hRoB1urDF8IXOUQ_irV8eGvj5uO1rStJxnRlZTEJLBMFRmPeJgv2zHCOKp_OOQVa2PExS_d4MZeLpwcnNMtgdu6Ovrw0A4BrIy-H9WAx3A==)
+[11] [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvdb6h0iMZB0zehEH-_5_ToQPBLzgq-IfDFv9Le-ZJO3qcRx7TBB-k-Zfqvx8kqoRGm0n9ngdWyZTZZq8gqAIWzWLbiRg7u60kaqjKjxSABN-YdQnCFxVhkbU41bol5QVU)
+[12] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFTw-5ZgHSSrI-2m3EshO3L1LkVFJ09H-Li20UoPHIlrJMWTyN_uFkemzAMHDwsUM8o8P88P_CXtie_tiOEA93qJVKeWhyCXbwgM7VeKFAfm773N8IpDBTCWDPerk1ODAsgACmfQIM4mIdXZmzeob-PkifClTbQpg8TU_mFp4YNqIoM)
+[13] [adrine.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfu1dsYc9p4TeAS9lL-vsIQYnLbqCNF--yxn1MdqZ6Gqy0T_HGiLTGZL4U2A9TSOAJPVBvqOpVTfGIUvM3Lx0-XtGGgIor_8bI6kh_0_olRZHgLs_vnoR3gfN2kK6uv_l71KINtjtJ)
+[14] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_dQ6ue4Inl7wUmcjP6Jz7Y5xi_QPUKMmwt5fGY2ZKP_slGoZjZSM2Xww9hOAvVpvru_iBHYtZDUSCdPp9gKgOvBAhj0UvlF8RbTIMy51MT4WFVoPEA4L4Q3Sk6XzjVBvLfrSuJu4mVMN8yqM4Il-mURXdmOck4eO2nYzUTZFtueoMBBRnIvEc4tSpkNimcQ==)
+[15] [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvdb6h0iMZB0zehEH-_5_ToQPBLzgq-IfDFv9Le-ZJO3qcRx7TBB-k-Zfqvx8kqoRGm0n9ngdWyZTZZq8gqAIWzWLbiRg7u60kaqjKjxSABN-YdQnCFxVhkbU41bol5QVU)
+[16] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGZ5SaKTxpiG0bteLXo6DJP9FzdVF1dR-BmOs1SaZjJWDxNbyspxmoZixfJoSrggFFeHdaru0-oNdH0jhk-9DY2rXJnNuFT_aCLAXsdU_ZkM26OdneH_AcQIiE2Ei3bKJYzZi5D1cvw7w7nViaK0xPEAsKtAnv73a_D7gkCWd5BRWAYMnVvZKBfag==)
+[17] [prologic-technologies.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVmGbzPitWzIoIgbzusGNYKJifoH2_WX5wyyYX-u2_TZY9zBPalBiBsFHYPUigvqT0YRaJokaNip3GS2SQgI-4T55vJrsRMbflLHgPU2ak76vMaOeTu-le9QieYi-k3E0uWu1eTROZouh03gGFeAfxxCn9tuZKlMlKKcqrOdYNEqfW)

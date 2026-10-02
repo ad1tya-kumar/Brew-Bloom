@@ -1,0 +1,6 @@
+The search for ""tesseract.js" npm version latest 2025 OR 2026" returned the following summary:
+The latest version of **tesseract.js** available on npm is **7.0.0**[1][2].
+
+Sources:
+[1] [snyk.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE3lQ1c2r4y7pc90UdRagdmK5dwoY0F5qUQC0yuNSC-V4ECubVFhpYbkLgWFz_QxAM288nRUYy0DtuN8BFH36FTUV-Gr1R2I-SlwJaM-3umuqCP3m2y2MJzWro4KlGDQhDHrQx-mbJ6-a-fKpbm)
+[2] [cdnjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKE8dFBILp08FgVHW7VjnecSsl41gPBc3uYJmTuLO9OfJAOmv4CwIDA-QfvaHBWE78cokhwdiDzGitwsJ-SHQ4kf-odEq_yz61fh-BJYGCFtvDlECogzBgBmCybqSTwcemoI48)

@@ -1,0 +1,22 @@
+
+The command exited with code 0.
+Output:
+
+
+    Directory: C:\Users\Lenovo\.gemini\antigravity\scratch\brew-and-bloom
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         10/1/2026   2:48 AM                js                                                                   
+d-----         10/1/2026   2:32 AM                node_modules                                                         
+-a----         10/1/2026   2:29 AM             56 .gitignore                                                           
+-a----         10/1/2026   2:26 AM          52573 index.html                                                           
+-a----         10/1/2026   2:32 AM          36986 package-lock.json                                                    
+-a----         10/1/2026   2:29 AM            489 package.json                                                         
+-a----         10/1/2026   2:28 AM          11880 script.js                                                            
+-a----         10/1/2026   2:28 AM          34908 style.css                                                            
+-a----         10/1/2026   2:29 AM            861 vercel.json                                                          
+
+
+

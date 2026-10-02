@@ -1,0 +1,9 @@
+{"name":"index.html","sizeBytes":"1033"}
+{"name":"package.json","sizeBytes":"1152"}
+{"name":"src","isDir":true}
+{"name":"tsconfig.app.json","sizeBytes":"683"}
+{"name":"tsconfig.json","sizeBytes":"119"}
+{"name":"tsconfig.node.json","sizeBytes":"508"}
+{"name":"vite.config.ts","sizeBytes":"366"}
+
+Summary: This directory contains 1 subdirectories and 6 files.

@@ -1,0 +1,68 @@
+
+The command exited with code 0.
+Output:
+🧪 Starting WhatsApp Ordering Test Suite...
+
+Test 1: Restaurant WhatsApp Number Configuration
+  ✅ PASS: RESTAURANT_WHATSAPP_NUMBER is exported as string
+  ✅ PASS: RESTAURANT_WHATSAPP_NUMBER has placeholder 919876543210
+  ✅ PASS: WhatsApp number contains only digits (no +, spaces, dashes)
+  ✅ PASS: CONFIG.cafe.whatsapp matches RESTAURANT_WHATSAPP_NUMBER
+
+Test 2: Home Delivery Order Message Formatting
+  ✅ PASS: Includes greeting
+  ✅ PASS: Includes order reference
+  ✅ PASS: Formats item 1 with quantity & price
+  ✅ PASS: Formats item 2 with quantity & price
+  ✅ PASS: Formats item 3 with quantity & price
+  ✅ PASS: Includes subtotal
+  ✅ PASS: Includes delivery fee
+  ✅ PASS: Includes total amount
+  ✅ PASS: Identifies Home Delivery order mode
+  ✅ PASS: Includes customer name
+  ✅ PASS: Includes customer phone
+  ✅ PASS: Includes delivery address
+  ✅ PASS: Includes landmark when provided
+  ✅ PASS: Includes delivery instructions
+  ✅ PASS: Includes payment method
+  ✅ PASS: Includes polite closing
+
+Test 3: Omission of Optional Fields When Not Provided
+  ✅ PASS: Landmark omitted when empty
+  ✅ PASS: Delivery Instructions omitted when empty
+
+Test 4: Takeaway Order Type (No address required)
+  ✅ PASS: Order type specifies Takeaway
+  ✅ PASS: Delivery address omitted for takeaway
+  ✅ PASS: Delivery fee omitted for takeaway
+  ✅ PASS: Includes pickup instructions
+  ✅ PASS: Includes UPI payment selection
+
+Test 5: Dine-In Order Type (Table information)
+  ✅ PASS: Order type specifies Dine-In
+  ✅ PASS: Includes table seating info
+  ✅ PASS: Includes dine-in instructions
+
+Test 6: Safe URL Encoding with Special Characters
+  ✅ PASS: URL starts with correct wa.me link & configured number
+  ✅ PASS: Encoded URL contains no raw spaces
+  ✅ PASS: Encoded URL contains no raw double quotes
+  ✅ PASS: Encoded URL contains no raw newlines
+  ✅ PASS: Encoding and decoding is 100% reversible and lossless
+
+Test 7: Phone Validation (Indian 10-digit standard)
+  ✅ PASS: Accepts 9876543210 (starts with 9)
+  ✅ PASS: Accepts 8123456789 (starts with 8)
+  ✅ PASS: Accepts 7001234567 (starts with 7)
+  ✅ PASS: Accepts 6290123456 (starts with 6)
+  ✅ PASS: Rejects formatted +91 98765 43210 (UI expects clean 10-digit input)
+  ✅ PASS: Rejects 5876543210 (starts with 5)
+  ✅ PASS: Rejects short numbers
+  ✅ PASS: Rejects >10 digits
+  ✅ PASS: Rejects non-numeric characters
+
+========================================
+🏁 Total Tests: 44 | Passed: 44 | Failed: 0
+========================================
+
+

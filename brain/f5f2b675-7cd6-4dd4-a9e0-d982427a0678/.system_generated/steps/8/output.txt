@@ -1,0 +1,18 @@
+The search for "Tesseract.js OCR Hindi English prescription document scanning accuracy 2025" returned the following summary:
+As of 2026, **Tesseract.js is generally not recommended as a standalone solution for scanning medical prescriptions** involving Hindi and English text. While it is a powerful, free, and open-source tool for digitizing clean, printed documents, its performance drops significantly when dealing with the challenges inherent in prescription documents.
+
+### Why Tesseract.js Struggles with Prescriptions
+*   **Handwriting Limitations:** Medical prescriptions often feature cursive, messy, or shorthand handwriting, which is notoriously difficult for Tesseract. Accuracy rates for handwriting using Tesseract are reported to be as low as **20–40%**, compared to 95–99% for clean, printed text.
+*   **Mixed-Script Complexity:** Prescriptions often mix English (e.g., medicine names, dosages) with Hindi/Devanagari (e.g., instructions, patient details). Tesseract struggles with multilingual documents because it attempts to apply multiple language models simultaneously, which can decrease accuracy and increase processing time.
+*   **Medical Context:** Tesseract lacks "domain knowledge." It does not inherently understand medical abbreviations (e.g., "BD," "TDS," "1–0–0"), which are common in prescriptions and require context-aware interpretation that basic OCR engines cannot provide.
+*   **Preprocessing Needs:** To get even moderate results from Tesseract, you would need to implement advanced, custom image preprocessing (e.g., binarization, noise reduction, deskewing) to handle the poor-quality scans typical of prescription photos.
+
+### Better Alternatives for 2025–2026
+For professional or production-grade applications, modern AI-powered systems are significantly more effective:
+
+*   **Cloud-Based AI APIs:** Services like **Google Cloud Vision** or **AWS Textract** are widely considered superior for this use case. They are trained on vast datasets and are much better at handling handwriting, complex layouts, and medical-specific terminology. Many developers combine these with an LLM (such as GPT or Claude) to parse the raw text into structured JSON data.
+*   **Domain-Specific Tools:** Some specialized platforms focus specifically on medical prescription OCR. These tools are often built with hybrid models—using traditional OCR for a first pass and deep learning (CNNs/LSTMs) for refinement—to achieve higher character-level accuracy for medical scripts.
+*   **Specialized Models:** If you are building an application, you might consider newer, AI-native OCR models that support Indic scripts and are specifically benchmarked for real-world handwriting.
+
+### Summary Recommendation
+If you are building a tool for **production or medical use**, avoid relying on Tesseract.js. The cost of manual correction—required by Tesseract's high error rate—will likely far exceed the cost of using a more specialized or cloud-based AI service. If you are working on a small, experimental, or free-tier project and must use an open-source tool, be prepared to invest heavily in **preprocessing pipelines** and post-processing logic (such as using an LLM to "clean" and interpret the OCR output).

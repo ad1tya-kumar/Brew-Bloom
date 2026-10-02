@@ -1,0 +1,58 @@
+The search for ""@supabase/supabase-js" v2 React setup auth database storage best practices typescript" returned the following summary:
+To set up `@supabase/supabase-js` v2 in a React project with TypeScript, follow these best practices for a scalable and type-safe architecture.
+
+### 1. Project Initialization & Client Setup
+Initialize your client in a dedicated file (e.g., `src/lib/supabase.ts`) to ensure a single instance is used throughout your app.
+
+*   **Install Dependencies:**
+    ```bash
+    npm install @supabase/supabase-js
+    ```
+*   **Environment Variables:** Store your credentials in a `.env.local` file (using Vite's `VITE_` prefix).
+    ```env
+    VITE_SUPABASE_URL=your-project-url
+    VITE_SUPABASE_ANON_KEY=your-anon-key
+    ```
+*   **Create Client:**
+    ```typescript
+    import { createClient } from '@supabase/supabase-js';
+    import { Database } from '../types/database.types'; // Generated types
+
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+    export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+    ```
+
+### 2. TypeScript Best Practices: Auto-generated Types
+Never manually write types for your database tables. Instead, use the Supabase CLI to generate them directly from your schema. This ensures your frontend stays in sync with your database.
+
+*   **Generate Types:**
+    ```bash
+    npx supabase gen types typescript --project-id <your-project-ref> > src/types/database.types.ts
+    ```
+*   **Usage:** Pass the `Database` type to your `createClient` call (as shown above) to get full autocompletion and type-safety for `select()`, `insert()`, `update()`, etc.
+
+### 3. Architecture & Code Organization
+To keep your codebase maintainable, avoid calling `supabase` methods directly inside your UI components.
+
+*   **Service Layer:** Create a `src/services/` or `src/lib/` folder to house your database interaction logic (e.g., `user.service.ts`, `posts.service.ts`).
+*   **Custom Hooks:** Wrap these services in custom React hooks (e.g., `usePosts`, `useAuth`) to handle loading, error, and data states using patterns like `useState` or libraries like **TanStack Query** for better caching and server-state management.
+
+### 4. Auth & Database Security
+*   **Row Level Security (RLS):** Always enable RLS on your tables. Supabase is designed to work with Postgres policies; ensure you define policies that restrict access to data based on the authenticated user's ID (`auth.uid()`).
+*   **Auth Methods:** Use `supabase.auth` methods (`signUp`, `signInWithPassword`, `signOut`) for standard flows. For protected routes, use the session state to gate your UI components.
+*   **Storage:** Organize your storage buckets logically. Use the Supabase storage API to upload files, and rely on RLS policies on the `storage.objects` table to control read/write access to files based on user authentication.
+
+### 5. Recommended Directory Structure
+```text
+src/
+├── components/      # UI components (e.g., AuthForm, DataGrid)
+├── hooks/           # Custom hooks (e.g., useAuth, usePosts)
+├── lib/             # Supabase client initialization
+├── services/        # API service functions (database/storage queries)
+├── types/           # Generated database.types.ts
+└── App.tsx
+```
+
+By following this modular approach, you ensure your React application remains clean, testable, and fully type-safe as your project scales.

@@ -1,0 +1,37 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\pages\UploadReviewPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -24,6 +24,7 @@
+   const { addHealthRecord, activePatientId } = useAppStore();
+   const { isProcessing, progress, statusText, processImage } = useOCR();
+ 
++  const [_selectedFile, setSelectedFile] = useState<File | null>(null);
+   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+   const [extractedData, setExtractedData] = useState<OCRStructuredData | null>(null);
+   const [rawSampleText, setRawSampleText] = useState<string>('');
+@@ -31,6 +31,7 @@
+   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+     const file = e.target.files?.[0];
+     if (file) {
++      setSelectedFile(file);
+       const url = URL.createObjectURL(file);
+       setPreviewUrl(url);
+       runOCR(file);
+@@ -57,7 +57,14 @@
+   const handleMedChange = (index: number, field: string, value: any) => {
+     if (!extractedData || !extractedData.medications) return;
+     const updated = [...extractedData.medications];
+-    updated[index] = { ...updated[index], [field]: value };
++    const current = updated[index];
++    if (!current) return;
++    updated[index] = {
++      name: field === 'name' ? String(value) : current.name,
++      dosage: field === 'dosage' ? String(value) : current.dosage,
++      frequency: field === 'frequency' ? String(value) : current.frequency,
++      duration_days: field === 'duration_days' ? Number(value) : current.duration_days,
++    };
+     setExtractedData({ ...extractedData, medications: updated });
+   };
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

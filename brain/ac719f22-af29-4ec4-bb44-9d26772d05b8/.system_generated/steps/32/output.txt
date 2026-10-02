@@ -1,0 +1,7 @@
+The search for ""lucide-react" npm version latest 2025 OR 2026" returned the following summary:
+The latest version of `lucide-react` as of September 2026 is **1.47.0**[1][2][3].
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxKpGMszD0bsh0sj2CMdJFkUy7teCyV8qapXXxzBOkkMCYA3dKXYA8wuuyTX7i4eotN5okC6ou2JTGjO32o_yJBEYrqmdpcly9u4RfsAKmbFWX5PGax_pG2uBMsLITsq8=)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxKpGMszD0bsh0sj2CMdJFkUy7teCyV8qapXXxzBOkkMCYA3dKXYA8wuuyTX7i4eotN5okC6ou2JTGjO32o_yJBEYrqmdpcly9u4RfsAKmbFWX5PGax_pG2uBMsLITsq8=)
+[3] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEBTI5Rxb46cpULfV3P06BpkogGWJ-ygXdjPhiu6_la68EaWsEIK-ZWLdWo3jUPcFc6QMMyVyDW97wROjutn_sPM-iHXUMpdNKqlHIwnEPJWSecxRfH7zadJjKycjwu0rvwhepHbgayfmHA2urYn7CE--GAaZU=)

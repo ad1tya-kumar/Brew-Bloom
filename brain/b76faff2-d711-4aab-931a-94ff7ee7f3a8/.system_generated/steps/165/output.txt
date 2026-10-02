@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+
+URL                                         StatusCode ContentLength
+---                                         ---------- -------------
+http://localhost:3000                              200         39699
+http://localhost:3000/order-tracking.html          200         19511
+http://localhost:3000/admin.html                   200         18904
+http://localhost:3000/driver.html                  200         12936
+http://localhost:3000/style.css                    200         48040
+http://localhost:3000/script.js                    200         31401
+http://localhost:3000/js/config.js                 200          4464
+http://localhost:3000/js/menu-data.js              200         16493
+http://localhost:3000/js/cart.js                   200          3678
+http://localhost:3000/js/supabase-client.js        200          6567
+
+
+

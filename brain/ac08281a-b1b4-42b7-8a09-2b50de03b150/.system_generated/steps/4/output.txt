@@ -1,0 +1,18 @@
+The search for "npm view react version vite version tailwindcss version @tailwindcss/vite version" returned the following summary:
+The latest versions of the requested packages on npm are as follows:
+
+| Package | Latest Version |
+| :--- | :--- |
+| **react** | 19.3.0[1][2] |
+| **vite** | 8.3.0[3] |
+| **tailwindcss** | 4.3.3[4][5] |
+| **@tailwindcss/vite** | 4.3.3[6][7] |
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0hwj1zx8QjCC5BdNTXgDcHRwgACKmWOG3XuTz0H6dsZx6fvVgmKbV-Em0Bd-ieWQLbHDAPJgdv1-xCopERCYOtcztIgtvvMTcfVsVwZ6T8940tvqjBEXTvQ==)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFaIF4VQrOnEKqAxmQYhW6bWJVcEL79w7rM0qP9ShIMKcXHJuprR3HiTi0hs_MIDHiY7EXsILMNBwKDI5dyHivZnzoT1Y5gHPp2xtgTXVIrVEg1n-zSSWxe2c7ASrxk_AgWluXdd5DO4Htx9OI=)
+[3] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEC_oS8ujAuPAouPleX_zbzWDfGDDCbY05IelWOBcmKFFRvFn1YPMNbIZSkjrBgDuBNyDQNuyIVsg07oq6-6mZADjY70rGNhJAYvNwXtTbJnZUrYM8pQCrq)
+[4] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxvybcVDg2SPJLnhHRoe_t8G-wFym01zweOw6J-yeh5boVi9nMPn9Rp0QE9aWf42O_S2WwiAvQq_DOV0QUZ6Qj7rQKljfo3qDEBSpQbiwHAW93FcO3wu_wCMbLP1q-_g==)
+[5] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxvybcVDg2SPJLnhHRoe_t8G-wFym01zweOw6J-yeh5boVi9nMPn9Rp0QE9aWf42O_S2WwiAvQq_DOV0QUZ6Qj7rQKljfo3qDEBSpQbiwHAW93FcO3wu_wCMbLP1q-_g==)
+[6] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG4ydFkNm11L1c9uomBXlWlNpOOle2xo7YhY59OUv7LRKziWPrp2kIEq0z6u0Q0XoKR5LC9PvAQwdE1OSqtzougsv8qx9Fv4WgmF9dNGKCImBK76hST5aq7225gw-FZcBRINMci3A==)
+[7] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwBYPgiNfCL3oY1q6pHGbkGiqamSV7hdqVo2RY4yZWqeaUv0nl-8AuAuzBin_PMdPeWP-g9m7CAEs9VivBmcVTdBRBkhCHRf39WbVd3RDET_heA33T-Z-QdPeRpostdtEl4Qxyi6Y62ryoZSZFITfvKodSbL1XdHc=)

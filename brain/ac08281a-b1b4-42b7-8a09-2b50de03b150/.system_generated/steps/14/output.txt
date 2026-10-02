@@ -1,0 +1,38 @@
+The search for ""supabase" "row level security" performance gotchas "auth.uid()" index" returned the following summary:
+When using Row Level Security (RLS) in Supabase, performance issues often arise because policies act as implicit `WHERE` clauses that the database evaluates for every row in a result set.
+
+### **Key Performance Gotchas & Optimizations**
+
+#### **1. The `auth.uid()` Performance Trap**
+A common mistake is calling `auth.uid()` directly in a policy. If not optimized, the database may re-evaluate this function for every single row being scanned.
+*   **The Fix:** Wrap the function in a `SELECT` statement. This tells PostgreSQL to execute the function once and cache the result for the duration of the query.
+    *   **Slow:** `USING (auth.uid() = user_id)`
+    *   **Fast:** `USING ((SELECT auth.uid()) = user_id)`
+
+#### **2. Indexing Policy Columns**
+If your policy uses a column to filter data (like `user_id`), ensure that column is indexed. Without an index, the database must perform a sequential scan of the entire table to evaluate the policy, which can be thousands of times slower on large datasets.
+*   **Recommendation:** Always create a B-tree index on columns used in your `USING` or `WITH CHECK` clauses.
+    *   *Example:* `CREATE INDEX idx_table_user_id ON your_table(user_id);`
+
+#### **3. Avoid Joins Inside RLS Policies**
+Performing complex joins or table lookups within an RLS policy is a major performance bottleneck, as these operations are also evaluated per row.
+*   **The Fix:**
+    *   **Use Custom Claims:** Store frequently accessed authorization data (like `role` or `team_id`) in the user’s JWT via custom claims. This keeps the data in memory and avoids lookups.
+    *   **Optimize Join Direction:** If you must join, prefer filtering against a set rather than joining back to the source table.
+        *   **Better Pattern:** `team_id IN (SELECT team_id FROM team_user WHERE user_id = (SELECT auth.uid()))`
+
+#### **4. Specify Roles**
+Always use the `TO authenticated` (or specific roles) clause in your policies. If you omit this, the policy is evaluated for every user—including the `anon` role. Adding the role restricts the policy to only relevant users, preventing unnecessary database work.
+
+#### **5. Debugging Tools**
+*   **`EXPLAIN ANALYZE`:** Use this in a non-production environment to inspect query execution plans. It will show you if your RLS policies are causing sequential scans or if indexes are being utilized effectively.
+*   **Supabase Advisors:** Utilize the built-in Performance and Security Advisors in the Supabase Dashboard. They can automatically detect unindexed foreign keys and potentially inefficient RLS configurations.
+
+### **Summary Checklist**
+| Optimization | Action |
+| :--- | :--- |
+| **Function Caching** | Wrap `auth.uid()` as `(SELECT auth.uid())` |
+| **Indexing** | Index all columns used in `USING` / `WITH CHECK` |
+| **Role Restriction** | Explicitly add `TO authenticated` to policies |
+| **Minimize Complexity** | Use Custom Claims instead of complex joins |
+| **Testing** | Use `EXPLAIN ANALYZE` to verify index usage |

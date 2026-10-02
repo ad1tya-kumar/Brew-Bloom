@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+
+Name              Length
+----              ------
+.gitignore            56
+index.html         52573
+package-lock.json  36986
+package.json         489
+script.js          11880
+style.css          34908
+vercel.json          861
+
+
+

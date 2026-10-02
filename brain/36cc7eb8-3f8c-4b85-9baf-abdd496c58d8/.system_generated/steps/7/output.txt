@@ -1,0 +1,53 @@
+The search for "ABDM ABHA API sandbox integration guide 2024 2025 healthcare professionals registry consent flow" returned the following summary:
+To integrate with the Ayushman Bharat Digital Mission (ABDM) sandbox, follow this structured guide for 2024–2025. The integration is typically milestone-based (M1–M3) and requires compliance with national digital health standards[1][2][3].
+
+### 1. Getting Started: ABDM Sandbox
+*   **Register on the Sandbox:** Visit the [official ABDM Sandbox portal](https://sandbox.abdm.gov.in/) to create a developer account[4][5].
+*   **Obtain Credentials:** After registration, you will receive your `Client ID` and `Client Secret`, which are required to generate authentication tokens for API access[1][6][4].
+*   **Documentation:** Access the [API documentation](https://sandbox.abdm.gov.in/docs/healthid) for technical specifications, including request/response formats and error codes[1].
+
+### 2. Milestone 1 (M1): Healthcare Professionals Registry (HPR)
+The HPR module focuses on verifying healthcare professionals[7][2].
+*   **Purpose:** Enables the registration and verification of doctors, nurses, and allied professionals[8][7].
+*   **Key Integration Steps:**
+    *   Integrate HPR APIs to verify professional registrations and link medical council numbers[4][9].
+    *   Use Aadhaar or other approved documents for identity verification[10].
+    *   Assign a unique Healthcare Professional ID (HP-ID)[8].
+
+### 3. Consent Flow (M3 Integration)
+The consent flow is critical for secure, patient-controlled health data sharing[11][12].
+*   **Roles:**
+    *   **HIP (Health Information Provider):** Stores and provides health records[5].
+    *   **HIU (Health Information User):** Requests and consumes health records (e.g., a doctor viewing records)[11][5].
+*   **Workflow:**
+    1.  **Consent Request:** The HIU initiates a request for specific health data[11].
+    2.  **Notification:** The Consent Manager (CM) notifies the patient[11].
+    3.  **Grant/Deny:** The patient provides explicit, fine-grained consent[11][13].
+    4.  **Data Exchange:** Once granted, the CM shares the consent artifact, allowing the HIP to transfer the requested data to the HIU via secure, encrypted channels[11][14].
+
+### 4. Integration Checklist
+*   **Authentication:** Ensure all API calls use the `Authorization: Bearer {token}` format, generated via the session API[1][6][15].
+*   **Security:** All sensitive data (Aadhaar, mobile numbers, OTPs) must be RSA-encrypted before transmission[15].
+*   **Compliance:** Ensure your system supports HL7 FHIR R4 standards for health data exchange[16][3].
+*   **Certification:** After completing sandbox testing for all required milestones (M1–M3), apply for production certification through the ABDM portal to go live[17][2][5].
+
+For specific technical queries, you can post on the [ABDM DevForum](https://devforum.abdm.gov.in/)[1].
+
+Sources:
+[1] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG60deN42GTKrvjR71WZwbXkpMcrVdSTgIspSOPrcWZS-Pa-PVwIfezB7gmSUxqc30sC-wEHFPAY0WlmX41XbeaYpOJ9TwQYGyC-SXqeePYsZjeZzytqU_icSb73WdZWNfRFOH-wGeZtCPoTM2L4HgsKok-qt9gSsBHBeSb)
+[2] [dreamsoft4u.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGPfljk_fpEj-l3_uKixZBOver3MEPb8LW74vhulvmjm8LqfaJomtMHnVRhXNhBF-sVG7PP8YKuJsFY20K6MbprJc6hkPzbH2NMz3Q3OvCK6DlGlSelD77J75vJisa7ve2g8tfrnFyBUzCbMHRJTdQ6GxiOHhkhrWiPf9y_8x0V10MxXOJta20ADA==)
+[3] [dreamsoft4u.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGs6tnMooOuPIbNGa-N34vt-UTD5rJ1nO7WV_iKuz-QDXvipLAaLozSIe7UMf7OsFALfEHgGPaL130vNi90rvb11sOoJAkzjWMx9wLpBLLX69CJIeoWsWdGKXsFN16Q9kq1hrH5_nRrl3TwO7S_mcwG)
+[4] [adrine.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXHFm1Esrkk_yqEj_vAVMuQjVyjKlvugBFmwQ_vrX3zHe0mzWDFJLuL5qO29Os5iAaQwpkAFMwIi6Z992LjVP-vM0uBCrnDAdfLUaHeRkVe_g6yWTe0dhTjQeSA6PDIG4VfbgCvgc=)
+[5] [sigosoft.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEeHefb7_53Bhd6yKfnGsJpRq7MRrH1Z4eBC36QNUnuzYALcaAuNAJt1Xoeg9M9ydm7qiA-8iIIMgtfwWXbAcCWkpodI4JdJva3GfUtRIzBhy7s9t1NauB1MnpjKRCEl3MENc87olA6kKkW-j4zZcA9JFAXZn_YBQR2paM=)
+[6] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfVgwF4QQbl030wUEku6Tc0SUHhOXk3ewdvinvgTXJ23zX2n6gTeLSi40BGvi-TyoqY7B17Rdup6FXRWp1wZHvAwwU_sCHYhHLQiIruuDF3t3qntg3HnqKffRrrQaY-5lb1WTpTCyMHtcj6CdyAATBeBdaklOI_Fv2y9duvH21gD8=)
+[7] [adrine.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXHFm1Esrkk_yqEj_vAVMuQjVyjKlvugBFmwQ_vrX3zHe0mzWDFJLuL5qO29Os5iAaQwpkAFMwIi6Z992LjVP-vM0uBCrnDAdfLUaHeRkVe_g6yWTe0dhTjQeSA6PDIG4VfbgCvgc=)
+[8] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzU8AjlI3JG-LvGbIhgYq_NDSmv-V3Y8aMwAtfP1xEwpQ44prqDed00FDubGC712iDvz6pTe6eeV6cyuCS42CLQ5oUkN4WOq09z9eOb2I-9ATW2j9X4F55u0-U-SepZvfl)
+[9] [adrine.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXHFm1Esrkk_yqEj_vAVMuQjVyjKlvugBFmwQ_vrX3zHe0mzWDFJLuL5qO29Os5iAaQwpkAFMwIi6Z992LjVP-vM0uBCrnDAdfLUaHeRkVe_g6yWTe0dhTjQeSA6PDIG4VfbgCvgc=)
+[10] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHf-2uJK73rBasREOGHBGa8A9itdm6eLGsHCXCtbBt78Ce2wI0-jOjLaaUoslvMawGQD2sEkLmVm8QQE0R9V_Ieli72B62x8-tl7Z5HmA==)
+[11] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHleqjf7PB6POuRMrReOyKC4XHEfNivGC1zJy-1FMKPiUJffpUg91ivXy-WdmPOXDFco5w2igXcCDzuS5ko9YYwJJkNV0aWPyzHvDQ9viu_tv2Igkg3xhWiDuOHpt5yneB7118q1qzY7HiuObSEF3lG7M6oamFWv5Y9OytoKfiL5jjiteJZwKmQSmC7wJMmQUwL3YYWYcl6dogJKbAcJYd4Ag==)
+[12] [apiintegrationservices.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEr6ESWPcfDWzAKxc2CnkkcXveChxFjt2Nz9SfcgbfmGE3l-Pf-ZOOb8bWekyIGeKQoFP-wQrjpswl6RxOk_db_BfCxlBRmSHZFMQmh3X4JeXNhXKigzVHuI9FDBHUxCpBVnhpMVQ6CInQBz8w4CQOLYDE4EkNFHpEF2_dU-ip9mdxPktbNcgLRzogxzyA0Yo8=)
+[13] [ehr.network](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH66I6EzkYHid_MJcA42LJr4L0TWoHV3X7GrEn3fXwmILlnoObJFH3NorOBJgOLD7imgr43lUdyXkbcnop-FIeqQ13qr_74j02reddBSZOpI9R7dQILNg8WEBTd-TVVLCc=)
+[14] [abdm.gov.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGkKon4hKnoQQv6gOz4nQN7uqhAvVF6YDBriI_3RkiHylxTRLs35zlZtFePI6Wngvhk7dj75EyuePD4o6MfGGxRDw_5MYl2iFmXGNoMrQcpvtDeoXL0u2gpIgbeq8HJrA-fvNg-pPnN3CbmFGZU_O9dDo576R5r0ZPjtYrTKyQkXZQ=)
+[15] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFuRN8RzUv7tAM67YeoSqfqtbrmIHgDpyPIWOQp4OUdR-De35DU9p9VNlHwz89zejCSJmUJw3-Bnn12Q_nhxF0WdzCleO0x7jBxvWSEGyqbwokaSAMrcrp6IGDK1cSa94pE1qeX2etEXZ2UQoVWB_UpW2cu_sW5v4Kur3gqbJ5d3YsSkNVljgy25Ajn)
+[16] [onecity.co.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHs-Ac6mhwYRNtWFO0yGPvGntCop0F1YQN_JfnBlr3VDtmL1e5tPCCJeHMuFQDFDUIWnJ4A2XI5zPo8vIV_wuJK5uxcW8-wtd8LmE_QLStWQhj95N9DRYKdZrvCwQLHhep7F6Dq_uGVE0o2Cm0IAHYmGVxHEA==)
+[17] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3rjFmPkzGvLZtoAzFv4I6Vqpfu50tjm7luB-xTCRW6JUeoMCFdtbkTjOOH6I_siMtQlZ5n-QA3LvprxNTQ160nLgtKU8X5QQ4pQUkgS2C33Gg90Z0p8QSI5xrIfvPXr1zVvXihGfcAY0tHMY8k8bWn2lpl8q_)

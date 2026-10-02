@@ -1,0 +1,307 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\brew-and-bloom\script.js. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -678,6 +678,9 @@
+ /* ══════════════════════════════════════════════════════════
+    ORDER SUBMISSION WORKFLOW
+    ══════════════════════════════════════════════════════════ */
++/* ══════════════════════════════════════════════════════════
++   ORDER SUBMISSION WORKFLOW — DIRECT WHATSAPP ORDERING
++   ══════════════════════════════════════════════════════════ */
+ async function handleOrderSubmit(e) {
+   e.preventDefault();
+ 
+@@ -684,51 +684,75 @@
+   const phoneInput = document.getElementById('custPhone');
+   const addrInput = document.getElementById('custAddress');
+   const localInput = document.getElementById('custLocality');
++  const landmarkInput = document.getElementById('custLandmark');
+   const pinInput = document.getElementById('custPin');
++  const tableInput = document.getElementById('custTable');
+   const notesInput = document.getElementById('custNotes');
+-  const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || 'cod';
+-
+-  // Validation
++  const paymentMethodInput = document.querySelector('input[name="paymentMethod"]:checked');
++  const paymentMethod = paymentMethodInput ? paymentMethodInput.value : 'Cash on Delivery';
++
++  const confirmBtn = document.getElementById('confirmOrderBtn');
++  const confirmBtnText = document.getElementById('confirmOrderBtnText');
++  const checkoutForm = document.getElementById('checkoutForm');
++  const waDialog = document.getElementById('whatsappSentDialog');
++
++  // 1. Validate that the cart contains at least one item
++  const isDelivery = state.deliveryMode === 'delivery';
++  const snapshot = getSnapshot(isDelivery ? state.customerDistanceKm : 0);
++
++  if (!snapshot.items || snapshot.items.length === 0) {
++    showToast('Your cart is empty! Please add items before placing an order.', 'error');
++    return;
++  }
++
++  // 2. Validate customer contact information
+   let isValid = true;
+ 
+-  if (!nameInput.value.trim()) {
+-    nameInput.classList.add('invalid');
+-    isValid = false;
+-  } else {
+-    nameInput.classList.remove('invalid');
++  const nameVal = nameInput ? nameInput.value.trim() : '';
++  if (!nameVal) {
++    if (nameInput) nameInput.classList.add('invalid');
++    isValid = false;
++  } else {
++    if (nameInput) nameInput.classList.remove('invalid');
+   }
+ 
+   // Indian mobile validation (10 digits starting with 6-9)
+-  const phoneVal = phoneInput.value.trim().replace(/\D/g, '');
++  const rawPhone = phoneInput ? phoneInput.value.trim() : '';
++  const phoneVal = rawPhone.replace(/\D/g, '');
+   if (!/^[6-9]\d{9}$/.test(phoneVal)) {
+-    phoneInput.classList.add('invalid');
+-    isValid = false;
+-  } else {
+-    phoneInput.classList.remove('invalid');
+-  }
+-
+-  if (state.deliveryMode === 'delivery') {
+-    if (!addrInput.value.trim()) {
+-      addrInput.classList.add('invalid');
+-      isValid = false;
+-    } else {
+-      addrInput.classList.remove('invalid');
+-    }
+-
+-    if (!localInput.value.trim()) {
+-      localInput.classList.add('invalid');
+-      isValid = false;
+-    } else {
+-      localInput.classList.remove('invalid');
+-    }
+-
+-    if (!/^\d{6}$/.test(pinInput.value.trim())) {
+-      pinInput.classList.add('invalid');
+-      isValid = false;
+-    } else {
+-      pinInput.classList.remove('invalid');
+-    }
+-
++    if (phoneInput) phoneInput.classList.add('invalid');
++    isValid = false;
++  } else {
++    if (phoneInput) phoneInput.classList.remove('invalid');
++  }
++
++  // 3. Validate delivery address fields only if Home Delivery
++  if (isDelivery) {
++    const addrVal = addrInput ? addrInput.value.trim() : '';
++    if (!addrVal) {
++      if (addrInput) addrInput.classList.add('invalid');
++      isValid = false;
++    } else {
++      if (addrInput) addrInput.classList.remove('invalid');
++    }
++
++    const localVal = localInput ? localInput.value.trim() : '';
++    if (!localVal) {
++      if (localInput) localInput.classList.add('invalid');
++      isValid = false;
++    } else {
++      if (localInput) localInput.classList.remove('invalid');
++    }
++
++    const pinVal = pinInput ? pinInput.value.trim() : '';
++    if (!/^\d{6}$/.test(pinVal)) {
++      if (pinInput) pinInput.classList.add('invalid');
++      isValid = false;
++    } else {
++      if (pinInput) pinInput.classList.remove('invalid');
++    }
++
++    // Distance radius validation
+     if (state.customerDistanceKm > CONFIG.delivery.radiusKm) {
+       showToast(`Delivery is only available within ${CONFIG.delivery.radiusKm} km. Please select Takeaway or Dine-in.`, 'error');
+       return;
+@@ -735,61 +735,126 @@
+   }
+ 
++  // Keep customer on checkout page if required fields are missing
+   if (!isValid) {
+-    showToast('Please fix the errors highlighted in red.', 'error');
+-    return;
+-  }
+-
+-  const snapshot = getSnapshot(state.deliveryMode === 'delivery' ? state.customerDistanceKm : 0);
+-
+-  if (snapshot.items.length === 0) {
+-    showToast('Your cart is empty!', 'error');
+-    return;
+-  }
+-
+-  const confirmBtn = document.getElementById('confirmOrderBtn');
++    showToast('Please fill in all required fields highlighted in red.', 'error');
++    return;
++  }
++
++  // 4. Verify the restaurant WhatsApp number is configured
++  const waNumber = (CONFIG.cafe && CONFIG.cafe.whatsapp)
++    ? String(CONFIG.cafe.whatsapp).replace(/\D/g, '')
++    : String(RESTAURANT_WHATSAPP_NUMBER || '').replace(/\D/g, '');
++
++  if (!waNumber || waNumber.length < 10) {
++    showToast('The restaurant WhatsApp number has not been configured in js/config.js.', 'error');
++    return;
++  }
++
++  // 5. Prevent accidental repeated clicks & display loading state
+   if (confirmBtn) {
+     confirmBtn.disabled = true;
+-    confirmBtn.textContent = 'Processing your order...';
+-  }
+-
+-  const orderData = {
+-    customer_name: nameInput.value.trim(),
+-    customer_phone: phoneVal,
+-    order_mode: state.deliveryMode,
+-    delivery_address: state.deliveryMode === 'delivery'
+-      ? `${addrInput.value.trim()}, ${localInput.value.trim()}, Haldia - ${pinInput.value.trim()}`
+-      : 'Self Pickup / Dine-in at Haldia Café',
+-    customer_lat: state.customerLat,
+-    customer_lng: state.customerLng,
+-    customer_distance_km: state.deliveryMode === 'delivery' ? state.customerDistanceKm : 0,
+-    special_instructions: notesInput?.value.trim() || '',
+-    payment_method: paymentMethod,
+-    subtotal: snapshot.subtotal,
+-    tax_amount: snapshot.gstAmount,
+-    delivery_charge: state.deliveryMode === 'delivery' ? snapshot.deliveryCharge : 0,
+-    total_amount: state.deliveryMode === 'delivery' ? snapshot.total : snapshot.subtotal + snapshot.gstAmount,
+-    items: snapshot.items,
+-    status: 'received',
+-  };
+-
+-  try {
+-    const createdOrder = await placeOrder(orderData);
+-    clearCart();
+-    closeCheckoutModal();
+-
+-    showToast(`Order #${createdOrder.id} placed successfully!`, 'success');
+-
+-    // Forward to dedicated Live Order Tracking page!
++    if (confirmBtnText) confirmBtnText.textContent = 'Preparing WhatsApp message...';
++  }
++
++  // 6. Generate unique order reference (e.g. BB-123456)
++  const orderRef = 'BB-' + Math.floor(100000 + Math.random() * 900000);
++
++  // 7. Calculate totals
++  const subtotal = snapshot.subtotal;
++  const deliveryFee = isDelivery ? snapshot.deliveryCharge : 0;
++  const totalAmount = isDelivery ? snapshot.total : (subtotal + snapshot.gstAmount);
++
++  // 8. Build dynamic order message
++  let msg = `Hello Brew & Bloom Café! I'd like to place an order.\n\n`;
++  msg += `ORDER DETAILS\n`;
++  msg += `Order ID: ${orderRef}\n\n`;
++  msg += `Items:\n`;
++
++  snapshot.items.forEach((item, index) => {
++    msg += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
++  });
++
++  msg += `\nSubtotal: ₹${subtotal}\n`;
++  if (isDelivery) {
++    const deliveryFeeLabel = deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`;
++    msg += `Delivery Fee: ${deliveryFeeLabel}\n`;
++  }
++  msg += `Total Amount: ₹${totalAmount}\n\n`;
++
++  // Order Type
++  let orderTypeLabel = 'Home Delivery';
++  if (state.deliveryMode === 'takeaway') orderTypeLabel = 'Takeaway';
++  else if (state.deliveryMode === 'dinein') orderTypeLabel = 'Dine-In';
++  msg += `ORDER TYPE: ${orderTypeLabel}\n\n`;
++
++  // Customer Details
++  msg += `CUSTOMER DETAILS\n`;
++  msg += `Name: ${nameVal}\n`;
++  msg += `Phone: ${phoneVal}\n`;
++
++  const landmarkVal = landmarkInput?.value.trim();
++  const notesVal = notesInput?.value.trim();
++  const tableVal = tableInput?.value.trim();
++
++  if (isDelivery) {
++    const fullAddress = `${addrInput.value.trim()}, ${localInput.value.trim()}, Haldia - ${pinInput.value.trim()}`;
++    msg += `Delivery Address: ${fullAddress}\n`;
++    if (landmarkVal) {
++      msg += `Landmark: ${landmarkVal}\n`;
++    }
++    if (notesVal) {
++      msg += `Delivery Instructions: ${notesVal}\n`;
++    }
++  } else if (state.deliveryMode === 'takeaway') {
++    if (notesVal) {
++      msg += `Pickup Instructions: ${notesVal}\n`;
++    }
++  } else if (state.deliveryMode === 'dinein') {
++    if (tableVal) {
++      msg += `Table / Seating Info: ${tableVal}\n`;
++    }
++    if (notesVal) {
++      msg += `Dine-In Instructions: ${notesVal}\n`;
++    }
++  }
++
++  // Payment method
++  msg += `\nPAYMENT METHOD: ${paymentMethod}\n\n`;
++  msg += `Please confirm my order and estimated delivery time. Thank you!`;
++
++  // 9. Safely encode URI component and construct wa.me URL
++  const encodedMsg = encodeURIComponent(msg);
++  const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
++
++  // 10. Open WhatsApp conversation
++  const waWindow = window.open(waUrl, '_blank', 'noopener,noreferrer');
++
++  // If window.open was blocked by mobile browser popup blockers, clicking the reopen link works directly
++  if (!waWindow || waWindow.closed || typeof waWindow.closed === 'undefined') {
+     setTimeout(() => {
+-      window.location.href = `order-tracking.html?orderId=${createdOrder.id}`;
+-    }, 1200);
+-  } catch (err) {
+-    console.error('Order error:', err);
+-    showToast('Could not record order: ' + (err.message || 'Unknown error'), 'error');
+-    if (confirmBtn) {
+-      confirmBtn.disabled = false;
+-      confirmBtn.textContent = 'Place Order Now →';
+-    }
++      const reopenLink = document.getElementById('dialogReopenWaLink');
++      if (reopenLink) reopenLink.click();
++    }, 150);
++  }
++
++  // 11. Display honest feedback dialog in the modal without claiming order is confirmed yet
++  if (checkoutForm && waDialog) {
++    checkoutForm.style.display = 'none';
++    waDialog.style.display = 'block';
++
++    const dialogOrderId = document.getElementById('dialogOrderId');
++    if (dialogOrderId) dialogOrderId.textContent = `Order ID: ${orderRef}`;
++
++    const dialogReopenLink = document.getElementById('dialogReopenWaLink');
++    if (dialogReopenLink) dialogReopenLink.href = waUrl;
++  }
++
++  showToast('WhatsApp launched! Please press Send in WhatsApp to confirm.', 'info');
++
++  // Reset button state
++  if (confirmBtn) {
++    confirmBtn.disabled = false;
++    if (confirmBtnText) confirmBtnText.textContent = 'Place Order on WhatsApp';
+   }
+ }
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

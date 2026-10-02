@@ -1,0 +1,16 @@
+The search for ""@supabase/supabase-js" npm version 2026" returned the following summary:
+As of September 23, 2026, the latest version of `@supabase/supabase-js` is **2.117.0**[1][2].
+
+You can install it in your project by running:
+
+```bash
+npm install @supabase/supabase-js
+```
+
+### Key Version Notes:
+*   **Node.js Compatibility:** Version **2.110.0** and later dropped support for Node.js 20[1][3]. If your environment requires Node.js 20, you must use version **2.109.0**[1][3].
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEv1DW0bm512b-cWpC6ZYxtqCPfuheXC0zU_Qu1XdJSg7eZNy4YWNR0Y0iYC-NmbDuFjXOLJzC83gx_6TVyQV9UsYV4z2zDkNrgddwgsan5dhTgB-DokzeE3O892wi8GB0ANSEv9LAKY5k=)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHjgzSuwU4umcJFGfCkX20ehzugBDfL-izBhGVEDORiKPwqwPFxXjZLR64obR-V8m3dKnD0NvrQ42cTjx0XQw92uN4IQGjMPKczen5dMCfTJ2N_1of1DDs5WbRxBw5H8_gPVEO-Q3EpUsVgh_vogoi42sVFTtYkSkObkc4X)
+[3] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGzhiTggQLPQZBXlXtFCZ1GdYrf2gOCi18-s6h_5nRO8TW8QFqcGj-ZBRzyr8BIs05i3A6p_SVukSBcljKXJTvd5CEEXKpkh1u2jEHWzzPrIGcHi3dFWxuwOfl6Ipo=)

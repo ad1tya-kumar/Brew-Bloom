@@ -1,0 +1,59 @@
+The search for ""supabase" "signInWithOtp" "verifyOtp" example "supabase-js"" returned the following summary:
+To implement OTP authentication using `supabase-js`, you use `signInWithOtp` to initiate the process and `verifyOtp` to complete the authentication[1][2][3].
+
+### 1. Initiating the OTP Flow
+Use `supabase.auth.signInWithOtp` to send a one-time password to the user's email or phone number[1][4].
+
+**Email Example:**
+```javascript
+const { data, error } = await supabase.auth.signInWithOtp({
+  email: 'example@email.com',
+  options: {
+    emailRedirectTo: 'https://example.com/welcome', // Optional
+  },
+})
+```
+
+**Phone Example:**
+```javascript
+const { data, error } = await supabase.auth.signInWithOtp({
+  phone: '+13334445555',
+})
+```
+
+---
+
+### 2. Verifying the OTP
+Once the user receives the code (via email or SMS), use `supabase.auth.verifyOtp` to confirm the token and sign the user in[5][2][3].
+
+```javascript
+const {
+  data: { session },
+  error,
+} = await supabase.auth.verifyOtp({
+  email: 'example@email.com',
+  token: '123456',
+  type: 'email', // Use 'sms' if verifying a phone OTP
+})
+```
+
+### Key Parameters for `verifyOtp`
+*   **`type`**: Must match the verification type (`'email'`, `'sms'`, or `'phone'`)[5][6][7].
+*   **`token`**: The 6-digit code received by the user[7][8].
+*   **`email` / `phone`**: The identifier used during the `signInWithOtp` step[5][6].
+
+### Important Notes
+*   **Automatic Signup**: By default, `signInWithOtp` may create a user record[9]. If you want to prevent this, check the `shouldCreateUser` option in the official Supabase documentation for your specific use case[9].
+*   **Reauthentication**: If you are using OTP for reauthentication (e.g., changing a password), the flow is slightly different; you typically use `supabase.auth.updateUser` with the `nonce` parameter rather than a standard `verifyOtp` call[7][10].
+
+Sources:
+[1] [supabase.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEE0_aA_KKrAIeAECItvDRzKZNXwBREd_eDXg1RCy_lkc--M8fwtxSf2_OSwoL8OS0pxCkC4WYnfXx1Zu0IETuuefYr0kxfs-kM7xaXQCDZ8Sht22-imlNKzNkfHjobV6WKdkyb7ydSi5X6WG8EsCH7L0PFo4yP8Q==)
+[2] [weweb.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5pWvpP-kn52wuW4e025rfkn3pTiMJS2yKVpUs_IGN673uZYE9dM0VPbUGRoJGJgtxU5C2JGSRyX5rPROnXb4DqNxOf_UdGbHkZdmWq9h1xcKpPO7hqgFwFQ8TxgNY6kxZ20CsB1XgjxxHn-Bv7hmW3UABcsoavVaVYZEvm57m3ms=)
+[3] [weweb.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5pWvpP-kn52wuW4e025rfkn3pTiMJS2yKVpUs_IGN673uZYE9dM0VPbUGRoJGJgtxU5C2JGSRyX5rPROnXb4DqNxOf_UdGbHkZdmWq9h1xcKpPO7hqgFwFQ8TxgNY6kxZ20CsB1XgjxxHn-Bv7hmW3UABcsoavVaVYZEvm57m3ms=)
+[4] [supabase.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEonsWvjGSvu3t4R76NmVLj1U_6XNVwWXa3MxQdH2O2otZjdnrnds8-sGD8kDvxPsdBS-hGXYkjCwYTuRlVH3YLOwJxLQn59xdOKhH9x9r2Y_PoeG8j044LHDx5XOwANK1rj2mSbgLu)
+[5] [supabase.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGg9Qb16HO44FKqGt39dWNmUo3zgBCrrPrG6RkIiIpsL1-_K_VZA78rJijabYArypyM9q9EWgAzV9TaKdiyZmwvyy2MNVrab-1vkKfbtD0RtRX2MB6qMic7wnv3atHqcVAaurWhTwcpgoN7jWnVTHhghzhs)
+[6] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHphynUQJZBlwxJk1_DTftIJgW76zDrl3BkyGAtX_5LVywnu_1hDvMR6XMC6ruZ-x8AJtkNVj1_-DLdGteAmeuXL52XWfd6Jz_Hx61Wzw6Ug8hu77Qu8ljC8DEuKk1aj_whXPfLYoTGkFwltkWHfY7OvP-KHtwW3kgpxQR70sn7ZP9ephko3Y277HXT)
+[7] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvy3sSVDCDdQlsMFcU9OGtOh_0MZBaJld8LCtmENKYQwjLlJjpK3tbuG-ywl15FaPZRVzSnpdsmGtCyVRkUDgdNoPNQ9XKDec9ZUrMM0IraFS6IWjhcWE8vL8eEm4kbA9kNx3HXRv5Eg==)
+[8] [refine.dev](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhmlEvEo4MJNRn0xPgvSkg3TkQoeuO1zob81CUfqJFjsLBA88mElC5KtR-L7yzU6_h3SrVsUHzpqM0i7_PCXxkf0j273uxeV-ppR6qtnWoy7ddjasKRQlxd0lNdSLEqQ7g23cVdW5beiPIop0drLFUyWacklrncxubVg==)
+[9] [reddit.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYIfScDbX1EEbS1E3ohoFB9RykciPjVfAiYnxs6Qh_EDuLcqtocx45rv5c8SqqGji2Ad6kWXxMUaPX5iYAI4Ebr2wgSfvpR0JaVjvDxk-QhH8726Ep9TMUCUMxoOphPh6AfNsJRaq8DwyxlRt0sBAi-ryRmoslPrdH6GugoTSxE-voyrNkfPFNNavKNMw7mK7XGWvatOLhihhhjQ==)
+[10] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvy3sSVDCDdQlsMFcU9OGtOh_0MZBaJld8LCtmENKYQwjLlJjpK3tbuG-ywl15FaPZRVzSnpdsmGtCyVRkUDgdNoPNQ9XKDec9ZUrMM0IraFS6IWjhcWE8vL8eEm4kbA9kNx3HXRv5Eg==)

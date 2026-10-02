@@ -1,0 +1,6 @@
+The search for ""zustand" npm version 2026" returned the following summary:
+As of September 2026, the latest version of **zustand** on npm is **5.0.15**[1][2].
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZO-o5Ns-qKO7OwEf4DrBU6M3vLd8d0_p3s1us5HMUdbwYRw6vL2Ufo_jwHootz_EbD6CUvj7Iw5PoOi2Iu3-KI-nP_7manF789L1e-YJ-FAag60vFmU0p4CgEv2JcBT6yNagOzy8ZM_Nr5iD6kw==)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGfjMgmmss46CGPA2voerf60zTZOSG60u8jdFmX2KwkM8oHiJnrj9qApG5hN63Cj9VOt7wUl1J-0nSaM1G5CrhyRFkjWhrHwvEIocg_HmodtQyRe-x3yzvYlsPu)

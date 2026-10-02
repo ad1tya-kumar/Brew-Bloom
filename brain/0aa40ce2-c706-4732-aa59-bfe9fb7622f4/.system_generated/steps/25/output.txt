@@ -1,0 +1,11 @@
+
+Encountered error in step execution: context canceled
+Output:
+The `msstore` source requires that you view the following agreements before using.
+Terms of Transaction: https://aka.ms/microsoft-store-terms-of-transaction
+The source requires the current machine's 2-letter geographic region to be sent to the backend service to function properly (ex. "US").
+
+Do you agree to all the source agreements terms?
+[Y] Yes  [N] No: An unexpected error occurred while executing the command: 
+0x8a150042 : Error reading input in prompt
+

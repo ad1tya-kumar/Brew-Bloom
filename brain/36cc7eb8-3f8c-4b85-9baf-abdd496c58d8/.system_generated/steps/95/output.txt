@@ -1,0 +1,18 @@
+
+The command exited with code 1.
+Output:
+
+> lifechart@1.0.0 build
+> tsc -b && vite build
+
+src/pages/DashboardPage.tsx(158,20): error TS2304: Cannot find name 'ArrowRight'.
+src/pages/DashboardPage.tsx(181,14): error TS2304: Cannot find name 'recentRecords'.
+src/pages/DashboardPage.tsx(181,33): error TS7006: Parameter 'rec' implicitly has an 'any' type.
+src/pages/DashboardPage.tsx(206,16): error TS2304: Cannot find name 'Bell'.
+src/pages/DashboardPage.tsx(215,14): error TS2304: Cannot find name 'activeReminders'.
+src/pages/DashboardPage.tsx(215,35): error TS7006: Parameter 'rem' implicitly has an 'any' type.
+src/pages/DashboardPage.tsx(221,20): error TS2304: Cannot find name 'Pill'.
+src/pages/DashboardPage.tsx(259,8): error TS2304: Cannot find name 'DPDPComplianceBadge'.
+src/pages/DoctorSummaryPage.tsx(264,34): error TS2304: Cannot find name 'currentUser'.
+src/pages/DoctorSummaryPage.tsx(355,8): error TS2304: Cannot find name 'DPDPComplianceBadge'.
+

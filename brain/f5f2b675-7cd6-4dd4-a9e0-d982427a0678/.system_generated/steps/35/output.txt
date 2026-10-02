@@ -1,0 +1,32 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\brain\f5f2b675-7cd6-4dd4-a9e0-d982427a0678\implementation_plan.md. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -617,4 +617,26 @@
+ - [ ] Recurring illness alert appears for UTI (2019 → 2022)
+ - [ ] Bottom nav works on mobile, sidebar on desktop
+ - [ ] All colors pass WCAG AA contrast (elderly-friendly)
++
++---
++
++## Critical Gotchas & Notes (from Research)
++
++> [!CAUTION]
++> **Supabase RLS Performance**: In RLS policies, always write `patient_id = (SELECT auth.uid())` instead of `patient_id = auth.uid()`. The `(SELECT ...)` wrapper tells PostgreSQL to evaluate the auth identity **once per query** rather than re-evaluating for every row — massive performance difference on large tables.
++
++> [!WARNING]
++> **Tesseract.js Memory**: The WASM binary + Hindi/English traineddata weighs 5-15MB. Always call `await worker.terminate()` after OCR to prevent memory leaks on mobile. Run OCR in a Web Worker to avoid freezing the UI. Show progress bar with `aria-live="polite"` for accessibility.
++
++> [!NOTE]
++> **Web Speech API**: Chrome Desktop/Android has full support. Safari iOS and Firefox have limited/no `SpeechRecognition`. Hindi speech (`hi-IN`) requires internet on Chrome (routed to Google's servers). Always feature-detect and provide text input fallback.
++
++> [!WARNING]
++> **ABDM Sandbox**: Never expose Client Secret in frontend code. All ABDM Gateway calls must go through a backend proxy (Supabase Edge Functions). Sandbox tokens expire frequently — the mock fallback mode ensures frontend development is never blocked by sandbox downtime.
++
++> [!IMPORTANT]
++> **DPDP Act 2023 Compliance**: Health records are "sensitive personal data" under Indian law. Never store Aadhaar. Medical image URLs from Supabase Storage must use signed URLs expiring in 5-15 minutes, not permanent public URLs. Display Aadhaar only as `XXXX-XXXX-1234` if ever shown.
++
++> [!TIP]
++> **Modern Web APIs to use**: Native `<dialog>` element for modals (free focus trapping + Escape-to-close), CSS `:user-valid`/`:user-invalid` for form validation (styles only after interaction), CSS Container Queries for adaptive health widgets, `content-visibility: auto` for long timeline lists.
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

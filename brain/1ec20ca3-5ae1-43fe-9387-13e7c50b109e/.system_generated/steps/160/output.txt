@@ -1,0 +1,30 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\services\store.ts. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -513,9 +513,9 @@
+       allProfiles: {
+         'patient-rajesh': SEED_PATIENT,
+         'doctor-priya': SEED_DOCTOR,
+-        'family-anita': SEED_FAMILY_PROFILES[0],
+-        'family-aarav': SEED_FAMILY_PROFILES[1],
+-        'family-savitri': SEED_FAMILY_PROFILES[2],
++        'family-anita': SEED_FAMILY_PROFILES[0]!,
++        'family-aarav': SEED_FAMILY_PROFILES[1]!,
++        'family-savitri': SEED_FAMILY_PROFILES[2]!,
+       },
+       records: INITIAL_HEALTH_RECORDS,
+       vaccinations: INITIAL_UIP_VACCINES,
+@@ -524,9 +524,9 @@
+       isAbdmSyncing: false,
+ 
+       setRole: (role) => {
+-        let user = SEED_PATIENT;
++        let user: Profile = SEED_PATIENT;
+         if (role === 'doctor') user = SEED_DOCTOR;
+-        else if (role === 'family_manager') user = SEED_FAMILY_PROFILES[0];
++        else if (role === 'family_manager') user = SEED_FAMILY_PROFILES[0]!;
+         set({ currentRole: role, currentUser: user });
+       },
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

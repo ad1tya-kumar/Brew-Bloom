@@ -1,0 +1,44 @@
+The search for ""ABDM" FHIR R4 JSON prescription lab report mock data India format" returned the following summary:
+For developers working with the Ayushman Bharat Digital Mission (ABDM) ecosystem, health records must be structured as **FHIR R4 Bundles**[1][2][3]. These bundles use specific profiles defined by the National Resource Centre for EHR Standards (NRCeS)[4][5].
+
+### Where to Find Official Examples
+The most reliable source for "India format" mock data is the **NRCeS FHIR Implementation Guide (IG)**[1][2]. You can access the official JSON representations directly:
+
+*   **Prescription Record:** [View Official Prescription-example-06](https://nrces.in/ndhm/fhir/r4/StructureDefinition/PrescriptionRecord) (Look for the "Examples" tab on the page)[1][6].
+*   **Diagnostic Report (Lab):** [View Official DiagnosticReport-Lab-example-03](https://nrces.in/ndhm/fhir/r4/StructureDefinition/DiagnosticReportLab) (Look for the "Examples" tab)[2][7].
+
+### Key Structure Requirements
+When creating your own mock data, ensure your JSON complies with these ABDM-specific standards:
+
+1.  **Bundle Type:** Must use `resourceType: "Bundle"` with `type: "document"`[1][2][8].
+2.  **Profile Binding:** Every resource must reference the correct ABDM profile in the `meta.profile` field[1][2][9]:
+    *   **Prescription:** `https://nrces.in/ndhm/fhir/r4/StructureDefinition/PrescriptionRecord`[6]
+    *   **Diagnostic Report:** `https://nrces.in/ndhm/fhir/r4/StructureDefinition/DiagnosticReportRecord`[10]
+3.  **Identifiers:**
+    *   **Patient:** Use the ABHA number (system: `https://healthid.ndhm.gov.in`)[11].
+    *   **Facility:** Use the HFR ID (system: `https://facility.ndhm.gov.in`)[11].
+4.  **Clinical Coding:** 
+    *   Diagnostic reports should use **LOINC** codes for lab observations[12][7].
+    *   Ensure each test result is an individual `Observation` resource linked within the `DiagnosticReport`[12][7].
+
+### Community Resources
+For "copy-paste" ready, production-style examples that are often easier to read than the official spec pages, you can refer to community-maintained repositories[11][13]:
+*   **GitHub Repository:** [Nirmitee-tech/abdm-fhir-bundle-examples](https://github.com/Nirmitee-tech/abdm-fhir-bundle-examples) provides simplified JSON bundles for various `hiTypes` including `Prescription` and `DiagnosticReport`[11][13].
+
+### Validation Tool
+Before submitting data, always validate your JSON against the ABDM IG using the [FHIR Validator](https://fhir.co.in/)[4]. This tool specifically checks if your resources conform to the Indian implementation requirements[4].
+
+Sources:
+[1] [nrces.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0iUpFhmf90hK9h03z-1gbB0HWLacGVCUMa7PNKSdp-b-QdQsg0pK6wGzGOM1sxrURV8Ig4TaDcnIld-MG2z3JNBwWbDWCn9-hF8ZgDixgZMxdmjUCm2bEoxqE-v4cB_xgckw65KUt0-Rtizh4eqXwd9MlCP_tnarEy5C3LQXZvw==)
+[2] [nrces.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFHKbEymUqhmvQ4718YhknumSsgcaeNRu9e0yNH-vNEUAW7qSTjiMUlDA3gTuKVVFCW1Th1PI6Hzh6Ch3ChF_zp0aPBNb6hv1IdXEQTWXOjSgq_27es_IoDsBcEaqmEoHeBkj4hS5rTKyUd_IpijmAA1neowrzAWJ2GVMsj_o_mrtEtc-TXoolB)
+[3] [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFecNTX4gVkpkIrfl01iHphRU51gQXhV6asj3Gvco4bcu0Lkpo85DETUvtnw_MHPMJ6xCM7hZqwMU7vWRuUGZsQUaFdC2roBlSf6crm-U6yYh3L_4cO8Ge4b0S5Okz6qSLD)
+[4] [fhir.co.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH83NJAyx-k3gxqRONm90ywPUN8NeH0LmRRX0IPhs-QuTVtpCZEbYbRCgoZ3ShB20Zngp4ifl9eV1YrwCKr2yNrKWaB_USJRNan)
+[5] [nrces.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6d8Ba4kmEpOSpVaslatFKDb4XDPCQ9oO0dEXVsLDGOO81XcC3hifoewhvpWEaNbB_ri2zJRjrYck3lRKYwzlLy3vUDo-Slo5JAtNW2DzDFG0vIER3bRFmcUtb0ZcE-pdQuQ==)
+[6] [nrces.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHPqMpMEZyHnk2geWWop8NmxHUQ9DS5s2dXHD6cHnQyykG5EJCQ_mIMCIFZ_HwuEL0rd0cfJVt6VqB_nJVwP9hu6ak0b4dveCoSO4PyHST91C01aA6TNL_rEiwYtHHf_M6ymoxeNZfoCE38nYKuQgXprrd_9ztiMzN1QuHSfTxgYfthGw==)
+[7] [nrces.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFtakK4KQk1OgxyXuUtKyaNYGfjvp0UgXjzyqxrKXCw3KbYYwcTrRsTwyepYIChcUwTUDrtkQcg0KVw07PuOqJcCYGmNaAbwSd33CwSrGc9-Gl7S4D3DoyEevtYFqmhoQk1LAkHrMnWqbaZIGj2D1wl4Jo1yEuLxgB3-pkWJYKxjfdxYXQ=)
+[8] [ihe.net](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG4d3rCafJX60r14wyOZFBXf5qX-fKTnIV3LmReLTKzKoy5bD8NWvDO7tZI2znFnSvo4IyKY9caLf80zwGheo0JMdmIbEIrFcm8-92uAx_BIDRjrgReybOfL9vsXDhnq_51aKE3mAYiwEZnzo9btBrQRlAImneuQ_wK0OfHe1_L)
+[9] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQSmM62UT-WmU2FmIv33AJTChQs-ISu_TUqkE8qAUlsDIfoaBFN7CCeKYlQw3lid07unlad3Vj9aIUCPizOJfpuLUW4CxXMXj8JqNEwYCjRKnZCwVxMYKfU8sP5aF9qZX6PN7e9htmorjLjUhly5NvrpNdaKKIZxwJJx4E6a3TX222lUf-P5KhokT5yX0=)
+[10] [nrces.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNTV775LygyIYMCxKGWqhS08bNhqQkt-UlndCAm_ASC09QIazeufKEhY8bwex5BtMy5-qVH8maRk3c1MEEbkeCLpNHZGt3zbnzCLa_I_4XYZOdsy-pbKSAhtsiyQXp0DMdPtCEL-_Rdg2DzBLa)
+[11] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_Lq2HalNKS4CNDuJs7hR42MsuXUI_8s2i--5cv72JbYRAKkBYQZZPAeaW3HHnf3UtUyxd_MfpawKvm5L6Gjm-WTS1cy4uwHYV7F7sNVYvmwyWPHa2gby3D5n2G6-gaNAT2rnlwoo89Ebyb8zIHyOI)
+[12] [nirmitee.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYDs_77MXXr5hZlrcKVK8AAaqLGBVBhKRxiuGxwzfGHBqobheYPzIjI-IL4h0t-apPP2ncxoGBN5bvRwjOWS4ZfhqxK6cciPKPcMW4Wu64s1G_SmHKMl6jkt024csUmiWxasheDmky_Sni9Q3nDQKo4pJd16ori2hf1vWPmyHnb3fwzroaaYSHhjkoF2Wi)
+[13] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_Lq2HalNKS4CNDuJs7hR42MsuXUI_8s2i--5cv72JbYRAKkBYQZZPAeaW3HHnf3UtUyxd_MfpawKvm5L6Gjm-WTS1cy4uwHYV7F7sNVYvmwyWPHa2gby3D5n2G6-gaNAT2rnlwoo89Ebyb8zIHyOI)

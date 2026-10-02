@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+PATH updated. Testing node & npm:
+v20.18.0
+10.8.2
+

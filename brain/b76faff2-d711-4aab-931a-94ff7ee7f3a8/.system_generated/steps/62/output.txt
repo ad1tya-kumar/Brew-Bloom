@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+
+Name              Length Mode  
+----              ------ ----  
+node_modules             d-----
+.gitignore        56     -a----
+index.html        52573  -a----
+package-lock.json 36986  -a----
+package.json      489    -a----
+script.js         11880  -a----
+style.css         34908  -a----
+vercel.json       861    -a----
+
+
+

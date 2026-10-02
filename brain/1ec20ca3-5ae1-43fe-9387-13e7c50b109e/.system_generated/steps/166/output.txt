@@ -1,0 +1,23 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\services\store.ts. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -669,7 +669,7 @@
+         const newRecord: HealthRecord = {
+           id: recordId,
+           patient_id: state.activePatientId,
+-          record_date: now.split('T')[0],
++          record_date: now.split('T')[0]!,
+           record_type: 'prescription',
+           title: `OPD Consultation - ${state.currentUser.full_name}`,
+           title_hi: `ओपीडी परामर्श - ${state.currentUser.full_name_hi || state.currentUser.full_name}`,
+@@ -709,7 +709,7 @@
+       },
+ 
+       updateVaccinationStatus: (id: string, status: VaccinationStatus) => {
+-        const now = new Date().toISOString().split('T')[0];
++        const now = new Date().toISOString().split('T')[0]!;
+         set((state) => ({
+           vaccinations: state.vaccinations.map((v) =>
+             v.id === id
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

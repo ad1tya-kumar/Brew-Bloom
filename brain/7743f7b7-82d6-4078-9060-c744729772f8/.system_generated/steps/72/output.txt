@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+$(subexpression) is missing the closing ')'.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : IncompleteDollarSubexpressionReference
+ 
+

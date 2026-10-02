@@ -1,0 +1,56 @@
+The search for ""supabase edge functions" secrets "Deno.env.get" "supabase.functions.invoke" cors" returned the following summary:
+To effectively manage secrets and handle CORS in Supabase Edge Functions, follow the guidelines below.
+
+### 1. Using Secrets with `Deno.env.get`
+Supabase Edge Functions use the Deno runtime, which allows you to access environment variables (secrets) securely using `Deno.env.get()`.
+
+*   **Setting Secrets:**
+    *   **Production:** Use the Supabase CLI: `supabase secrets set MY_SECRET_NAME=value`.
+    *   **Local Development:** Create a `.env` file inside your `supabase/functions/` directory. **Crucially, add this file to your `.gitignore`** to prevent sensitive data from being committed to version control.
+*   **Accessing Secrets:**
+    Inside your function, access the value using the key name:
+    ```typescript
+    const mySecret = Deno.env.get('MY_SECRET_NAME');
+    if (!mySecret) {
+      throw new Error('Missing MY_SECRET_NAME');
+    }
+    ```
+*   **Best Practice:** If you have many secrets, consider grouping them into a single JSON-encoded secret to stay within the 100-secret limit. Parse it in your code using `JSON.parse(Deno.env.get('MY_GROUPED_SECRETS')!)`.
+
+---
+
+### 2. Handling CORS in `supabase.functions.invoke`
+By default, Edge Functions do not automatically include CORS headers. If you invoke them from a browser, you must manually handle `OPTIONS` (preflight) requests and include the appropriate headers in your responses.
+
+*   **Recommended Approach (Supabase SDK v2.95.0+):**
+    Import the standard CORS headers directly from the Supabase SDK to ensure compatibility.
+    ```typescript
+    import { corsHeaders } from 'jsr:@supabase/supabase-js/cors';
+
+    Deno.serve(async (req) => {
+      // Handle CORS preflight request
+      if (req.method === 'OPTIONS') {
+        return new Response('ok', { headers: corsHeaders });
+      }
+
+      // Your logic here
+      return new Response(JSON.stringify({ message: 'Success' }), {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    });
+    ```
+
+*   **Custom CORS Implementation (If not using the SDK helper):**
+    If you are on an older version or prefer manual control, create a shared file (e.g., `_shared/cors.ts`):
+    ```typescript
+    export const corsHeaders = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    };
+    ```
+    Then, ensure your function checks for `req.method === 'OPTIONS'` and returns a `204` or `200` response with these headers.
+
+### Troubleshooting
+*   **CORS Errors:** If you see CORS errors in the browser, verify that your function explicitly handles the `OPTIONS` request. If the preflight request fails, the main `POST` request will never be sent.
+*   **Function Invocation:** When using `supabase.functions.invoke()`, ensure your function code returns the necessary headers in both the preflight `OPTIONS` response and the final successful response.

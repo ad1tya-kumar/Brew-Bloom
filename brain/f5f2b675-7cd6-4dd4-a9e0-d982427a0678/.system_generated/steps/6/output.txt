@@ -1,0 +1,41 @@
+The search for "Supabase React Vite project setup 2025 best practices row level security health app schema" returned the following summary:
+To build a secure, scalable React + Vite + Supabase health application in 2025, follow these architectural best practices that prioritize security-first design and maintainable project structure.
+
+### 1. Project Setup (React + Vite + TypeScript)
+*   **Initialization:** Use the standard Vite template: `npm create vite@latest my-health-app -- --template react-ts`.
+*   **Client Library:** For client-side rendered (CSR) React apps, use the `@supabase/supabase-js` library. Avoid unnecessary SSR helper packages unless you are implementing Server-Side Rendering.
+*   **Environment Variables:** Store your `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in a `.env.local` file.
+*   **Folder Structure:** Adopt a modular, feature-based structure to ensure scalability:
+    *   `/src/services/supabase.ts`: Centralized client initialization.
+    *   `/src/hooks/`: Custom hooks for data fetching (often paired with TanStack Query).
+    *   `/src/types/`: Shared TypeScript interfaces for your database schema.
+    *   `/src/components/`: Reusable UI components (e.g., using Shadcn/UI).
+
+### 2. Database Schema Design (Health App Focus)
+*   **Naming Conventions:** Use `snake_case` for tables and columns, and keep table names plural (e.g., `profiles`, `health_records`, `vitals`).
+*   **Data Types:**
+    *   Use `TIMESTAMPTZ` for all timestamps to handle time zones correctly.
+    *   Use `UUID` for primary keys (not `SERIAL` or integers) to support distributed systems and better security.
+    *   Use `TEXT` instead of `VARCHAR(n)` unless you have a strict reason to enforce length limits.
+*   **Security:** Enable **Row Level Security (RLS)** on *every* table. If a table is exposed to your frontend, it must have RLS policies.
+
+### 3. Row Level Security (RLS) Best Practices
+RLS acts as your application’s primary security layer. Because your frontend connects directly to the database, your policies define who can see or change data.
+
+*   **Deny by Default:** Always enable RLS and start with a "deny all" approach. Explicitly grant access only as needed.
+*   **Use `auth.uid()`:** The most common pattern for health apps is to restrict access so users only see their own records:
+    ```sql
+    CREATE POLICY "Users can view their own health data"
+    ON health_records FOR SELECT
+    TO authenticated
+    USING (auth.uid() = user_id);
+    ```
+*   **Security Definer Functions:** If you need to perform actions that require elevated privileges (e.g., a user viewing aggregated health data across their family), use `SECURITY DEFINER` functions in a private schema with a restricted `search_path`.
+*   **Avoid Over-Permissive Policies:** Never use `USING (true)` for authenticated roles on sensitive tables.
+*   **Performance Optimization:** Index the columns used in your policies (e.g., `CREATE INDEX ON health_records(user_id);`). Without indexes, RLS can cause significant query latency as your data grows.
+*   **Testing:** Always test your policies with a real user token, not as a database admin, as the `postgres` role (used in the SQL Editor) bypasses RLS.
+
+### 4. Security Checklist
+*   **Service Role Key:** **Never** use the `service_role` key on the frontend. It bypasses all RLS policies and exposes your entire database.
+*   **Auth Metadata:** Do not store sensitive authorization roles in `raw_user_meta_data`, as users can modify their own metadata. Use a separate `profiles` or `user_roles` table that is protected by RLS.
+*   **Join Queries:** Remember that RLS is applied to each table individually. If you `JOIN` tables, ensure both the source and the joined table have appropriate policies, or your data may be filtered out unexpectedly.

@@ -1,0 +1,42 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\pages\UploadReviewPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -9,13 +9,9 @@
+   UploadCloud,
+   FileText,
+   CheckCircle2,
+-  AlertCircle,
+   Plus,
+   Trash2,
+   Sparkles,
+-  Calendar,
+-  Building,
+-  User,
+   Pill,
+   ArrowRight,
+   RefreshCw,
+@@ -22,8 +22,7 @@
+ import type { OCRStructuredData } from '../types/health';
+ 
+ export const UploadReviewPage: React.FC = () => {
+-  const { t, i18n } = useTranslation();
+-  const isHi = i18n.language === 'hi';
++  const { t } = useTranslation();
+   const navigate = useNavigate();
+   const { addHealthRecord, activePatientId } = useAppStore();
+   const { isProcessing, progress, statusText, processImage } = useOCR();
+@@ -30,4 +30,3 @@
+-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+   const [extractedData, setExtractedData] = useState<OCRStructuredData | null>(null);
+   const [rawSampleText, setRawSampleText] = useState<string>('');
+@@ -35,7 +35,6 @@
+   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+     const file = e.target.files?.[0];
+     if (file) {
+-      setSelectedFile(file);
+       const url = URL.createObjectURL(file);
+       setPreviewUrl(url);
+       runOCR(file);
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

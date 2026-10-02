@@ -1,0 +1,38 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\pages\RemindersPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -10,8 +10,6 @@
+   MicOff,
+   Plus,
+   Trash2,
+-  CheckCircle2,
+-  AlertCircle,
+ } from 'lucide-react';
+ import type { ReminderType } from '../types/health';
+ 
+@@ -26,7 +26,7 @@
+   const [timeOfDay, setTimeOfDay] = useState('08:00 AM');
+ 
+   // Web Speech API hook
+-  const { isListening, transcript, error: voiceError, startListening, stopListening } =
++  const { isListening, error: voiceError, startListening, stopListening } =
+     useVoiceInput({
+       language: isHi ? 'hi-IN' : 'en-IN',
+       onResult: (text) => {
+@@ -38,7 +38,7 @@
+     if (!title.trim()) return;
+ 
+     addReminder({
+-      patient_id: activePatientId,
++      patient_id: activePatientId || 'patient-rajesh',
+       title: title.trim(),
+       reminder_type: reminderType,
+       frequency,
+@@ -45,4 +45,4 @@
+-      start_date: new Date().toISOString().split('T')[0],
++      start_date: new Date().toISOString().split('T')[0]!,
+       is_active: true,
+     });
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

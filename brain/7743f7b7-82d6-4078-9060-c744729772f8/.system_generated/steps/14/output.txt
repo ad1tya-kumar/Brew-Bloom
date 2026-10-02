@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+
+
+    Directory: C:\Users\Lenovo\.gemini\antigravity\scratch
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         9/15/2026  11:12 PM                bhashasetu-ai                                                        
+
+
+

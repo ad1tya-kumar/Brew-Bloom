@@ -1,0 +1,30 @@
+The search for "Tesseract.js 7 Hindi English OCR prescription medical document extraction 2025" returned the following summary:
+Tesseract.js has reached **version 7.0.0**, released in December 2025, bringing significant performance improvements, including a 15–35% increase in runtime speed through optimized WebAssembly and new "relaxed SIMD" builds.
+
+For medical document extraction involving both Hindi and English, here is the current landscape and best practices as of September 2026.
+
+### 1. Tesseract.js Capabilities (v7+)
+*   **Multilingual Support:** Tesseract supports over 100 languages, including Hindi (Devanagari script) and English. You can load both language sets simultaneously to handle bilingual prescriptions.
+*   **Performance:** The move to v7.0.0 provides a more efficient, browser-based experience. Since it uses WebAssembly, it can run client-side, which is beneficial for privacy-sensitive medical documents as images do not need to be uploaded to a server.
+*   **Limitations:** While excellent for printed text, Tesseract (including v7) is primarily an **OCR engine, not a specialized handwriting recognizer**. Medical prescriptions, which are often handwritten, present significant challenges for standard OCR.
+
+### 2. Best Practices for Medical Prescription Extraction
+Given that medical documents often feature cursive handwriting, technical abbreviations, and mixed languages, standard OCR alone often yields low accuracy. Experts recommend a **Hybrid Pipeline**:
+
+*   **Pre-processing (Crucial):** Before feeding the image to Tesseract, use image processing techniques (e.g., using Canvas API or OpenCV.js) to:
+    *   Convert to grayscale.
+    *   Apply Otsu’s binarization (to create a high-contrast black-and-white image).
+    *   Remove noise and shadows.
+    *   This can improve raw recognition accuracy by 15–30%.
+*   **Hybrid OCR-NLP Approach:**
+    *   **Stage 1 (Extraction):** Use Tesseract.js to extract the raw text.
+    *   **Stage 2 (Correction/Post-processing):** Use a Large Language Model (LLM) or a specialized NLP model (like BERT-based error correction) to parse the raw OCR output. These models can map misspelled pharmaceutical terms and recognize medical dosages, significantly correcting "hallucinated" characters from the OCR.
+*   **Specialized Models:** For purely handwritten prescriptions, consider using domain-specific models like **Donut (Document Understanding Transformer)** or fine-tuned vision-encoder-decoder models (e.g., `chinmays18/medical-prescription-ocr` on Hugging Face), which are often more robust for medical notes than general-purpose OCR.
+
+### 3. Implementation Tips
+*   **Language Data:** When using Tesseract.js, ensure you initialize the worker with both language codes: `await worker.loadLanguage('eng+hin')`.
+*   **Devanagari Specifics:** Because Hindi characters can be complex (with vowels/diacritics sometimes appearing before consonants), verify that you are using the latest `hin.traineddata` files. Community-maintained models (such as those from the *Indic-OCR* project) often provide better accuracy for Indic scripts than standard versions.
+*   **Privacy:** Since medical documents are sensitive, Tesseract.js is a preferred choice because the processing happens locally in the user's browser, keeping data off your servers.
+
+### Summary
+While Tesseract.js v7 is a powerful, high-speed engine for printed bilingual documents, **do not rely on it as a standalone solution for handwritten prescriptions.** A successful 2025/2026 implementation should combine Tesseract.js for structural text extraction with an NLP/LLM-based post-processing layer to interpret medical terminology and correct handwriting errors.

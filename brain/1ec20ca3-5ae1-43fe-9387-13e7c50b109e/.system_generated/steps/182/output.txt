@@ -1,0 +1,29 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\lifechart\src\pages\LandingPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -3,7 +3,6 @@
+ import { Link } from 'react-router-dom';
+ import { ROUTES } from '../config/routes';
+ import {
+-  Activity,
+   Calendar,
+   Camera,
+   FileText,
+@@ -10,14 +10,10 @@
+-  Users,
+   ShieldCheck,
+   CheckCircle2,
+   ArrowRight,
+-  Sparkles,
+-  AlertTriangle,
+-  Lock,
+ } from 'lucide-react';
+ 
+ export const LandingPage: React.FC = () => {
+-  const { t, i18n } = useTranslation();
++  const { i18n } = useTranslation();
+   const isHi = i18n.language === 'hi';
+ 
+   const pillars = [
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

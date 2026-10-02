@@ -1,0 +1,48 @@
+
+The command exited with code 1.
+Output:
+
+> lifechart@1.0.0 build
+> tsc -b && vite build
+
+src/pages/DashboardPage.tsx(8,3): error TS6133: 'Activity' is declared but its value is never read.
+src/pages/DashboardPage.tsx(16,3): error TS6133: 'Heart' is declared but its value is never read.
+src/pages/DashboardPage.tsx(17,3): error TS6133: 'Droplet' is declared but its value is never read.
+src/pages/DashboardPage.tsx(18,3): error TS6133: 'ShieldCheck' is declared but its value is never read.
+src/pages/DashboardPage.tsx(20,3): error TS6133: 'Clock' is declared but its value is never read.
+src/pages/DashboardPage.tsx(28,61): error TS6133: 'currentRole' is declared but its value is never read.
+src/pages/DashboardPage.tsx(92,16): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(97,28): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(97,51): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(97,74): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(104,27): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(107,38): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(109,32): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(111,31): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(120,65): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(124,68): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DashboardPage.tsx(128,69): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(9,3): error TS6133: 'Clock' is declared but its value is never read.
+src/pages/DoctorSummaryPage.tsx(11,3): error TS6133: 'PlusCircle' is declared but its value is never read.
+src/pages/DoctorSummaryPage.tsx(14,3): error TS6133: 'Building' is declared but its value is never read.
+src/pages/DoctorSummaryPage.tsx(15,3): error TS6133: 'User' is declared but its value is never read.
+src/pages/DoctorSummaryPage.tsx(29,5): error TS6133: 'currentRole' is declared but its value is never read.
+src/pages/DoctorSummaryPage.tsx(58,19): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(91,16): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(96,28): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(96,51): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(96,74): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(99,20): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(103,24): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(103,80): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(131,12): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(133,16): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(159,12): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/DoctorSummaryPage.tsx(161,16): error TS18048: 'patient' is possibly 'undefined'.
+src/pages/UploadReviewPage.tsx(51,7): error TS2304: Cannot find name 'setSelectedFile'.
+src/pages/UploadReviewPage.tsx(62,5): error TS2322: Type '{ name?: string | undefined; dosage?: string; frequency?: string; duration_days?: number; }' is not assignable to type '{ name: string; dosage?: string | undefined; frequency?: string | undefined; duration_days?: number | undefined; }'.
+  Types of property 'name' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/pages/UploadReviewPage.tsx(248,19): error TS2304: Cannot find name 'setSelectedFile'.
+

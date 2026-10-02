@@ -1,0 +1,139 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\brew-and-bloom\index.html. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -626,7 +626,7 @@
+             </div>
+ 
+             <div class="form-group" id="localityFieldGroup">
+-              <label class="form-label" for="custLocality">Locality / Street / Landmark *</label>
++              <label class="form-label" for="custLocality">Locality / Street *</label>
+               <input type="text" id="custLocality" class="form-input" placeholder="e.g. City Centre Road, Haldia" required />
+               <div class="form-error-msg">Please enter locality</div>
+             </div>
+@@ -633,3 +633,8 @@
++            <div class="form-group" id="landmarkFieldGroup">
++              <label class="form-label" for="custLandmark">Landmark (Optional)</label>
++              <input type="text" id="custLandmark" class="form-input" placeholder="e.g. Near City Clock Tower" />
++            </div>
++
+             <div class="form-group" id="pincodeFieldGroup">
+               <label class="form-label" for="custPin">PIN Code *</label>
+               <input type="text" id="custPin" class="form-input" placeholder="721657" pattern="[0-9]{6}" required />
+@@ -636,7 +636,13 @@
+             </div>
+ 
++            <!-- Table / Seating info for Dine-in (Shown only when Dine-In selected) -->
++            <div class="form-group form-group-full" id="tableFieldGroup" style="display:none;">
++              <label class="form-label" for="custTable">Table Number / Seating Preference (Optional)</label>
++              <input type="text" id="custTable" class="form-input" placeholder="e.g. Table 4 / Window corner booth" />
++            </div>
++
+             <div class="form-group form-group-full">
+-              <label class="form-label" for="custNotes">Special Delivery / Cooking Instructions (Optional)</label>
++              <label class="form-label" for="custNotes">Delivery / Cooking Instructions (Optional)</label>
+               <input type="text" id="custNotes" class="form-input" placeholder="e.g. Less spicy, ring the doorbell twice, please keep at the door" />
+             </div>
+           </div>
+@@ -645,11 +645,11 @@
+             <label class="form-label">Payment Method *</label>
+             <div class="payment-options-grid">
+               <label class="payment-card-option active">
+-                <input type="radio" name="paymentMethod" value="cod" checked style="accent-color:var(--vibrant-orange);" />
++                <input type="radio" name="paymentMethod" value="Cash on Delivery" checked style="accent-color:var(--vibrant-orange);" />
+                 <span class="payment-icon">💵</span>
+                 <div>
+                   <div class="payment-name">Cash on Delivery / Pickup</div>
+-                  <div class="payment-desc">Pay cash or UPI on delivery</div>
++                  <div class="payment-desc">Pay cash or UPI upon delivery</div>
+                 </div>
+               </label>
+ 
+@@ -656,34 +656,10 @@
+-                <input type="radio" name="paymentMethod" value="upi" style="accent-color:var(--vibrant-orange);" />
++                <input type="radio" name="paymentMethod" value="UPI Payment" style="accent-color:var(--vibrant-orange);" />
+                 <span class="payment-icon">📱</span>
+                 <div>
+-                  <div class="payment-name">Instant UPI Payment</div>
+-                  <div class="payment-desc">Pay via GPay, PhonePe, Paytm (Demo/Live)</div>
+-                </div>
+-              </label>
+-            </div>
+-
+-            <!-- Dynamic UPI Details Box (Shown when UPI is selected) -->
+-            <div id="upiPaymentDetailsBox" style="display:none; margin-top:1rem; background:var(--warm-cream); border:1.5px dashed var(--vibrant-orange); border-radius:var(--radius-md); padding:1.25rem;">
+-              <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
+-                <div>
+-                  <h4 style="color:var(--forest-green); margin-bottom:0.25rem;">📱 UPI Payment Link &amp; QR</h4>
+-                  <p style="font-size:0.85rem; color:var(--text-muted);">
+-                    Pay to: <strong id="upiVpaDisplay">yourname@upi</strong> (Brew &amp; Bloom Café)
+-                  </p>
+-                  <p style="font-size:0.75rem; color:var(--vibrant-orange); margin-top:0.4rem; max-width:38ch; line-height:1.4;">
+-                    ⚠️ Online payment is in demo mode. No payment gateway charges your bank account. Clicking "Place Order" records the order as <em>Pending Verification</em>.
+-                  </p>
+-                  <a href="#" id="btnUpiDeepLink" class="btn btn-sm btn-primary" style="margin-top:0.75rem;">
+-                    📲 Open UPI App on Mobile
+-                  </a>
+-                </div>
+-                <div style="text-align:center;">
+-                  <div style="background:#FFF; padding:6px; border-radius:8px; display:inline-block; border:1px solid var(--border-light);">
+-                    <img id="upiQrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=upi%3A%2F%2Fpay%3Fpa%3Dyourname%40upi%26pn%3DBrew%2520Bloom%2520Cafe%26am%3D200%26cu%3DINR" alt="UPI QR Code" width="110" height="110" style="display:block;" />
+-                  </div>
+-                  <small style="display:block; font-size:0.7rem; color:var(--text-muted); margin-top:3px;">Scan with Any UPI App</small>
+-                </div>
+-              </div>
++                  <div class="payment-name">UPI Payment</div>
++                  <div class="payment-desc">Pay via GPay, PhonePe, Paytm on confirmation</div>
++                </div>
++              </label>
+             </div>
+           </div>
+ 
+@@ -707,10 +707,43 @@
+             </div>
+           </div>
+ 
+-          <button type="submit" class="btn btn-primary checkout-btn" id="confirmOrderBtn" style="font-size:1.15rem; padding:1.05rem;">
+-            Place Order Now →
+-          </button>
++          <!-- WhatsApp Checkout Button -->
++          <button type="submit" class="btn btn-whatsapp checkout-btn" id="confirmOrderBtn" style="font-size:1.1rem; padding:1.05rem; width:100%;">
++            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="margin-right:4px;">
++              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
++            </svg>
++            <span id="confirmOrderBtnText">Place Order on WhatsApp</span>
++          </button>
++
++          <p class="whatsapp-checkout-help" style="font-size:0.85rem; color:var(--text-muted); margin-top:0.6rem; text-align:center;">
++            Your order details will open in WhatsApp. Review your order and press Send to confirm it with the café.
++          </p>
++
++          <p class="whatsapp-checkout-disclaimer" style="font-size:0.75rem; color:#856404; background:#FFF3CD; border:1px solid #FFEEBA; padding:0.65rem 0.95rem; border-radius:var(--radius-sm); margin-top:0.75rem; text-align:center; line-height:1.45;">
++            ⚠️ <strong>Please Note:</strong> Opening WhatsApp does not place the order automatically. Your order is confirmed only after you tap <strong>Send</strong> in WhatsApp and the café acknowledges it with your estimated delivery time.
++          </p>
+         </form>
++
++        <!-- Post-WhatsApp-Open Status Card (Shown after user triggers WhatsApp) -->
++        <div id="whatsappSentDialog" style="display:none; text-align:center; padding:1.5rem 0;">
++          <div style="font-size:3.2rem; margin-bottom:0.5rem;">📱</div>
++          <h3 style="color:var(--forest-green); font-size:1.4rem; margin-bottom:0.35rem;">WhatsApp Order Opened</h3>
++          <p style="font-size:1rem; font-weight:700; color:var(--espresso); margin-bottom:0.5rem;" id="dialogOrderId">Order ID: BB-123456</p>
++          <div style="background:var(--warm-cream); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1rem 1.25rem; max-width:480px; margin:0 auto 1.25rem; text-align:left; font-size:0.88rem; line-height:1.6; color:var(--text-dark);">
++            <p><strong>Next Step:</strong> Please switch to your WhatsApp window/app and tap <strong>Send</strong>.</p>
++            <p style="color:var(--text-muted); font-size:0.82rem; margin-top:0.4rem;">
++              The café team at Haldia will receive your message, confirm product availability, and reply with your estimated delivery/pickup time.
++            </p>
++          </div>
++          <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
++            <a href="#" id="dialogReopenWaLink" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-whatsapp">
++              📲 Re-open WhatsApp
++            </a>
++            <button type="button" class="btn btn-sm btn-forest" id="dialogDoneBtn">
++              Return to Store
++            </button>
++          </div>
++        </div>
+       </div>
+     </div>
+   </div>
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

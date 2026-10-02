@@ -1,0 +1,41 @@
+The search for ""best OCR libraries" browser client-side React Tesseract.js web worker 2025 OR 2026" returned the following summary:
+In 2026, the landscape for browser-based, client-side OCR has evolved to offer higher performance and better accuracy than legacy solutions, though **Tesseract.js** remains a standard for simple, offline-first use cases.
+
+### Top Client-Side OCR Options (2026)
+
+*   **Tesseract.js**:
+    *   **Status**: The most established open-source solution for browser OCR. It utilizes WebAssembly (WASM) to run the Tesseract engine directly in the browser[1].
+    *   **Best For**: Clean, printed text (documents, PDFs, screenshots) where you need a zero-cost, privacy-first, offline-capable solution[1][2].
+    *   **Limitations**: Struggles with complex layouts, tables, and handwriting[3][2]. It is generally slower than newer AI-native alternatives[4][2].
+    *   **Implementation**: Must use **Web Workers** to offload processing, otherwise the main thread will freeze during heavy computations[5][2].
+
+*   **Client-Side OCR (with ONNX/PaddleOCR)**:
+    *   **Status**: A modern, high-performance alternative to Tesseract.js that uses the ONNX Runtime to execute state-of-the-art models like PaddleOCR (PP-OCRv4) in the browser[6][4].
+    *   **Best For**: Developers needing better speed (avg 300–1500ms) and accuracy than Tesseract, with support for 100+ languages[6][4].
+    *   **Advantages**: Built-in GPU acceleration via WebGL, better handling of diverse document types, and comprehensive language support[6][4]. It is specifically designed for privacy-focused applications where data never leaves the client[6].
+
+### Key Architectural Considerations for React
+To ensure a smooth user experience in 2026, follow these patterns:
+
+1.  **Mandatory Web Workers**: CPU-intensive OCR tasks must be offloaded from the React main thread to prevent UI "jank" or freezing[5][7]. Libraries like `tesseract.js` have built-in support for workers, while newer libraries often provide easy-to-use hooks or interfaces for React[6][8].
+2.  **Preprocessing**: Before running OCR, perform client-side image cleanup (deskewing, denoising, or adjusting contrast) using libraries like OpenCV.js or built-in tools[4][9]. This often yields higher accuracy improvements than switching OCR engines[10].
+3.  **PDF Pre-check**: If your input is a PDF, check if it already contains an embedded text layer (using libraries like `pdf.js`) before triggering an OCR process[2]. This can save significant CPU resources[2].
+4.  **Hardware Acceleration**: Modern client-side libraries are increasingly leveraging WebGL or WebGPU[6][4]. When choosing a library, prioritize those that explicitly support GPU acceleration to improve performance on larger documents[6].
+
+### Summary Recommendation
+*   **Use Tesseract.js** if your requirements are simple, you have limited time to set up, and you primarily deal with clean, printed, English-language documents[2].
+*   **Use `client-side-ocr` (or similar ONNX/PaddleOCR wrappers)** if you need faster performance, multi-language support, or higher accuracy on complex/noisy documents while maintaining full privacy[6][4].
+*   **Consider a Hybrid Approach** if you need "Agentic" understanding (extracting data from tables, invoices, etc.). If client-side processing fails for high-stakes documents, consider using a specialized API (like LlamaParse or Azure Document Intelligence) as a fallback for complex inputs[11][10].
+
+Sources:
+[1] [tesseractocr.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJYqontUkwe893bf2TFHOyZ-7Q_IVUiSnxbb1VTKmwV23NKIEh0drqAQ4XzlFTT21JkIGG-svCioKirvfmapdwbcV_xxoVLEe0j1P4zrQ=)
+[2] [dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFPYKlBlAOJN4ndW2wMt0h7zj-HG1YcdyPJ9xrdOaSDF1e79Q1Mgtsgt-GLPreYOr01hi58LXxhjCBjNwe9ovz1KeqMooyjAjaWRPgF1b0FDCuVilFwdphT8AbkjHezbpUnIJurB4oO27DBKl9h93qMbpNyX5HRZK2sUd9G4H52B42pvTHA10xWs1nI4TfGCs0CNnY_HqjM6A==)
+[3] [klippa.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqHoz1PLjjMWCR-AY5DAYMeNPVdDY6DmNfECa9ASJsxrfduet6YnrZHI2lTqaS_upKZrnJXZ3GSvIBtWihhKNeqW4V7FfPaEADTHmqbWzh65BDQ8bIYkYyfiTYs_4UmEQ2ylN7NQYqBs-1gNNZTbThzL8o9TT6M4SYkNxiCD8Juz-A)
+[4] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGiPEfUI7T5XFRLPhSI1U1hY00xeugKjBsUlIu6EK8YPkCzcxBbfDTM9VOwhEsdjwcQ-xpl9R-uG31VtYOuxCmIDmoKqQ2qu-hmK89cq9fSIIuetuUz_TZAr-cY)
+[5] [oneuptime.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHQ6MlKPIiPsSp-FKS1kX3RnJlTHXHkzlA5ylnYSqDbhEEhIcuuFrKClKr57nzzwwFmymo9XC1bEBoXXljJSmPBou67tlOXj55yCWDXsiA2eYDyxCqKCTQBnkjn62lJuQwh0xebs1FMCLgIAWUOoeyxRv8RX5iHimpIlT24ervwuZWeV7cHstAvHQE=)
+[6] [yarnpkg.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE6y2GfScPRRQKEMnnht6vdJyFE2bLUrGS_mQkUARfsj-V9k0Hqf3F9hIwF6PInMAsK2GcEpZKX-2mqnQ5z1DzSfXpprml1TGrur-ouTHr9o1T1F9ERLuhp5nD21SlMHNS92E16vx5c_mBxFw==)
+[7] [dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHjWIauhphhzWI3C-ldFozN_ynnnK5pIEu3Kjs7bP0iwnG6FiGrSOECg3mU7Q_pjoy2xALLGVuXt33W8Rl9ht2LHw9FzvVXWdmhaC04QfMobCvUjgemxYA_qbvJ4mXEdbaa7NNbVqiMj7jNcO3ZLpdr4K3iClTn-dSVaeLl5zzFzVakDfgRlc-gs0UTJURSCZ6-ExNG1IEc)
+[8] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQENcGFpgFssyaJbXNi8SKHX8ZJ908cw7AHBtOYzvlExSesnOKYNSNUGZK4xUApfmhuF1ITFvI2zcuHEMn6UpjJDlPDAWDzMg8YqQBfcFfBK7ek9IaIKLli-ZAIwjgdYLLXffvzbhfGFXNnkQWlOo7idRalx)
+[9] [stackademic.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwmiC4g6iKECi0Cd8UtA9NO6mwl57bfGaZ0uvrObEMhsdz13KOmQR3-ICOU9F_bytiFtAaX8y9XsXFHv18u0lXH7APx4L-WkVsMoaIe1sBz8FQa64DXUltDn7kl3qiqvusPWEC_BIpRHcuoaVtchEQ229fClYaCucarAjOzCOXsgw9Q_6CFezswHDfyrEtaga8-g==)
+[10] [lido.app](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE1YzvT89F_GTDDqAqO60Gf4QVRd8rK9QPjshfT5G2SXETk7cfiEQZRWEICLYOBKd5t_5-fjqbonQ12KGw21QIBrh7Z1kONnK7ckAvQ243GJZMmDjvkscLV086Dg_z5X_SfMdwc)
+[11] [llamaindex.ai](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQELaqKL3UPNVl7xdPhxdv0FJCx0Rk_tf5mWkYxKCiw8FwFheOoZZHBGOJOYak3bktdytJlzXyTnpY7cXCt1JsVynSpThK60WZa8HVHNw04pSYSSamBKOUwRsu_ChR_HAfzsiCXrSJuZ8IJ_hCrCzUGFXImkXQ==)

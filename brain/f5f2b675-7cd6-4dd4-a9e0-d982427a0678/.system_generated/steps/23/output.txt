@@ -1,0 +1,11 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\brain\f5f2b675-7cd6-4dd4-a9e0-d982427a0678\implementation_plan.md. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -1,4 +1,4 @@
+-# Kaya (कार) — LifeChart: Lifelong Health Timeline for India
++# Kaya (काय) — LifeChart: Lifelong Health Timeline for India
+ 
+ **Project Name:** `kaya` (Sanskrit for "body")  
+ **Tagline:** Your body's story, from birth to now.  
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

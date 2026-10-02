@@ -1,0 +1,17 @@
+{
+  "short_name": "LifeChart",
+  "name": "LifeChart — Lifelong Health Timeline for India",
+  "description": "Patient-friendly lifelong health timeline on top of ABDM / ABHA. Digitise old prescriptions, share instant doctor summaries, track UIP vaccines.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0f172a",
+  "theme_color": "#0d9488",
+  "display": "standalone",
+  "orientation": "portrait"
+}

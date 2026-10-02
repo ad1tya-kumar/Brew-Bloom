@@ -1,0 +1,39 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\brew-and-bloom\script.js. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -502,7 +502,14 @@
+     });
+   }
+ 
+-  // Payment radio card styling
++  // Payment radio card styling & dynamic UPI details
++  const upiBox = document.getElementById('upiPaymentDetailsBox');
++  const upiVpaDisplay = document.getElementById('upiVpaDisplay');
++  const upiDeepBtn = document.getElementById('btnUpiDeepLink');
++  const upiQrImg = document.getElementById('upiQrCodeImg');
++
++  if (upiVpaDisplay) upiVpaDisplay.textContent = CONFIG.payment.upiId || 'brewbloom@upi';
++
+   document.querySelectorAll('input[name="paymentMethod"]').forEach((input) => {
+     input.addEventListener('change', () => {
+       document.querySelectorAll('.payment-card-option').forEach((card) => card.classList.remove('active'));
+@@ -509,3 +509,17 @@
++
++      if (input.value === 'upi' && upiBox) {
++        upiBox.style.display = 'block';
++        const snapshot = getSnapshot(state.deliveryMode === 'delivery' ? state.customerDistanceKm : 0);
++        const finalTotal = state.deliveryMode === 'delivery'
++          ? snapshot.total
++          : snapshot.subtotal + snapshot.gstAmount;
++        
++        const upiUri = `upi://pay?pa=${encodeURIComponent(CONFIG.payment.upiId || 'brewbloom@upi')}&pn=${encodeURIComponent(CONFIG.payment.upiName || 'Brew & Bloom Cafe')}&am=${finalTotal}&cu=INR`;
++        if (upiDeepBtn) upiDeepBtn.href = upiUri;
++        if (upiQrImg) upiQrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${encodeURIComponent(upiUri)}`;
++      } else if (upiBox) {
++        upiBox.style.display = 'none';
++      }
+     });
+   });
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

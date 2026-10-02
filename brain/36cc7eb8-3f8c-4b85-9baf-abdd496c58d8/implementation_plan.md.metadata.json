@@ -1,0 +1,6 @@
+{
+  "summary": "Comprehensive implementation plan for LifeChart — a patient-friendly lifelong health timeline for India built on ABDM/ABHA. Covers 85 files across 18 build steps: React 19 + Vite + Tailwind v4 frontend, Supabase PostgreSQL backend with 10 RLS-secured tables, Tesseract.js Hindi+English OCR, consent-based doctor access, family management, emergency cards, vaccination tracking, and medicine reminders. Includes realistic mock data for an Indian patient (Rajesh Kumar Sharma) with 25+ health records spanning 2009-2024.",
+  "updatedAt": "2026-09-23T18:26:45.153184Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

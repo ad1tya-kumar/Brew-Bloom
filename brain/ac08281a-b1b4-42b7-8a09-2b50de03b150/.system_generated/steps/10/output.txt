@@ -1,0 +1,66 @@
+The search for ""tailwindcss" v4 "vite" breaking changes gotchas theme source" returned the following summary:
+Tailwind CSS v4 introduces a fundamental architectural shift, moving from a JavaScript-based configuration to a **CSS-first approach**[1][2][3]. Below are the key breaking changes and "gotchas" to watch for when upgrading a Vite project.
+
+### 1. Configuration: Goodbye `tailwind.config.js`
+In v4, `tailwind.config.js` is no longer required[4][5]. Instead, you define your theme and customizations directly in your CSS using the `@theme` directive[1][6][3].
+*   **The `@theme` Block:** This replaces `theme.extend`[5][2].
+    ```css
+    @import "tailwindcss";
+
+    @theme {
+      --color-brand: #3b82f6;
+      --font-display: "Inter", sans-serif;
+    }
+    ```
+*   **Automatic Content Detection:** v4 automatically scans your project for template files[6][5][3]. You no longer need to maintain the `content` array in a config file[6][7]. If Tailwind misses files, use the `@source` directive in your CSS to specify them[5][8].
+
+### 2. Vite Integration Changes
+If you were using the PostCSS plugin in v3, you should migrate to the new official Vite plugin for better performance[9][6].
+*   **Installation:** Install `tailwindcss` and `@tailwindcss/vite`[10][7].
+*   **Vite Config:** Update your `vite.config.ts`:
+    ```typescript
+    import { defineConfig } from 'vite';
+    import tailwindcss from '@tailwindcss/vite';
+
+    export default defineConfig({
+      plugins: [tailwindcss()],
+    });
+    ```
+*   **Imports:** Replace the old `@tailwind base;`, `@tailwind components;`, and `@tailwind utilities;` directives with a single CSS import[9][6][7]:
+    ```css
+    @import "tailwindcss";
+    ```
+
+### 3. Key "Gotchas" & Breaking Changes
+*   **Utility Renames:** Some utilities have been renamed, which can break your UI[5]. Examples include `shadow-sm` becoming `shadow-xs` and `outline-none` becoming `outline-hidden`[5][11].
+*   **Browser Support:** v4 targets modern browsers only (Safari 16.4+, Chrome 111+, Firefox 128+)[9][12]. It relies on modern features like `@property` and `color-mix()`[9][12].
+*   **Preflight/Defaults:** Some default styles (like heading sizes or button resets) may appear different due to changes in how Preflight is handled[13][14].
+*   **Plugin Compatibility:** Check if your third-party Tailwind plugins support v4[15][16]. Some v3 plugins may need updates or may no longer be necessary (e.g., container queries are now in core)[1][17].
+
+### 4. Migration Strategy
+*   **Use the Upgrade Tool:** Do not attempt to migrate manually if possible. Run the official codemod:
+    ```bash
+    npx @tailwindcss/upgrade
+    ```
+*   **Work on a Branch:** Run this on a clean Git branch so you can easily compare changes[5][18][11].
+*   **Review the Diff:** The tool automates most of the work, but you should manually inspect your CSS and components for layout shifts, especially regarding spacing and border defaults[5][18][11].
+
+Sources:
+[1] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwS8e9rzpwwhk-yJmhkUkYeqJr9tRJyxTj1vM1RjZuUht6z-5iSM96aq5nEOwi8IduiG_VFvpEBMjm4aB1AExdo3mls1DJMVxZ80wTvX7OEv3nwz1a5mZ0-JLVUZMXLV2K)
+[2] [dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFAwow2XGAe0sVGhffaT42ofVyXIJOPt_OWz7ZKFhl0CDAmo6BBv9sf5raQFK1wdS84Crkik6Da61jEcHd5RZoxG48gSOlpapPpDfqqYrTq5HvwlrHRz08m4I4jaCEgSPMEIDhRKfay-f6bgYFQ41dcg2-FvKeVseOihJ0OizUHSskWzviekn_7Vsqy7NXoB-jjyl3IS2WWeKxwMf4cIKKBCYFhH6g=)
+[3] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwS8e9rzpwwhk-yJmhkUkYeqJr9tRJyxTj1vM1RjZuUht6z-5iSM96aq5nEOwi8IduiG_VFvpEBMjm4aB1AExdo3mls1DJMVxZ80wTvX7OEv3nwz1a5mZ0-JLVUZMXLV2K)
+[4] [dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2sGuUp7_aWpGOSpXM-A_KRi8Q5K91kwl00KFAZxgNRXDGRSXqi7_VhHeRIji9aJ-5B2Sqi1Rab6LcObZwJXMTHHqfdLEPCOgOshJDRddIZYwMoZCCV42qUEjk8Y6_AkzfO8aNUcXoYJVicDPYD_A2PiyybgZOcRPTo9awu5qvSTvnICe6dPhVckupmVVhpBPUWvU=)
+[5] [spectrumhq.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHheL0ZNUvTvR99_k8RWBSxHZv3LHsxUPo3J-aiRZUzJvUGK2IZ6wRv9C5nSS41hCduXBrIrPlzbQasvoPm4a_UXxHz-C9ocxbUIb7bDKdQJ-DFmylzsHnad5yE0BP3B3wjD0oOykOtHscLp7rNkwydYzo)
+[6] [designrevision.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFx_CyZfOBnOcxstKH5-urJo317JFbwx3JOIdVq8rutDOinViU01JhFsa5zwDrPOoS_X-JDS48Zi3A0kFIu8zm17wYg6jHe3Jd7vPAe19RKz93triZGdhR7PstVdB7kQSQ0TlalFC6VMCRY)
+[7] [dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvGeDEoMDgpGxxhgoJ_IuNIh3AUzmBukkc0ds1KJIqRa19gd2zjKEy3o3in-Dahh6p9WD15BUIXuOJS0dbq50iPw67xu5qPyKaXxsR8W6bV3DBP1z-Xb4BET-vBa0MfHFiQoDNJoiXI9sEfpXFQ5U5aLH-Np4=)
+[8] [nx.dev](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGLeszP0907OVCX74bZkRmB19ErYlSW9CyHLA0PXLrIcRVnIgJNe3xFSTBPbJnpzgQH9Ub50RM_Acd6SCIexQAj5kAK54ElWEV-my_YIFqBDdnliQQyQGcJhKS0Xk0oeFOHByBCP4mERw==)
+[9] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgW5vb4234Q4eOssf-Ly1Dz8MNznHppZQ1-WlU4vJ-TpXvMhdJSHlzWcUJmxoF3pw0BtmaHoJ3PfLmRiPcccwomdEeA9rvO5iuBW1wDoDtgTo88GXi1f4xTJJ_dfYquTs=)
+[10] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8j4GUjme_8-PXw26F7UkURZEFnm9JXTnLImd0k0HgrFAFhwMhvl2m8tZpoh2romhfOmhUr28rL8S8z01spW9VqPYOTKLyIqFsbaEJodSg9xoJ)
+[11] [spectrumhq.in](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHheL0ZNUvTvR99_k8RWBSxHZv3LHsxUPo3J-aiRZUzJvUGK2IZ6wRv9C5nSS41hCduXBrIrPlzbQasvoPm4a_UXxHz-C9ocxbUIb7bDKdQJ-DFmylzsHnad5yE0BP3B3wjD0oOykOtHscLp7rNkwydYzo)
+[12] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEJYlpQofrLPHClaHtfR6FOeBH2Gz6-VHJfqSyxp-earEJX0VIw87e6taGOvI-5MruASrAGaeXJw6cSdOWyBFvXpaL4WJycI_tpJ4L8Z3h8Jhuwm53e1doAbL6b5vu2r4m-BzGkjVlu5vTkCYSXRKWC4kg-IUP4380=)
+[13] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEFUCVqhqmStG8aN1cUHMjb5dSqV9KZhjYmjtOgKTXlrzV2ekxHrf0ZGjgLXaV12JLpRR_RCqBFRwKoe0nIUIeNjOmQ4n0VQMDGGvlvaQyhLg9Pjz_e40Jt3CH6ZA2b2_bqEvwVQ-u7LbpvlFCXpdn-WFtH)
+[14] [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEn1k6SiP5a7osV-VAsALUTW2kSLKkAY0B9BSbx9BE3uJ8oFcXSAqUiP3KIA8sqz1rykHpY6t9411Od6RoNc5mol1NfgbEkffqAatMLLe0BEXT_nEi1CtyZz16sBdLtv8uDGVdsgKLg)
+[15] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZip44P8h8K3-pTBvFSfPgG9aYd_XNvYY8dghF9iYmjubh96YgkZL6WTyRwKUOLJWTiqaOfjRAu72HZ09UJOarcnkcwBCoZnKMZfXdZ2alczdTiFnHFT-kJj5ZJNHx81tMt4UXqQUz2J0jbwiYul5KZ88j2nF23N4hmrB7SPHQTtbZlAVYehSwT8pSpReynUTrZnYs0s6cTx6Zru9VCUD14eUjo5AdMUWQT8cCczoRBnF9rVshkhgQ)
+[16] [fireup.pro](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoC8MM5ysCMozN8rL__z7ZTPdbzWyz8gelvW43yKH-A7bN1ygCrz_OXelNGyzV0uOL1wQAIIL4Y108bpE9OipotAafVKjlfKzNfUHe7GUwKTpr2bRr5X_mgQ5buaq13qcihmUnK202Yp6Ine-LUFk7IC8xWunSH_sGFW2zg3IAGNJseGRGbnIczMU2FO3dzb4Cr41--cgzRSDxYCA2AscO4sA-oUY=)
+[17] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwS8e9rzpwwhk-yJmhkUkYeqJr9tRJyxTj1vM1RjZuUht6z-5iSM96aq5nEOwi8IduiG_VFvpEBMjm4aB1AExdo3mls1DJMVxZ80wTvX7OEv3nwz1a5mZ0-JLVUZMXLV2K)
+[18] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgW5vb4234Q4eOssf-Ly1Dz8MNznHppZQ1-WlU4vJ-TpXvMhdJSHlzWcUJmxoF3pw0BtmaHoJ3PfLmRiPcccwomdEeA9rvO5iuBW1wDoDtgTo88GXi1f4xTJJ_dfYquTs=)

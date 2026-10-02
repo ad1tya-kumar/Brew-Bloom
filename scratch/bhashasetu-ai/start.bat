@@ -1,0 +1,3 @@
+@echo off
+echo Starting BhashaSetu AI Prototype Website...
+start "" "%~dp0index.html"

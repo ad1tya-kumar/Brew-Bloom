@@ -1,0 +1,16 @@
+The search for "npm view @supabase/supabase-js version tesseract.js version react-i18next version qrcode.react version" returned the following summary:
+The latest versions for the requested npm packages are as follows:
+
+| Package | Latest Version |
+| :--- | :--- |
+| **@supabase/supabase-js** | 2.117.0[1] |
+| **tesseract.js** | 6.1.2 (via *tesseract.js-core*)[2][3] |
+| **react-i18next** | 17.0.15[4] |
+| **qrcode.react** | 4.2.0[5] |
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwdLHKPI8CLrQSoQBbcXKdDNsHToTEpygmEPZ_I2bh8Xy-6o6pe1vRua01vMfm9FZR5nlsU3oWvsHVgptHiKFrwF-1uHSl9hFVngg5_6XO3-fyd7CrDUEbeLHS35YNYLknT3k7EZl-Sdk=)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFtJ0IMYSuGEi8Pk51nxvfgAfNz_0YAzoX1zGJ8SpgQb5TKzIkkkUGuBD6EFZ01BNlJotkbWTi2ESb2rWwn7k_utApKZ8YUXDFY0SaheBU9zgMSbyXVM39qFAfFUc5_2XSFiE8NMw==)
+[3] [snyk.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsD7qX-nZ07jqRHg7aDn2Xrm8l9qihybpfgr0gJzlrz-Zx88se9PfuSaZ1-p3q2jBZo0oE7sVPgE7MfX5NmYWMAQb27_W8dmmWKwm2i0Z-9Pynh-Amwwb3cwu0VlP-q7mZKa-g6GVLMcok9us=)
+[4] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE73OPhkwqRw9v0WoOBz1EK5ttJDscfFWDT5DdgZEEkUvKDSxaK7c9zhkSKGThRgHU0VDrl1ePp823AIAYl_P_EBSWYfLhlx9BkYoQfq8h413jPmltdHwq-QeFbGT2GhFeL)
+[5] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxtC6sNlwPkSXYTdPh_cR5jVDK-N6Nup5-zHR8-IJjlJzyZKSz2pqzSi64xOzjFsp3q75FtCO_yTsiUn4-8nl3urC3SnnavDbtW9_u8G12BFoC4j4luXBDDBm3ZbgZYxk=)

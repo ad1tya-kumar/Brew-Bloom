@@ -1,0 +1,13 @@
+{"name":"App.tsx","sizeBytes":"2527"}
+{"name":"components","isDir":true}
+{"name":"config","isDir":true}
+{"name":"hooks","isDir":true}
+{"name":"i18n.ts","sizeBytes":"666"}
+{"name":"index.css","sizeBytes":"2261"}
+{"name":"main.tsx","sizeBytes":"253"}
+{"name":"pages","isDir":true}
+{"name":"services","isDir":true}
+{"name":"types","isDir":true}
+{"name":"vite-env.d.ts","sizeBytes":"205"}
+
+Summary: This directory contains 6 subdirectories and 5 files.

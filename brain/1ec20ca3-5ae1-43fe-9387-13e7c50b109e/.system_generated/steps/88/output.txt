@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+Downloading portable Node.js...
+Extracting portable Node.js...
+Node installed at: C:\Users\Lenovo\.node\node-v20.18.0-win-x64
+v20.18.0
+10.8.2
+

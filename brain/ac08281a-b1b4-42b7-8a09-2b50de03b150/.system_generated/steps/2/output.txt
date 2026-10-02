@@ -1,0 +1,56 @@
+The search for ""react" "vite" "@tailwindcss/vite" "tailwindcss" v4 setup" returned the following summary:
+To set up Tailwind CSS v4 with React and Vite, follow these steps. This process uses the dedicated `@tailwindcss/vite` plugin, which eliminates the need for PostCSS or a separate `tailwind.config.js` file[1][2].
+
+### 1. Create Your Project
+If you haven't already, create a new Vite project:
+```bash
+npm create vite@latest my-project -- --template react
+cd my-project
+npm install
+```
+
+### 2. Install Tailwind CSS
+Install `tailwindcss` and the Vite plugin:
+```bash
+npm install tailwindcss @tailwindcss/vite
+```
+
+### 3. Configure the Vite Plugin
+Open your `vite.config.js` (or `vite.config.ts`) file and add the Tailwind plugin to the `plugins` array:
+```javascript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+  ],
+})
+```
+
+### 4. Import Tailwind in Your CSS
+Open your main CSS file (usually `src/index.css`) and replace its contents with the following import:
+```css
+@import "tailwindcss";
+```
+
+Ensure this CSS file is imported in your `main.jsx` (or `main.tsx`) file:
+```javascript
+import './index.css'
+```
+
+### 5. Start the Development Server
+Run your project to start using Tailwind CSS:
+```bash
+npm run dev
+```
+
+You can now use Tailwind utility classes directly in your React components[1][2]. Configuration (if needed) is now handled directly in your CSS using standard CSS variables within an `@theme` block[3][4].
+
+Sources:
+[1] [tailgrids.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwN3T8B5pf7419uIBmgNZDHBk-jgXtAJ5eZI5TUHsCCi_iVRnH9TXPpuRHzjj9YWGd5wseCgRiLpqZy3LBWuUN2NU81A6EfsmbwF0RxvoHRy-FxnA_wX3AcNA38OmetpEJfu4RjSe9f_ldHqQR9wXeHHcHXVu8UM54giz1fFWSHtc-iQ==)
+[2] [tailgrids.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwN3T8B5pf7419uIBmgNZDHBk-jgXtAJ5eZI5TUHsCCi_iVRnH9TXPpuRHzjj9YWGd5wseCgRiLpqZy3LBWuUN2NU81A6EfsmbwF0RxvoHRy-FxnA_wX3AcNA38OmetpEJfu4RjSe9f_ldHqQR9wXeHHcHXVu8UM54giz1fFWSHtc-iQ==)
+[3] [dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGz2qL0KnTf_Olfk4XmlvpMNJn_0haIhNsYtjk9VR2G4Lgz-pKJQTE0aJWGGUJu4yPKumj7Bbnu2xUsvW7fsr9E3LGkoOo9PqW7Pe2m4sgNSoHzcvBXPqXq6lPF4Kpp8pAsBjBt5wtSvEj9gnbxwd9V70WgGnnB8P2owHgeh-Bgudedk23YHBFfVd_6yzAKNXZvbCH1Cqwb)
+[4] [tailwindcss.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsV_pyiUrQAckpCvg7A6HPzxux4T4VPkzL8Aqk9A71hF-D7YqAVFT0gtYHYF_AVJUcZyxsvLtmB1lV4NlTcVHs9yXouozwyHhneekgaQE8g1qVPY6Y1nHPmRJhFKpRWk53)

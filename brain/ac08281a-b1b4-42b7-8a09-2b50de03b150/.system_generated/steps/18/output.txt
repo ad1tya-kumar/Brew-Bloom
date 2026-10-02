@@ -1,0 +1,31 @@
+The search for ""tesseract.js" memory management leaks "worker.terminate" wasm mobile" returned the following summary:
+To address memory management and potential leaks when using `tesseract.js` with WebAssembly (WASM) on mobile devices, consider the following best practices:
+
+### 1. Proper Worker Lifecycle Management
+The most common cause of memory issues is failing to clean up Web Workers or recreating them unnecessarily.
+*   **Reuse Workers:** Do not create a new worker for every image recognition task. Instead, create a worker (or a pool of workers) once when your application initializes and reuse them for subsequent recognition jobs.
+*   **Terminate Correctly:** Always call `worker.terminate()` when the worker is no longer needed (e.g., when the user navigates away or the component unmounts). This is critical for releasing the substantial memory allocated to the WASM instance.
+*   **Avoid Over-initialization:** Repeatedly calling `createWorker` and initializing it with language data will quickly exhaust the limited RAM available on mobile browsers.
+
+### 2. Modernize Tesseract.js Version
+If you are using an older version, update to **v6.0.0 or later**. Recent versions have introduced significant improvements specifically targeted at these issues:
+*   **Memory Leak Fixes:** Newer versions include optimizations that explicitly address memory leaks to provide more stable, long-running sessions.
+*   **Optimized Performance:** Non-text output formats are now disabled by default, which significantly reduces the memory overhead during recognition.
+
+### 3. Mobile-Specific Constraints
+Mobile devices have strict memory limits, and browsers are aggressive about killing processes that consume too much RAM.
+*   **Sequential Processing:** If your application processes multiple images, ensure they are handled sequentially rather than in parallel to avoid "out of memory" crashes.
+*   **Input Image Optimization:** Before passing images to `tesseract.js`, resize or compress them if they are excessively large. High-resolution images from mobile cameras place a massive burden on the WASM memory buffer.
+*   **Monitor Memory:** Use Chrome DevTools (Remote Debugging for mobile) to take heap snapshots. This will help you verify if your memory usage is stabilizing after a job finishes or if it continues to climb (indicating a leak).
+
+### 4. General WebAssembly Considerations
+Since WASM does not have a garbage collector that interacts directly with JavaScript objects, memory management is manual.
+*   **Worker Scope:** Ensure that you are not holding onto references to the worker or its result objects longer than necessary. In some browser environments, improper management of Web Workers can lead to leaked memory that the browser cannot reclaim until the page is reloaded.
+*   **Avoid Global References:** Ensure you are not unintentionally attaching worker instances or large result objects to the `window` object or other long-lived global scopes.
+
+### Summary Checklist
+*   [ ] **Create worker once**, reuse for multiple jobs.
+*   [ ] **Call `await worker.terminate()`** when finished.
+*   [ ] **Upgrade to v6.0.0+** to benefit from official memory management fixes.
+*   [ ] **Resize large images** before OCR to keep the WASM memory footprint small.
+*   [ ] **Avoid parallel processing** on low-end mobile devices to prevent crashes.

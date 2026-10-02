@@ -1,0 +1,848 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BhashaSetu AI | AI-Powered Vernacular Pedagogy & Real-Time Translation Tool</title>
+  <meta name="description" content="AI-Powered Vernacular Pedagogy and Real-Time Translation Tool for Mother Tongue-Based Primary Education. Built for Smart India Hackathon 2024 - Government of Jharkhand.">
+  
+  <!-- Google Fonts: Inter and Noto Sans for all Indic Scripts (Devanagari, Bengali, Tamil, Telugu, Odia, Ol Chiki) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Noto+Sans+Odia:wght@400;600;700&family=Noto+Sans+Ol+Chiki:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tribal-pattern-bg">
+
+  <!-- =========================================================================
+       Navigation Header
+       ========================================================================= -->
+  <header class="navbar tribal-border-top">
+    <div class="container nav-inner">
+      <a href="#" class="brand-logo">
+        <div class="brand-symbol">
+          <span>भ</span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">
+            BhashaSetu <span class="ai-badge">AI</span>
+          </div>
+          <div class="brand-sub">Govt. of Jharkhand • SIH 2024</div>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#problem" data-i18n="nav_problem">Problem</a>
+        <a href="#solution" data-i18n="nav_solution">Solution</a>
+        <a href="#demo" data-i18n="nav_demo">Live Demo</a>
+        <a href="#how" data-i18n="nav_how">How It Works</a>
+        <a href="#tech" data-i18n="nav_tech">Tech Stack</a>
+        <a href="#impact" data-i18n="nav_impact">Impact</a>
+        <a href="#video" data-i18n="nav_video">Pitch Video</a>
+        <a href="#team" data-i18n="nav_team">Team</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="langToggleBtn" class="lang-toggle-btn" title="Switch Language between English and Hindi">
+          🌐 <span>हिन्दी</span>
+        </button>
+        <a href="#demo" class="btn-primary" data-i18n="nav_cta">Launch Prototype</a>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobileNavDrawer" class="mobile-nav-drawer">
+    <ul class="mobile-nav-list">
+      <li><a href="#problem" data-i18n="nav_problem">Problem</a></li>
+      <li><a href="#solution" data-i18n="nav_solution">Solution</a></li>
+      <li><a href="#demo" data-i18n="nav_demo">Live Demo</a></li>
+      <li><a href="#how" data-i18n="nav_how">How It Works</a></li>
+      <li><a href="#tech" data-i18n="nav_tech">Tech Stack</a></li>
+      <li><a href="#impact" data-i18n="nav_impact">Impact</a></li>
+      <li><a href="#video" data-i18n="nav_video">Pitch Video</a></li>
+      <li><a href="#team" data-i18n="nav_team">Team</a></li>
+    </ul>
+  </div>
+
+  <!-- =========================================================================
+       Hero Section
+       ========================================================================= -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-govt-badge">
+        <div class="govt-emblem">JH</div>
+        <span class="govt-text" data-i18n="hero_badge">Government of Jharkhand • SIH 2024 Problem Statement #1628</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>
+            <span class="highlight" data-i18n="hero_title">BhashaSetu AI</span>
+            <span style="display:block; font-size: 0.58em; color: var(--primary-navy);" data-i18n="hero_title_hi">भाषासेतु AI</span>
+          </h1>
+
+          <div class="hero-tagline" data-i18n="hero_tagline">
+            "Every Child Learns Best in Their Mother Tongue"
+          </div>
+
+          <p class="hero-desc" data-i18n="hero_desc">
+            Bridging the tribal-vernacular learning divide in 35,000+ rural Jharkhand primary schools with offline-capable Edge AI. Real-time classroom speech translation from Hindi/English into Santhali, Mundari, Ho, Kurukh, Kharia, and beyond.
+          </p>
+
+          <div class="hero-alt-names">
+            <span class="alt-label" data-i18n="hero_alt_names_label">Alternative Linguistic Names:</span>
+            <span class="name-pill active">BhashaSetu AI (भाषासेतु)</span>
+            <span class="name-pill">VaniVahini (वाणीवाहिनी)</span>
+            <span class="name-pill">AksharSetu (अक्षरसेतु)</span>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#demo" class="btn-primary" style="padding: 14px 28px; font-size: 1.05rem;" data-i18n="hero_btn_demo">⚡ Try Live Prototype</a>
+            <a href="#video" class="btn-secondary" style="padding: 14px 24px; font-size: 1.05rem;" data-i18n="hero_btn_video">▶ Watch Pitch Video</a>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <span class="stat-val" data-i18n="hero_stat_1_val">40%+</span>
+              <span class="stat-lbl" data-i18n="hero_stat_1_lbl">Tribal Children in Rural Jharkhand</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-val" data-i18n="hero_stat_2_val">100%</span>
+              <span class="stat-lbl" data-i18n="hero_stat_2_lbl">Offline On-Device Capable</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-val" data-i18n="hero_stat_3_val">8+</span>
+              <span class="stat-lbl" data-i18n="hero_stat_3_lbl">Indigenous Languages Supported</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Visual Card -->
+        <div class="hero-visual-card">
+          <div class="classroom-sim-header">
+            <div class="sim-tag">
+              <div class="pulse-dot"></div>
+              <span>Live Classroom Bridge Simulation</span>
+            </div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">Grade 1 • Chaibasa Block</span>
+          </div>
+
+          <div class="teacher-bubble">
+            <div class="bubble-sender">👨‍🏫 Non-Tribal Teacher (Speaks Hindi)</div>
+            <div class="bubble-content">"बच्चों, आज हम अपनी किताबों में पेड़ और वर्षा का पाठ पढ़ेंगे।"</div>
+          </div>
+
+          <div class="ai-bridge-flow">
+            <span>⚡ Edge IndicTrans2 Engine</span>
+            <span>➔</span>
+            <span>Synthesizing Native Ol Chiki Audio</span>
+          </div>
+
+          <div class="student-bubble">
+            <div class="bubble-sender">👧 Santhali Student (Mother Tongue)</div>
+            <div class="bubble-content">"ᱜᱤᱫᱽᱨᱟᱹᱠᱳ, ᱛᱮᱦᱮᱧ ᱫᱚ ᱯᱩᱛᱷᱤ ᱨᱮ ᱫᱟᱨᱮ ᱟᱨ ᱫᱟᱜ-ᱡᱟᱹᱲᱤ ᱨᱮᱭᱟᱜ ᱵᱚᱱ ᱯᱟᱲᱦᱟᱣᱟ।"</div>
+            <div class="student-phonetic">Phonetic: "Gidrako, tehenj do puthi re dare aar dag-jadi reyag bon padhawa."</div>
+          </div>
+
+          <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.4rem;">🌱</span>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary-navy);">Auto-matched Visual Flashcard: Tree & Rain</span>
+            </div>
+            <span style="font-size: 0.72rem; padding: 2px 8px; background: #DEF7EC; color: #03543F; border-radius: 4px; font-weight: 700;">0 kbps Offline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Animated Language Script Marquee
+       ========================================================================= -->
+  <div class="script-marquee-wrapper" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-lang">Hindi</span><span class="marquee-phrase">हर बच्चा अपनी मातृभाषा में सबसे बेहतर सीखता है</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Santhali / ᱚᱞ ᱪᱤᱠᱤ</span><span class="marquee-phrase">ᱡᱚᱛᱚ ᱜᱤᱫᱽᱨᱟᱹ ᱟᱯᱱᱟᱨ ᱟᱭᱳ ᱟᱲᱟᱝ ᱛᱮ ᱯᱟᱲᱦᱟᱣᱜ-ᱟ</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Mundari</span><span class="marquee-phrase">सोबेन गड़ाको अपना एंगा जगर ते सेचेद ओमोःआ</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Ho / ᱣᱟᱨᱟᱝ ᱪᱤᱛᱤ</span><span class="marquee-phrase">ᱥᱳᱵᱮᱱ ᱜᱤᱫᱤᱨᱠᱳ ᱟᱯᱱᱟ ᱮᱝᱜᱟ ᱡᱟᱜᱟᱨ ᱛᱮ ᱥᱮᱪᱮᱫ ᱱᱟᱢᱮᱭᱟ</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Kurukh / कुड़ुख़</span><span class="marquee-phrase">हुर्मी कुक्कुरु तंगहै एंगो कत्था ती बेस से पड़हओर</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Bengali</span><span class="marquee-phrase">প্রত্যেক শিশু তার মাতৃভাষায় সবচেয়ে ভালো শেখে</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Odia</span><span class="marquee-phrase">ପ୍ରତ୍ୟେକ ଶିଶୁ ନିଜ ମାତୃଭାଷାରେ ସର୍ବୋତ୍ତମ ଶିଖେ</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Tamil</span><span class="marquee-phrase">ஒவ்வொரு குழந்தையும் தாய்மொழியில் மிகச் சிறப்பாகக் கற்கிறது</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Telugu</span><span class="marquee-phrase">ప్రతి బిడ్డ తన మాతృభాషలో ఉత్తమంగా నేర్చుకుంటాడు</span><span class="marquee-sep">✦</span></div>
+      <!-- Duplicate set for seamless continuous marquee loop -->
+      <div class="marquee-item"><span class="marquee-lang">Hindi</span><span class="marquee-phrase">हर बच्चा अपनी मातृभाषा में सबसे बेहतर सीखता है</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Santhali / ᱚᱞ ᱪᱤᱠᱤ</span><span class="marquee-phrase">ᱡᱚᱛᱚ ᱜᱤᱫᱽᱨᱟᱹ ᱟᱯᱱᱟᱨ ᱟᱭᱳ ᱟᱲᱟᱝ ᱛᱮ ᱯᱟᱲᱦᱟᱣᱜ-ᱟ</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Mundari</span><span class="marquee-phrase">सोबेन गड़ाको अपना एंगा जगर ते सेचेद ओमोःआ</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Ho / ᱣᱟᱨᱟᱝ ᱪᱤᱛᱤ</span><span class="marquee-phrase">ᱥᱳᱵᱮᱱ ᱜᱤᱫᱤᱨᱠᱳ ᱟᱯᱱᱟ ᱮᱝᱜᱟ ᱡᱟᱜᱟᱨ ᱛᱮ ᱥᱮᱪᱮᱫ ᱱᱟᱢᱮᱭᱟ</span><span class="marquee-sep">✦</span></div>
+      <div class="marquee-item"><span class="marquee-lang">Kurukh / कुड़ुख़</span><span class="marquee-phrase">हुर्मी कुक्कुरु तंगहै एंगो कत्था ती बेस से पड़हओर</span><span class="marquee-sep">✦</span></div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Problem Statement Section
+       ========================================================================= -->
+  <section id="problem" class="problem-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag" data-i18n="prob_tag">The Challenge</span>
+        <h2 class="section-title" data-i18n="prob_title">The Silent Classroom Crisis in Rural India</h2>
+        <p class="section-subtitle" data-i18n="prob_subtitle">
+          When a teacher speaks only Hindi and the child speaks only Santhali or Ho, learning stops before it even begins.
+        </p>
+      </div>
+
+      <div class="narrative-box">
+        <div class="narrative-title">
+          <span>⚠️</span>
+          <span data-i18n="prob_story_title">The Ground Reality in West Singhbhum & Dumka</span>
+        </div>
+        <p class="narrative-text" data-i18n="prob_story_text">
+          Freshly appointed primary teachers in Jharkhand's tribal heartlands often arrive without speaking the local mother tongue of their students. In Grade 1 classrooms, children listen to unfamiliar state curricula in silence, unable to comprehend foundational phonics or basic numeracy. NEP 2020 mandates primary education in the mother tongue, but severe teacher shortages and language mismatches leave millions behind.
+        </p>
+      </div>
+
+      <div class="stats-grid-4">
+        <div class="stat-card saffron">
+          <div class="stat-card-number" data-i18n="prob_card1_num">38.4%</div>
+          <div class="stat-card-label" data-i18n="prob_card1_label">Foundational Literacy Gap</div>
+          <p class="stat-card-desc" data-i18n="prob_card1_desc">
+            Between native tribal-speaking students and state-language medium students by Grade 3.
+          </p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-number" data-i18n="prob_card2_num">8+</div>
+          <div class="stat-card-label" data-i18n="prob_card2_label">Indigenous Languages</div>
+          <p class="stat-card-desc" data-i18n="prob_card2_desc">
+            In Jharkhand without mainstream digitized digital primary school curriculum.
+          </p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-number" data-i18n="prob_card3_num">74%</div>
+          <div class="stat-card-label" data-i18n="prob_card3_label">Teacher Communication Barrier</div>
+          <p class="stat-card-desc" data-i18n="prob_card3_desc">
+            Primary rural teachers report language disconnect as their single biggest classroom impediment.
+          </p>
+        </div>
+
+        <div class="stat-card green">
+          <div class="stat-card-number" data-i18n="prob_card4_num">12,000+</div>
+          <div class="stat-card-label" data-i18n="prob_card4_label">Zero-Connectivity Schools</div>
+          <p class="stat-card-desc" data-i18n="prob_card4_desc">
+            Classrooms in deep forest blocks with zero cellular signal requiring 100% offline Edge AI.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Solution Section
+       ========================================================================= -->
+  <section id="solution" class="solution-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag green" data-i18n="sol_tag">The Innovation</span>
+        <h2 class="section-title" data-i18n="sol_title">Empowering Rural Teachers With Edge AI Pedagogy</h2>
+        <p class="section-subtitle" data-i18n="sol_subtitle">
+          An inclusive, lightweight, offline-first pedagogical assistant designed for low-resource classroom hardware.
+        </p>
+      </div>
+
+      <div class="solution-grid">
+        <div class="solution-card">
+          <div class="solution-icon-box">🗣️</div>
+          <div class="solution-card-body">
+            <h3 data-i18n="sol_card1_title">Real-Time Classroom Translation</h3>
+            <p data-i18n="sol_card1_desc">
+              Bidirectional speech-to-speech and speech-to-text. Teachers speak natural Hindi or English; students hear clear native audio in their mother tongue.
+            </p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">⚡</div>
+          <div class="solution-card-body">
+            <h3 data-i18n="sol_card2_title">100% Offline Edge-First AI</h3>
+            <p data-i18n="sol_card2_desc">
+              Runs completely offline using 4-bit quantized IndicTrans2 and Whisper models stored directly in local device cache. Zero internet required.
+            </p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">🖼️</div>
+          <div class="solution-card-body">
+            <h3 data-i18n="sol_card3_title">Multimodal Visual Flashcards</h3>
+            <p data-i18n="sol_card3_desc">
+              Converts spoken vocabulary into culturally relevant visual aids, pictograms, and dual-script flashcards to reinforce conceptual learning.
+            </p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">📊</div>
+          <div class="solution-card-body">
+            <h3 data-i18n="sol_card4_title">Low-Literacy Teacher Dashboard</h3>
+            <p data-i18n="sol_card4_desc">
+              Minimalist, icon-driven interface designed for first-time smartphone users. Adapts JCERT textbook chapters into bilingual lessons with one tap.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       LIVE INTERACTIVE DEMO (Core Hackathon Showcase)
+       ========================================================================= -->
+  <section id="demo" class="demo-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag" data-i18n="demo_tag">Interactive Working Prototype</span>
+        <h2 class="section-title" data-i18n="demo_title">Experience BhashaSetu In Action</h2>
+        <p class="section-subtitle" data-i18n="demo_subtitle">
+          Simulate a live rural classroom interaction. Select languages, load classroom scenarios, or speak into the microphone.
+        </p>
+      </div>
+
+      <div class="demo-container">
+        <!-- Top Control Bar -->
+        <div class="demo-top-bar">
+          <div class="demo-title-group">
+            <span class="demo-chip">SIH Live Demo Engine</span>
+            <span style="font-weight: 700; font-size: 0.95rem;">Rural Vernacular Bridge</span>
+          </div>
+
+          <!-- Online vs Offline Switch -->
+          <div class="demo-mode-switcher">
+            <span style="font-size: 0.8rem; color: #94A3B8;">Edge Mode (Offline)</span>
+            <label class="switch" title="Toggle between Offline Edge Model and Cloud API">
+              <input type="checkbox" id="modeToggle">
+              <span class="slider"></span>
+            </label>
+            <span style="font-size: 0.8rem; color: #CBD5E1;">Cloud API</span>
+          </div>
+        </div>
+
+        <!-- Notification Banner showing current mode -->
+        <div id="modeBanner" class="demo-mode-banner offline">
+          <span id="modeStatusText" data-i18n="demo_mode_badge_offline">
+            ⚡ Offline Mode: 4-bit Quantized On-Device TFLite Model • 0 kbps internet • 310ms latency
+          </span>
+          <div class="bandwidth-badge">📶 Bandwidth: 0 kbps</div>
+        </div>
+
+        <!-- Presets Bar -->
+        <div class="demo-presets-row">
+          <div class="preset-heading">
+            <span>✨</span>
+            <span data-i18n="demo_preset_title">Or Click a Common Classroom Scenario:</span>
+          </div>
+          <div class="preset-buttons-container">
+            <button class="preset-btn active" data-preset="0">
+              <span>🌅</span> <span data-i18n="demo_preset_1">Morning Greeting & Roll Call</span>
+            </button>
+            <button class="preset-btn" data-preset="1">
+              <span>🔢</span> <span data-i18n="demo_preset_2">Math Addition Lesson</span>
+            </button>
+            <button class="preset-btn" data-preset="2">
+              <span>🧼</span> <span data-i18n="demo_preset_3">Hygiene & Mid-Day Meal</span>
+            </button>
+            <button class="preset-btn" data-preset="3">
+              <span>📖</span> <span data-i18n="demo_preset_4">Folk Story Introduction</span>
+            </button>
+            <button class="preset-btn" data-preset="4">
+              <span>🌧️</span> <span data-i18n="demo_preset_5">Science & Nature Observation</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Translation Workspace (Input | Output) -->
+        <div class="demo-workspace">
+          <!-- Input Panel (Teacher) -->
+          <div class="demo-input-panel">
+            <div class="panel-header">
+              <span class="panel-label" data-i18n="demo_src_lbl">Teacher's Language (Input):</span>
+              <select id="srcLangSelect" class="lang-select">
+                <option value="hindi" selected>Hindi (हिंदी)</option>
+                <option value="english">English</option>
+                <option value="bengali">Bengali (বাংলা)</option>
+                <option value="odia">Odia (ଓଡ଼ିଆ)</option>
+                <option value="tamil">Tamil (தமிழ்)</option>
+                <option value="telugu">Telugu (తెలుగు)</option>
+              </select>
+            </div>
+
+            <div class="input-field-wrapper">
+              <textarea id="demoInput" class="demo-textarea" data-i18n-ph="demo_input_ph" placeholder="Type teacher's instruction here, or click a classroom scenario preset below..."></textarea>
+              
+              <div class="mic-action-bar">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <button id="micBtn" class="mic-btn" title="Click to use microphone or simulated speech input">
+                    🎤 <span>Voice Input</span>
+                  </button>
+                  <div id="soundwaveBox" class="soundwave-box">
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                  </div>
+                </div>
+                <span id="charCounter" class="char-counter">0 / 500 characters</span>
+              </div>
+            </div>
+
+            <button id="translateBtn" class="btn-translate">
+              <span>✨</span>
+              <span data-i18n="demo_btn_translate">Translate to Mother Tongue</span>
+            </button>
+          </div>
+
+          <!-- Output Panel (Student & Pedagogy Output) -->
+          <div class="demo-output-panel" style="position: relative;">
+            <!-- Loading Pipeline Overlay -->
+            <div id="pipelineOverlay" class="pipeline-overlay">
+              <div class="pipeline-spinner"></div>
+              <div id="pipelineStepText" class="pipeline-step-text" data-i18n="demo_btn_translating">
+                Processing AI Pedagogy Pipeline...
+              </div>
+            </div>
+
+            <div class="panel-header">
+              <span class="panel-label" data-i18n="demo_tgt_lbl">Student's Mother Tongue (Output):</span>
+              <select id="tgtLangSelect" class="lang-select">
+                <option value="santhali" selected>Santhali (ᱥᱟᱱᱛᱟᱲᱤ / Ol Chiki)</option>
+                <option value="mundari">Mundari (मुंडारी / Mundari)</option>
+                <option value="ho">Ho (ᱦᱳ / Warang Chiti)</option>
+                <option value="kurukh">Kurukh (कुड़ुख़ / Oraon)</option>
+                <option value="kharia">Kharia (खड़िया)</option>
+                <option value="hindi">Hindi (हिंदी)</option>
+                <option value="bengali">Bengali (বাংলা)</option>
+                <option value="odia">Odia (ଓଡ଼ିଆ)</option>
+                <option value="english">English</option>
+                <option value="tamil">Tamil (தமிழ்)</option>
+                <option value="telugu">Telugu (తెలుగు)</option>
+              </select>
+            </div>
+
+            <div class="output-card">
+              <div class="translated-result-box">
+                <span id="scriptBadge" class="script-badge">Ol Chiki & Devanagari</span>
+                <div id="outputNativeText" class="output-native-text">
+                  ᱡᱚᱛᱚ ᱠᱚᱜᱮ ᱥᱟᱹᱜᱩᱱ ᱥᱮᱛᱟᱜ! ᱫᱟᱭᱟᱠᱟᱛᱮ ᱛᱷᱤᱨ ᱠᱟᱛᱮ ᱫᱩᱲᱩᱵᱽ ᱯᱮ ᱟᱨ ᱟᱯᱱᱟᱨᱟᱜ ᱯᱩᱛᱷᱤ ᱡᱷᱤᱡᱽ ᱯᱮ।
+                </div>
+                <div id="outputDevanagariAlt" class="output-devanagari-alt">
+                  देवनागरी लिपि: जोतो कोगे सगुन सेताः! दायाकाते थीर काते दुड़ुब पे आर आपनाराः पुथी झिज पे।
+                </div>
+              </div>
+
+              <!-- Teacher's Pronunciation Guide -->
+              <div class="phonetic-guide-box">
+                <div class="phonetic-label" data-i18n="demo_phonetic_title">Teacher's Pronunciation Guide (How to speak it):</div>
+                <div id="phoneticText" class="phonetic-text">
+                  "Joto koge sagun setag! Dayakate thir kate durub pe aar apnarag puthi jhij pe."
+                </div>
+              </div>
+
+              <!-- Contextual Visual Flashcard -->
+              <div class="visual-flashcard">
+                <div id="flashcardEmoji" class="flashcard-emoji">📚🎒</div>
+                <div class="flashcard-info">
+                  <div id="flashcardTag" class="flashcard-tag">Classroom Concept: GREETING</div>
+                  <div id="flashcardTitle" class="flashcard-title">Classroom Morning / किताबें और कक्षा</div>
+                </div>
+              </div>
+
+              <!-- Action Bar (Play Audio, Copy Text) -->
+              <div class="output-action-bar">
+                <button id="playAudioBtn" class="btn-audio">
+                  <span>🔊</span> <span data-i18n="demo_listen_btn">Play Audio</span>
+                </button>
+                <button id="copyTextBtn" class="btn-copy">
+                  <span>📋</span> <span data-i18n="demo_copy_btn">Copy Text</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       How It Works & Architecture Section
+       ========================================================================= -->
+  <section id="how" class="how-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag navy" data-i18n="how_tag">Architecture & Workflow</span>
+        <h2 class="section-title" data-i18n="how_title">From Teacher's Voice to Student's Comprehension</h2>
+        <p class="section-subtitle" data-i18n="how_subtitle">
+          Engineered specifically for low-connectivity, noisy rural primary classrooms.
+        </p>
+      </div>
+
+      <!-- Step-by-step visual workflow -->
+      <div class="workflow-steps-grid">
+        <div class="workflow-step-card">
+          <div class="step-number-badge">1</div>
+          <h3 class="step-card-title" data-i18n="how_step1_title">1. Speech Capture & Noise Filtering</h3>
+          <p class="step-card-desc" data-i18n="how_step1_desc">
+            Teacher speaks into standard phone/tablet. On-device acoustic filters isolate classroom ambient noise.
+          </p>
+        </div>
+
+        <div class="workflow-step-card">
+          <div class="step-number-badge">2</div>
+          <h3 class="step-card-title" data-i18n="how_step2_title">2. Intelligent Network Sensing</h3>
+          <p class="step-card-desc" data-i18n="how_step2_desc">
+            Dynamic switch selects local TFLite neural model when offline, or cloud IndicTrans2 cluster when cellular signal exists.
+          </p>
+        </div>
+
+        <div class="workflow-step-card">
+          <div class="step-number-badge">3</div>
+          <h3 class="step-card-title" data-i18n="how_step3_title">3. Vernacular Pedagogical Engine</h3>
+          <p class="step-card-desc" data-i18n="how_step3_desc">
+            Translates syntax while preserving tribal grammatical nuances, honorifics, and local cultural idioms.
+          </p>
+        </div>
+
+        <div class="workflow-step-card">
+          <div class="step-number-badge">4</div>
+          <h3 class="step-card-title" data-i18n="how_step4_title">4. Multimodal Classroom Delivery</h3>
+          <p class="step-card-desc" data-i18n="how_step4_desc">
+            Produces clear synthetic native speech, Romanized phonetic guide for the teacher, and visual pictograms for young students.
+          </p>
+        </div>
+      </div>
+
+      <!-- System Architecture Diagram -->
+      <div class="architecture-container">
+        <div class="arch-header">
+          <h3>BhashaSetu Modular Edge Architecture</h3>
+          <p>Dual-Pipeline Hybrid Execution Engine (Offline-First Edge / Cloud High-Precision Fallback)</p>
+        </div>
+
+        <div class="arch-layers-grid">
+          <div class="arch-layer">
+            <div class="arch-layer-title"><span>🎙️</span> Layer 1: Input & Acoustic</div>
+            <div class="arch-component">Omnidirectional Mic Input</div>
+            <div class="arch-component">Acoustic Noise Suppressor</div>
+            <div class="arch-component highlight">Whisper Indic ASR (TFLite)</div>
+            <div class="arch-component">JCERT Textbook OCR Ingest</div>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-layer-title"><span>⚙️</span> Layer 2: Network Router</div>
+            <div class="arch-component">Dynamic Ping Monitor</div>
+            <div class="arch-component highlight">Zero-Bandwidth Fallback</div>
+            <div class="arch-component">Bhashini API Gateway (Online)</div>
+            <div class="arch-component">Token Batch Orchestrator</div>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-layer-title"><span>🧠</span> Layer 3: Translation Core</div>
+            <div class="arch-component highlight">IndicTrans2 (4-bit Quantized)</div>
+            <div class="arch-component">Tribal Dialect Tokenizer</div>
+            <div class="arch-component">Ol Chiki Morphological Parser</div>
+            <div class="arch-component">Phonetic Transliteration</div>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-layer-title"><span>🔊</span> Layer 4: Multimodal Output</div>
+            <div class="arch-component highlight">Synthesized Native Speech (TTS)</div>
+            <div class="arch-component">Teacher Pronunciation Guide</div>
+            <div class="arch-component">Visual Concept Flashcards</div>
+            <div class="arch-component">Bilingual Classroom Worksheets</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Technology Stack Section
+       ========================================================================= -->
+  <section id="tech" class="tech-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag" data-i18n="tech_tag">Engineering Stack</span>
+        <h2 class="section-title" data-i18n="tech_title">Built on Sovereign Indic AI Technologies</h2>
+        <p class="section-subtitle" data-i18n="tech_subtitle">
+          Leveraging Indian open-source foundational AI, quantized for edge hardware.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon-bar">
+            <span style="font-size: 1.8rem;">🇮🇳</span>
+            <span class="tech-badge-category">Translation Core</span>
+          </div>
+          <h4 class="tech-name">IndicTrans2</h4>
+          <p class="tech-desc">AI4Bharat's state-of-the-art transformer translation model fine-tuned for tribal and scheduled Indian languages.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-bar">
+            <span style="font-size: 1.8rem;">🎙️</span>
+            <span class="tech-badge-category">Speech Recognition</span>
+          </div>
+          <h4 class="tech-name">Whisper Indic ASR</h4>
+          <p class="tech-desc">Robust automatic speech recognition model adapted to rural Indian classroom accents and ambient background chatter.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-bar">
+            <span style="font-size: 1.8rem;">⚡</span>
+            <span class="tech-badge-category">Edge Inference</span>
+          </div>
+          <h4 class="tech-name">TensorFlow Lite (4-Bit)</h4>
+          <p class="tech-desc">Quantized neural network weights running on budget Android tablets with zero active cellular connectivity.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-bar">
+            <span style="font-size: 1.8rem;">🏛️</span>
+            <span class="tech-badge-category">National Mission</span>
+          </div>
+          <h4 class="tech-name">Bhashini NLTM API</h4>
+          <p class="tech-desc">Integration with Digital India's National Language Translation Mission for standardized Indic corpora and benchmarks.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-bar">
+            <span style="font-size: 1.8rem;">📱</span>
+            <span class="tech-badge-category">Frontend & PWA</span>
+          </div>
+          <h4 class="tech-name">React & PWA Runtime</h4>
+          <p class="tech-desc">High-performance Progressive Web App with Service Worker offline caching for persistent zero-network classroom usage.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-bar">
+            <span style="font-size: 1.8rem;">💾</span>
+            <span class="tech-badge-category">Local Cache</span>
+          </div>
+          <h4 class="tech-name">IndexedDB & OPFS</h4>
+          <p class="tech-desc">Client-side persistent database caching tribal phoneme dictionaries and visual flashcard vectors permanently on-device.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-bar">
+            <span style="font-size: 1.8rem;">🔊</span>
+            <span class="tech-badge-category">Acoustic Output</span>
+          </div>
+          <h4 class="tech-name">Web Speech & eSpeak-NG</h4>
+          <p class="tech-desc">Cross-platform synthetic voice synthesis engine delivering crisp, audible pronunciation in tribal mother tongues.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon-bar">
+            <span style="font-size: 1.8rem;">📚</span>
+            <span class="tech-badge-category">Curriculum Sync</span>
+          </div>
+          <h4 class="tech-name">JCERT Lesson Adapter</h4>
+          <p class="tech-desc">Automated alignment layer synchronizing primary school textbooks with state Foundational Literacy and Numeracy goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Impact & Outcomes Section
+       ========================================================================= -->
+  <section id="impact" class="impact-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag green" data-i18n="impact_tag">Social Outcomes</span>
+        <h2 class="section-title" data-i18n="impact_title">Measurable Change for Jharkhand's Next Generation</h2>
+        <p class="section-subtitle" data-i18n="impact_subtitle">
+          Aligning with National Education Policy 2020 and UN Sustainable Development Goal 4 (Quality Education).
+        </p>
+      </div>
+
+      <!-- Animated Counters Grid -->
+      <div class="impact-counter-grid">
+        <div class="impact-counter-card">
+          <div class="impact-number animate-number" data-target="35000" data-suffix="+">0</div>
+          <div class="impact-label" data-i18n="impact_c1_lbl">Primary Schools in Jharkhand Covered</div>
+        </div>
+
+        <div class="impact-counter-card">
+          <div class="impact-number animate-number" data-target="1800000" data-suffix="+">0</div>
+          <div class="impact-label" data-i18n="impact_c2_lbl">Tribal & Rural Students Empowered</div>
+        </div>
+
+        <div class="impact-counter-card">
+          <div class="impact-number animate-number" data-target="3" data-suffix=".2x">0</div>
+          <div class="impact-label" data-i18n="impact_c3_lbl">Comprehension & Attendance Increase</div>
+        </div>
+
+        <div class="impact-counter-card">
+          <div class="impact-number" style="color: var(--accent-green);">0 kbps</div>
+          <div class="impact-label" data-i18n="impact_c4_lbl">Bandwidth Required in Offline Mode</div>
+        </div>
+      </div>
+
+      <!-- Policy Alignment -->
+      <div class="policy-alignment-box">
+        <h3 class="policy-header">National & Global Policy Alignment</h3>
+        <div class="policy-badges-grid">
+          <div class="policy-badge">
+            <div class="policy-badge-title">NEP 2020 §4.11-4.13</div>
+            <p class="policy-badge-desc">Fulfills the mandate for mother-tongue medium instruction through Grade 5 to prevent early school dropouts.</p>
+          </div>
+          <div class="policy-badge">
+            <div class="policy-badge-title">UN SDG 4: Quality Education</div>
+            <p class="policy-badge-desc">Guarantees inclusive and equitable education by removing linguistic inequality in primary foundational years.</p>
+          </div>
+          <div class="policy-badge">
+            <div class="policy-badge-title">NIPUN Bharat Mission</div>
+            <p class="policy-badge-desc">Accelerates universal acquisition of Foundational Literacy and Numeracy (FLN) for every Grade 1-3 tribal child.</p>
+          </div>
+          <div class="policy-badge">
+            <div class="policy-badge-title">Digital India Inclusion</div>
+            <p class="policy-badge-desc">Democratizes artificial intelligence to the most underserved forest blocks and tribal hamlets of Bharat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Video Pitch Section
+       ========================================================================= -->
+  <section id="video" class="video-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag" data-i18n="video_tag">Demonstration</span>
+        <h2 class="section-title" data-i18n="video_title">Project Pitch & Prototype Walkthrough</h2>
+        <p class="section-subtitle" data-i18n="video_subtitle">
+          See how BhashaSetu AI bridges language barriers in a simulated classroom setting.
+        </p>
+      </div>
+
+      <!-- Video Player Frame -->
+      <div class="video-player-frame" id="videoFrame" onclick="alert('Demo Pitch Video: Full 3-minute hackathon pitch walkthrough is linked. In competition judging, this frame embeds the YouTube presentation video.')">
+        <div class="video-poster-bg">
+          <div class="video-play-btn">▶</div>
+          <div class="video-title-overlay">BhashaSetu AI: Pitch & Architecture Walkthrough</div>
+          <div class="video-subtitle-overlay">Smart India Hackathon 2024 • Government of Jharkhand Track</div>
+          <div class="video-meta-badges">
+            <span class="video-chip">Duration: 4:32</span>
+            <span class="video-chip">4K Master Audio</span>
+            <span class="video-chip">English & Hindi Subtitles</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Chapter Buttons -->
+      <div class="video-chapters-row">
+        <div class="chapter-btn">
+          <span class="chapter-time">0:00 - 1:12</span>
+          <span class="chapter-name">Problem: The Tribal Classroom Gap</span>
+        </div>
+        <div class="chapter-btn">
+          <span class="chapter-time">1:13 - 2:25</span>
+          <span class="chapter-name">Solution: Offline Edge AI Demo</span>
+        </div>
+        <div class="chapter-btn">
+          <span class="chapter-time">2:26 - 3:40</span>
+          <span class="chapter-name">Architecture & IndicTrans2 Benchmarks</span>
+        </div>
+        <div class="chapter-btn">
+          <span class="chapter-time">3:41 - 4:32</span>
+          <span class="chapter-name">Statewide Scaling in Jharkhand</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Team Section
+       ========================================================================= -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag navy" data-i18n="team_tag">Hackathon Team</span>
+        <h2 class="section-title" data-i18n="team_title">The Innovators Behind BhashaSetu AI</h2>
+        <p class="section-subtitle" data-i18n="team_subtitle">
+          Passionate engineers and researchers dedicated to inclusive foundational education.
+        </p>
+      </div>
+
+      <div class="team-grid" id="teamGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Footer Section
+       ========================================================================= -->
+  <footer class="site-footer tribal-border-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>BhashaSetu AI (भाषासेतु)</h4>
+          <p data-i18n="footer_desc">
+            Submitted under Theme: EdTech / Digital India / Inclusive Education. Addressing Foundational Literacy and Numeracy (FLN) through Mother Tongue-Based Multilingual Education (MTB-MLE).
+          </p>
+          <div class="sih-badge-pill">SIH Problem Statement ID: SIH-2024-ED-1628</div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#problem">The Problem</a></li>
+            <li><a href="#solution">Our Solution</a></li>
+            <li><a href="#demo">Live Prototype</a></li>
+            <li><a href="#how">How It Works</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Technologies</h5>
+          <ul class="footer-links">
+            <li><a href="#tech">IndicTrans2 NLP</a></li>
+            <li><a href="#tech">Whisper Indic ASR</a></li>
+            <li><a href="#tech">TensorFlow Lite Edge</a></li>
+            <li><a href="#tech">Bhashini Mission</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Government Track</h5>
+          <ul class="footer-links">
+            <li><a href="#">Govt. of Jharkhand</a></li>
+            <li><a href="#">JCERT Curriculum</a></li>
+            <li><a href="#">NEP 2020 Compliance</a></li>
+            <li><a href="#">Smart India Hackathon</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2024 Team BhashaSetu AI. Built for Smart India Hackathon.</div>
+        <div>Dedicated to every tribal child learning in their mother tongue in Bharat. 🇮🇳</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Message Element -->
+  <div id="toastMsg" class="toast-msg"></div>
+
+  <!-- Scripts -->
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

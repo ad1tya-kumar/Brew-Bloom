@@ -1,0 +1,11 @@
+
+The command exited with code 1.
+Output:
+At line:1 char:85
++ ... novo\.gemini\antigravity\scratch\brew-and-bloom\script.js" && echo "J ...
++                                                                ~~
+The token '&&' is not a valid statement separator in this version.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidEndOfLine
+ 
+

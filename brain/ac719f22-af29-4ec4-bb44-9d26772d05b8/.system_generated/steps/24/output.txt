@@ -1,0 +1,32 @@
+The search for ""Supabase" schema design "health records" OR "medical records" FHIR RLS "PostgreSQL"" returned the following summary:
+Designing a health or medical records system in Supabase requires a careful combination of PostgreSQL’s robust relational features, the **FHIR (Fast Healthcare Interoperability Resources)** standard, and strict **Row-Level Security (RLS)** to ensure HIPAA compliance.
+
+### 1. Schema Design: The FHIR Approach
+FHIR uses a resource-based structure (e.g., `Patient`, `Observation`, `Encounter`) that maps well to PostgreSQL’s `jsonb` data type.
+*   **Use `jsonb` for Flexibility:** Since FHIR resources are inherently JSON-based, storing them in `jsonb` columns allows for schema-less flexibility while retaining the ability to query specific fields.
+*   **Hybrid Modeling:** For high-performance queries, use a hybrid approach:
+    *   Store the full FHIR resource as a `jsonb` blob.
+    *   Extract frequently filtered/indexed fields (e.g., `patient_id`, `resource_type`, `effective_datetime`) into dedicated relational columns.
+*   **Relationship Management:** Use foreign key constraints even when dealing with `jsonb` to maintain data integrity across your FHIR-compliant resources.
+
+### 2. Securing Data with Row-Level Security (RLS)
+In Supabase, RLS is your primary defense. Because there is no middleware server determining access, you must embed your authorization logic directly into the database.
+
+*   **Granular Policies:** Do not use broad `SELECT` policies. Define policies based on the user's role (e.g., `patient`, `provider`, `admin`).
+    *   *Example:* `CREATE POLICY "Patients can view their own records" ON observations FOR SELECT TO authenticated USING (patient_id = auth.uid());`
+*   **Security Definer Functions:** For complex permissions (e.g., a doctor accessing a patient's record), use `SECURITY DEFINER` functions in a private schema. These allow the database to elevate privileges safely to check membership in a `patient_providers` mapping table before granting access.
+*   **Avoid Over-Exposure:** Always enable RLS on every table. Use the `service_role` key only in secure, server-side Edge Functions or backend services—**never** in client-side code.
+
+### 3. Achieving Compliance (HIPAA)
+Supabase provides the infrastructure for HIPAA compliance, but the responsibility for implementation is shared.
+*   **Business Associate Agreement (BAA):** You must sign a BAA with Supabase to legally store Protected Health Information (PHI).
+*   **Enable HIPAA Add-on:** Ensure the HIPAA add-on is active in your project settings. This enables mandatory security features such as SSL enforcement, point-in-time recovery, and network restrictions.
+*   **Audit Trails:** HIPAA requires detailed logs of who accessed PHI. Use PostgreSQL’s auditing capabilities (or extensions like `pgAudit`) to track data modifications and access events.
+*   **Encryption:** While Supabase encrypts data at rest and in transit, ensure your application-layer code does not leak PHI through logs, third-party integrations, or insecure client-side storage.
+
+### 4. Implementation Best Practices
+*   **Use Declarative Schemas:** Store your database structure in SQL files (version-controlled) rather than relying solely on the UI. This makes it easier to audit your schema for compliance.
+*   **Performance Optimization:**
+    *   **Index `jsonb`:** If you query deeply nested FHIR data, use GIN indexes on your `jsonb` columns.
+    *   **Policy Performance:** Wrap `auth.uid()` in a `SELECT` statement within your policies (e.g., `USING (user_id = (SELECT auth.uid()))`) to prevent the database from re-evaluating the function for every row.
+*   **Testing:** Use automated tests (`supabase test db`) to verify that your RLS policies correctly block unauthorized access, especially for edge cases where data might be joined across tables.

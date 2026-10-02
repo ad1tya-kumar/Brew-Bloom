@@ -1,0 +1,11 @@
+The search for ""qrcode.react" npm version latest 2025 OR 2026" returned the following summary:
+The latest version of the original `qrcode.react` package on npm is **4.2.0**[1][2].
+
+Please note the following regarding the package:
+*   **Maintenance Status:** The `qrcode.react` package has not seen new version releases in over 12 months[2], and some sources consider it to have low maintenance activity[2].
+*   **Alternative Package:** There is a separate package named `@qrcode/react` (scoped) which has had more recent activity, with version **1.0.0-beta.3** published as of May 2026[3]. Ensure you are installing the correct package based on your project requirements, as these are different entities[1][3].
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGNKzTbRicr2x2t0sV_JMoXqjTHsbVJ1wBzO1dSZoAzjTlCCCZKFdFOwij7UOhjBx5AC6_TFnko9iYlKPyRLISYHqoyZnkHBZdP84OSCUoWGHDu665Q4z9zyHLUvc4Y8zA=)
+[2] [snyk.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFHc6I_xl3qfanvdnc8uI4kRyLbet71ZcECVbqdX8_x982HS842wk8Chr9jDJPwBwJMLTi2KWTkTyZ2S89wW4sScZRvN3ZrH_VSPT7r67ng4TsTQcJ3lw44To1TtPkjPhiCqvlgeEoQ)
+[3] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHAZeNmuzwi_Kic2Ja0vsSc7DaiDTXyGa_B90jxBJgiamm9Egets15QwLEIHt-2USu2vjE3JTuNAAfMcMhDlTO-QSmBlCV-u-5M4xLPaugKu9uUhdkwgn0nYLrJK-otCU8P)

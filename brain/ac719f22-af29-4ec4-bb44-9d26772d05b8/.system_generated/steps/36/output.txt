@@ -1,0 +1,7 @@
+The search for ""@tailwindcss/vite" npm version 2026" returned the following summary:
+As of September 2026, the latest version of **`@tailwindcss/vite`** available on npm is **4.3.3**[1][2][3].
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExvR3mhOz7CNpTZmlK8pU5b0OOaEwgIcY0cj8ScFf9kL_LSOna-pTRlYalBt4RjJsZ_2l9EWYM-jJWDbCzwVmbv0dNOLuosjmELrNcNeTzrzoYZGNkcC7Bi2zIgrMFvcYd4FkU)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExvR3mhOz7CNpTZmlK8pU5b0OOaEwgIcY0cj8ScFf9kL_LSOna-pTRlYalBt4RjJsZ_2l9EWYM-jJWDbCzwVmbv0dNOLuosjmELrNcNeTzrzoYZGNkcC7Bi2zIgrMFvcYd4FkU)
+[3] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEe-H90qBQZqnVOWAihAqZ1t_tgzu1kR3SiwDVbs5-hXRw6JBF9iGYS1pjnzMu5-o0kihTFe8lTznvSAmdjzmPtKxQmt-FAeITj1WbB7vauhaAzqHwiFvplb0oVSX4iDlNsrCLdf6XDa10fxPa8V6J8BXIh0nCzZw==)

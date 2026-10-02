@@ -1,0 +1,14 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Lenovo\.gemini\antigravity\scratch\brew-and-bloom\script.js. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -7,7 +7,7 @@
+  * ╚══════════════════════════════════════════════════════════╝
+  */
+ 
+-import CONFIG from './js/config.js';
++import CONFIG, { RESTAURANT_WHATSAPP_NUMBER } from './js/config.js';
+ import { CATEGORIES, CATEGORY_BANNERS, MENU_ITEMS, searchAndFilterItems, getItemById } from './js/menu-data.js';
+ import { addItem, decreaseItem, removeItem, clearCart, subscribe as subscribeCart, getQty, getSnapshot, estimateDeliveryTime } from './js/cart.js';
+ import { initSupabase, placeOrder, DEMO_MODE } from './js/supabase-client.js';
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

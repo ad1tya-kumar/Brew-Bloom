@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+C:\Program Files\Adobe\Adobe Creative Cloud Experience\libs\node.exe
+C:\Program Files\Common Files\Adobe\Creative Cloud Libraries\libs\node.exe
+

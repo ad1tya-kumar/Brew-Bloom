@@ -1,0 +1,26 @@
+The search for ""react" "react-dom" npm version latest 2026" returned the following summary:
+As of September 23, 2026, the latest version for both **`react`** and **`react-dom`** is **19.3.0**[1][2][3].
+
+This version was released on September 9, 2026[4][5].
+
+### How to install the latest version
+You can install the latest version by running the following command in your terminal:
+
+```bash
+npm install react@latest react-dom@latest
+```
+
+### Key Highlights of 19.3.0
+*   **New React Features:** Includes the stable release of `<ViewTransition>` for animations and Fragment Refs[4][6].
+*   **New React DOM Features:** Adds the `browser()` API and improved support for Trusted Types[4][7].
+*   **Server Components:** Updates allow `<Context>` to be rendered directly in Server Components[4][8].
+
+Sources:
+[1] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHAKZwdm3IaTPjpQmrhqCYDyBpdm74-xvigRlhLOT7FomnEK5QPliEwFh3oTeISq_GyZYON5qtJ-wdXxpGWu5Lq2V3yEQzjqKcdRYGAvBSxicAiWhWb9VfomESQFA==)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHf8IjwfecgmMv9ZByZCZY3oR6sk2LxJnTnncNS3gqRnYihZ8qFLH1s9MEmMaD6HkSDtp9LqMymUbC-4GMCm30ib1uVPThiMIIC464n1BnVdfWgpAxUZQDU)
+[3] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHAKZwdm3IaTPjpQmrhqCYDyBpdm74-xvigRlhLOT7FomnEK5QPliEwFh3oTeISq_GyZYON5qtJ-wdXxpGWu5Lq2V3yEQzjqKcdRYGAvBSxicAiWhWb9VfomESQFA==)
+[4] [react.dev](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEJPUAgPkL1LontFkQ8jm76qWlo9hVv5Fug4yYfPZjL49wft8kTlBRqY5wEUO3k4-Qdpa7pgtGAP4w5j80wvGtRYMhntXiXIKSiNcsy53qeM4JYxuAaNQTk2CDxQ4g_WjI8)
+[5] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyfabKqLWvrJvvrsJH4JFnUgsr5sjnwJSeLXFRgBHPjNi9hgSu25HbKE_3097hin-Br8op-pNm0XoVz2uZ6hAulRWyWEcMu5yQ1k7QwG3shx-9TP8ub5fTlQ==)
+[6] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQER8HdxbkJD80wBUOSWHksWxH38EQn0zpekvsmW_jh-p2ssKBk81BVFBS-ctXZmvDOm2bsWl98Fom_KC4A7AYLrdloSYg6u2ZMiZiSTuxp8A9ENTrez7CLwgPL7ng==)
+[7] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQER8HdxbkJD80wBUOSWHksWxH38EQn0zpekvsmW_jh-p2ssKBk81BVFBS-ctXZmvDOm2bsWl98Fom_KC4A7AYLrdloSYg6u2ZMiZiSTuxp8A9ENTrez7CLwgPL7ng==)
+[8] [react.dev](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEJPUAgPkL1LontFkQ8jm76qWlo9hVv5Fug4yYfPZjL49wft8kTlBRqY5wEUO3k4-Qdpa7pgtGAP4w5j80wvGtRYMhntXiXIKSiNcsy53qeM4JYxuAaNQTk2CDxQ4g_WjI8)

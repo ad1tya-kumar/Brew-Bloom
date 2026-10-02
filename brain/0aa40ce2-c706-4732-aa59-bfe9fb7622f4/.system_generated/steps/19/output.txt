@@ -1,0 +1,5 @@
+
+The command exited with code 1.
+Output:
+C:\Program Files\Adobe\Adobe Creative Cloud Experience\libs\node.exe
+

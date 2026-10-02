@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+HTML Length: 43160
+Contains UI_STRINGS reference: True
+Contains app.js reference: True
+Contains styles.css reference: True
+Contains #demo: True
+Contains #problem: True
+Contains #solution: True
+Contains #how: True
+Contains #tech: True
+Contains #impact: True
+Contains #video: True
+Contains #team: True
+
